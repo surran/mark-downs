@@ -1,7 +1,7 @@
 # Hosting Multiple websites on Amazon Lightsail
 
 ### What are the scenarios?
-
+This happens when you own multiple domains but do not wish to host them on separate servers.  
 ### The Process
 Key Steps:
 1. Locate Virtual host File
@@ -50,6 +50,6 @@ Open www.website1.com and www.website2.com on the browser to confirm
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTk1MzU5MjU1OSwxNjMzMjM4MDM5LDY1Mj
+eyJoaXN0b3J5IjpbMTI0MTgwNjMxNSwxNjMzMjM4MDM5LDY1Mj
 A4OTg5XX0=
 -->
