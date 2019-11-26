@@ -8,7 +8,7 @@ Key Steps:
 2. Add domains
 3. Restart Apache
 
-B
+Load Bitnami Terminal on Lightsail Instance
 ```
 bitnami@ip-172-26-5-171:~$cd /opt/bitnami/apache2/conf
 ```
@@ -21,6 +21,6 @@ Include conf/extra/httpd-vhosts.conf
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1MTIxNzg1NTEsMTYzMzIzODAzOSw2NT
-IwODk4OV19
+eyJoaXN0b3J5IjpbMzU0NTg0NzcwLDE2MzMyMzgwMzksNjUyMD
+g5ODldfQ==
 -->
