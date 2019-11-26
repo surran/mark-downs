@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Writing a build File</title>
+  <title>Writing a build File</# Hosting multitple>
   <link rel="stylesheet" href="https://stackedit.io/style.css" />
 </head>
 
@@ -28,4 +28,19 @@
 </div>
 </body>
 
-</html>
+</html> websites on Amazon Lightsail
+
+### What are the scenarios?
+
+### The Process
+Key Steps:
+1. Locate Virtual host File
+2. Add domains
+3. Restart Apache
+
+
+
+
+<!--stackedit_data:
+eyJoaXN0b3J5IjpbNjUyMDg5ODldfQ==
+-->
