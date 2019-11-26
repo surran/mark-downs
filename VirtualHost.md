@@ -20,9 +20,9 @@ Now open ```httpd-hosts.conf``` located in the extras folder and configure Virtu
 
 ```
 <VirtualHost *:80>
-    ServerAdmin suryaran@gmail.com
-    DocumentRoot "/opt/bitnami/apache2/docs/directip"
-    ErrorLog "logs/directip-error_log"
+    ServerAdmin your@email.com
+    DocumentRoot "/opt/bitnami/apache2/docs/website1"
+    ErrorLog "logs/-error_log"
     CustomLog "logs/directip-access_log" common
 </VirtualHost>
 
@@ -49,6 +49,6 @@ CustomLog "logs/www.edvane.com-access_log" common
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzOTE3MTE5MDksMTYzMzIzODAzOSw2NT
+eyJoaXN0b3J5IjpbLTE0OTUxNzkwMDEsMTYzMzIzODAzOSw2NT
 IwODk4OV19
 -->
