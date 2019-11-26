@@ -28,23 +28,26 @@ A typical virtual host config for a domain (say www.website1.com) looks like thi
     ErrorLog "logs/website1_error_log"
     CustomLog "logs/website1_access_log" common
 </VirtualHost>
+
 <VirtualHost *:80>
     ServerAdmin your@email.com
     DocumentRoot "/opt/bitnami/apache2/docs/website2"
-    ServerName websiteTwo.com
-    ServerAlias www.website1.com
-    ErrorLog "logs/website1_error_log"
-    CustomLog "logs/website1_access_log" common
+    ServerName website2.com
+    ServerAlias www.website2.com
+    ErrorLog "logs/website2_error_log"
+    CustomLog "logs/website2_access_log" common
 </VirtualHost>
 ```
 
-You can add any number of 
+You can add more such snippets to host more websites on the same server.
+
+
 
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTEzNTQ4MDIwNTgsMTYzMzIzODAzOSw2NT
-IwODk4OV19
+eyJoaXN0b3J5IjpbMjE0NjM5NDk1NCwxNjMzMjM4MDM5LDY1Mj
+A4OTg5XX0=
 -->
