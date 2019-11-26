@@ -12,15 +12,15 @@ Load Bitnami terminal on Lightsail on your instance. Browse to the apache config
 ```
 bitnami@ip-172-26-5-171:~$cd /opt/bitnami/apache2/conf
 ```
-General Apache server configuration is handled by ```httpd.conf``` file. This file in turn loads other files for specific  settings. For setting up virtual hosts add/uncomment the following line in it and save .
+General Apache server configuration is handled by ```httpd.conf``` file. This file in turn loads other files for specific  settings. For setting up virtual hosts add/uncomment the following line in it and save the file.
 ```
 Include conf/extra/httpd-vhosts.conf
 ```
-Browse to 
+Now open ```httpd-hosts.conf```
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTIxMzM4ODExMDEsMTYzMzIzODAzOSw2NT
-IwODk4OV19
+eyJoaXN0b3J5IjpbMTE4NzkwMDkwMywxNjMzMjM4MDM5LDY1Mj
+A4OTg5XX0=
 -->
