@@ -45,11 +45,11 @@ Save the file and restart the apache server to see the changes taking effect
 ```
 sudo /opt/bitnami/ctlscript.sh restart apache
 ```
-Open www.website1.com and www.website2.com on the browser
+Open www.website1.com and www.website2.com on the browser to confirm
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjAwNjEyNzgsMTYzMzIzODAzOSw2NTIwOD
-k4OV19
+eyJoaXN0b3J5IjpbMTk1MzU5MjU1OSwxNjMzMjM4MDM5LDY1Mj
+A4OTg5XX0=
 -->
