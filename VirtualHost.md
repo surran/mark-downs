@@ -12,11 +12,15 @@ Locate your Virtual host configuration file
 ```
 bitnami@ip-172-26-5-171:~$cd /opt/bitnami/apache2/conf
 ```
-This location contains 
+This location contains the httpd.conf file
+```
+Include conf/extra/httpd-vhosts.conf
+```
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTYzMzIzODAzOSw2NTIwODk4OV19
+eyJoaXN0b3J5IjpbLTUwNDg2NDk5MCwxNjMzMjM4MDM5LDY1Mj
+A4OTg5XX0=
 -->
