@@ -8,11 +8,13 @@ Key Steps:
 2. Add domains
 3. Restart Apache
 
-
+```
+bitnami@ip-172-26-5-171:~$cd /opt
+```
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4NTc4NjA1NzAsNjUyMDg5ODldfQ==
+eyJoaXN0b3J5IjpbNDA4ODY0NjU0LDY1MjA4OTg5XX0=
 -->
