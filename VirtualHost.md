@@ -8,11 +8,11 @@ Key Steps:
 2. Add domains
 3. Restart Apache
 
-Locate your Virtual host configuration file
+B
 ```
 bitnami@ip-172-26-5-171:~$cd /opt/bitnami/apache2/conf
 ```
-This location contains ```httpd.conf``` file. This file handles apache server configuration. Make sure that the  
+This location contains ```httpd.conf``` file. This file handles apache server configuration. Type/uncomment the following line is in this file
 ```
 Include conf/extra/httpd-vhosts.conf
 ```
@@ -21,6 +21,6 @@ Include conf/extra/httpd-vhosts.conf
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTU2NDUyMjAwMCwxNjMzMjM4MDM5LDY1Mj
-A4OTg5XX0=
+eyJoaXN0b3J5IjpbLTE1MTIxNzg1NTEsMTYzMzIzODAzOSw2NT
+IwODk4OV19
 -->
