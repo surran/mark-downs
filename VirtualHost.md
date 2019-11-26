@@ -16,13 +16,39 @@ General Apache server configuration is handled by ```httpd.conf``` file. This fi
 ```
 Include conf/extra/httpd-vhosts.conf
 ```
-Now open ```httpd-hosts.conf``` located in the extras folder
+Now open ```httpd-hosts.conf``` located in the extras folder and configure Virtual hosts.
 
+```
+<VirtualHost *:80>
+    ServerAdmin suryaran@gmail.com
+    DocumentRoot "/opt/bitnami/apache2/docs/directip"
+    ErrorLog "logs/directip-error_log"
+    CustomLog "logs/directip-access_log" common
+</VirtualHost>
 
+<VirtualHost *:80>
+    DocumentRoot "/opt/bitnami/apache2/docs/www.suryaranjanshandil.com"
+    ServerName suryaranjanshandil.com
+    ServerAlias www.suryaranjanshandil.com
+    RewriteEngine On
+    RewriteRule ^/[a-zA-Z0-9]+[/]?$ /index.html [QSA,L]
+    RewriteRule ^/comments/[0-9]+[/]?$ /index.html [QSA,L]
+    ErrorLog "logs/suryaranjanshandil.com-error_log"
+    CustomLog "logs/www.suryaranjnashandil.com-access_log" common
+</VirtualHost>
+<VirtualHost *:80>
+    ServerAdmin suryaran@gmail.com
+DocumentRoot "/opt/bitnami/apache2/docs/www.edvane.com"
+ServerName edvane.com
+ServerAlias www.edvane.com
+ErrorLog "logs/www.edvane.com-error_log"
+CustomLog "logs/www.edvane.com-access_log" common
+</VirtualHost>
+```
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY1OTM3ODg5NCwxNjMzMjM4MDM5LDY1Mj
-A4OTg5XX0=
+eyJoaXN0b3J5IjpbLTEzOTE3MTE5MDksMTYzMzIzODAzOSw2NT
+IwODk4OV19
 -->
