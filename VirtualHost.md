@@ -16,11 +16,13 @@ General Apache server configuration is handled by ```httpd.conf``` file. This fi
 ```
 Include conf/extra/httpd-vhosts.conf
 ```
-Now open ```httpd-hosts.conf```
+Now open ```httpd-hosts.conf``` located in the extras folder
+
+
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTE4NzkwMDkwMywxNjMzMjM4MDM5LDY1Mj
+eyJoaXN0b3J5IjpbMTY1OTM3ODg5NCwxNjMzMjM4MDM5LDY1Mj
 A4OTg5XX0=
 -->
