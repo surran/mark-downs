@@ -41,13 +41,15 @@ A typical virtual host config for a domain (say www.website1.com) looks like thi
 
 You can add more such snippets to host more websites on the same server.
 
-
-
+Save the file and restart the apache server to so 
+```
+sudo /opt/bitnami/ctlscript.sh restart apache
+```
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMjE0NjM5NDk1NCwxNjMzMjM4MDM5LDY1Mj
+eyJoaXN0b3J5IjpbMTY5MDIxMjE1MCwxNjMzMjM4MDM5LDY1Mj
 A4OTg5XX0=
 -->
