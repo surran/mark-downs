@@ -1,0 +1,8 @@
+[{
+	"name": "Hosting Multiple websites on Amazon Lightsail",
+	"desc": "This happens when you own multiple domains but do not wish to host them on separate servers.",
+	"url": "virtual-host",
+	"searchTerms": ["Multiple", "Websites", "Single", "Server", "Lightsail", "Virtual", "Host"],
+	"tags": ["backend"],
+	"date": "2015-03-25"
+}]
