@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+<head>enter code here
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VirtualHost</title>
@@ -59,5 +59,5 @@ Save the file and restart the apache server to see the changes taking effect</p>
 
 </html>
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTc3MjA4MjMwOV19
+eyJoaXN0b3J5IjpbMTM0MzkwMDkwOCwxNzcyMDgyMzA5XX0=
 -->
