@@ -18,13 +18,13 @@ Include conf/extra/httpd-vhosts.conf
 ```
 Now open ```httpd-hosts.conf``` located in the extras folder and configure Virtual hosts.
 
-A typical virtual host config looks like this
+A typical virtual host config for a domain (say www.website1.com) looks like this
 ```
 <VirtualHost *:80>
     ServerAdmin your@email.com
     DocumentRoot "/opt/bitnami/apache2/docs/website1"
     ServerName website1.com
-    ServerAlias website
+    ServerAlias www.website1.com
     ErrorLog "logs/website1_error_log"
     CustomLog "logs/website1_access_log" common
 </VirtualHost>
@@ -32,29 +32,9 @@ A typical virtual host config looks like this
 
 
 
-<VirtualHost *:80>
-    DocumentRoot "/opt/bitnami/apache2/docs/www.suryaranjanshandil.com"
-    ServerName suryaranjanshandil.com
-    ServerAlias www.suryaranjanshandil.com
-    RewriteEngine On
-    RewriteRule ^/[a-zA-Z0-9]+[/]?$ /index.html [QSA,L]
-    RewriteRule ^/comments/[0-9]+[/]?$ /index.html [QSA,L]
-    ErrorLog "logs/suryaranjanshandil.com-error_log"
-    CustomLog "logs/www.suryaranjnashandil.com-access_log" common
-</VirtualHost>
-<VirtualHost *:80>
-    ServerAdmin suryaran@gmail.com
-DocumentRoot "/opt/bitnami/apache2/docs/www.edvane.com"
-ServerName edvane.com
-ServerAlias www.edvane.com
-ErrorLog "logs/www.edvane.com-error_log"
-CustomLog "logs/www.edvane.com-access_log" common
-</VirtualHost>
-```
-
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTY2NTY4NTgyMywxNjMzMjM4MDM5LDY1Mj
+eyJoaXN0b3J5IjpbMTk2MzgwNTEzNSwxNjMzMjM4MDM5LDY1Mj
 A4OTg5XX0=
 -->
