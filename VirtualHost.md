@@ -1,51 +1,54 @@
-Hosting Multiple websites on Amazon Lightsail
+# Hosting Multiple websites on Amazon Lightsail
 
-### What are the scenarios?This happens when you own multiple domains but do not wish to host them on separate servers.</p>
-<h3 id="the-process">  
-### The Process</h3>
-<p>Key Steps:</p>
-<ol>
-<li>Locate Virtual host File</li>
-<li>Add domains</li>
-<li>Restart Apache</li>
-</ol>
-<p>Load Bitnami terminal on Lightsail on your instance. Browse to the apache configuration files location.</p>
-<pre><code>bitnami@ip-172-26-5-171:~$cd /opt/bitnami/apache2/conf
-</code></pre>
-<p>General Apache server configuration is handled by <code>httpd.conf</code> file. This file in turn loads other files for specific  settings. For setting up virtual hosts add/uncomment the following line in it and save the file.</p>
-<pre><code>Include conf/extra/httpd-vhosts.conf
-</code></pre>
-<p>Now open <code>httpd-hosts.conf</code> located in the extras folder and configure Virtual hosts.<p>
+### What are the scenarios?
+This happens when you own multiple domains but do not wish to host them on separate servers.  
+### The Process
+Key Steps:
+1. Locate Virtual host File
+2. Add domains
+3. Restart Apache
 
-A typical virtual host config for a domain (say <a href="http://www.website1.com">www.website1.com</a>) looks like this</p>
-<pre><code>&lt;VirtualHost *:80&gt;>
+Load Bitnami terminal on Lightsail on your instance. Browse to the apache configuration files location.
+```
+bitnami@ip-172-26-5-171:~$cd /opt/bitnami/apache2/conf
+```
+General Apache server configuration is handled by ```httpd.conf``` file. This file in turn loads other files for specific  settings. For setting up virtual hosts add/uncomment the following line in it and save the file.
+```
+Include conf/extra/httpd-vhosts.conf
+```
+Now open ```httpd-hosts.conf``` located in the extras folder and configure Virtual hosts.
+
+A typical virtual host config for a domain (say www.website1.com) looks like this
+```
+<VirtualHost *:80>
     ServerAdmin your@email.com
     DocumentRoot "/opt/bitnami/apache2/docs/website1"
     ServerName website1.com
     ServerAlias www.website1.com
     ErrorLog "logs/website1_error_log"
     CustomLog "logs/website1_access_log" common
-&lt;/VirtualHost&gt;
+</VirtualHost>
 
-&lt;VirtualHost *:80
+<VirtualHost *:80>
     ServerAdmin your@email.com
     DocumentRoot "/opt/bitnami/apache2/docs/website2"
     ServerName website2.com
     ServerAlias www.website2.com
     ErrorLog "logs/website2_error_log"
     CustomLog "logs/website2_access_log" common
-&amp;lt;&lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;&lt;/VirtualHost&gt;
-</code></pre>
-<p>You can add more such snippets to host more websites on the same server.</p><p></p>
-<p>Save the file and restart the apache server to see the changes taking effect</p>
-<pre><code>sudo /opt/bitnami/ctlscript.sh restart apache
-</code></pre>
-<p>Open <a href="http://www.website1.com">www.website1.com</a> and <a href="http://www.website2.com">www.website2.com</a> on the browser to confirm</p>
-</div>
-</body>
+</VirtualHost>
+```
 
-</html>
+You can add more such snippets to host more websites on the same server.
+
+Save the file and restart the apache server to see the changes taking effect
+```
+sudo /opt/bitnami/ctlscript.sh restart apache
+```
+Open www.website1.com and www.website2.com on the browser to confirm
+
+
+
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE4MjQyMjU0M119
+eyJoaXN0b3J5IjpbMTI0MTgwNjMxNSwtMTgyNDIyNTQzXX0=
 -->
