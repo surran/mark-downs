@@ -18,13 +18,19 @@ Include conf/extra/httpd-vhosts.conf
 ```
 Now open ```httpd-hosts.conf``` located in the extras folder and configure Virtual hosts.
 
+A typical virtual host config looks like this
 ```
 <VirtualHost *:80>
     ServerAdmin your@email.com
     DocumentRoot "/opt/bitnami/apache2/docs/website1"
-    ErrorLog "logs/-error_log"
-    CustomLog "logs/directip-access_log" common
+    ServerName website1.com
+    ServerAlias website
+    ErrorLog "logs/website1_error_log"
+    CustomLog "logs/website1_access_log" common
 </VirtualHost>
+```
+
+
 
 <VirtualHost *:80>
     DocumentRoot "/opt/bitnami/apache2/docs/www.suryaranjanshandil.com"
@@ -49,6 +55,6 @@ CustomLog "logs/www.edvane.com-access_log" common
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE0OTUxNzkwMDEsMTYzMzIzODAzOSw2NT
-IwODk4OV19
+eyJoaXN0b3J5IjpbMTY2NTY4NTgyMywxNjMzMjM4MDM5LDY1Mj
+A4OTg5XX0=
 -->
