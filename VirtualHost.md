@@ -10,12 +10,13 @@ Key Steps:
 
 Locate your Virtual host configuration file
 ```
-bitnami@ip-172-26-5-171:~$cd /opt
+bitnami@ip-172-26-5-171:~$cd /opt/bitnami/apache2/conf
 ```
+This location contains 
 
 
 
 
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNTc1MTgwMzA2LDY1MjA4OTg5XX0=
+eyJoaXN0b3J5IjpbMTYzMzIzODAzOSw2NTIwODk4OV19
 -->
