@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Facebook Share</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="optimizing-website-for-facebook-share">Optimizing website for Facebook Share</h1>
+<h3 id="scenario">Scenario</h3>
+<p>Imagine you spend a lot of time developing a webpage. Lisa likes the content and shares the url n ebok But ALAS the post looks something like this:<br>
+<img src="https://surran.github.io/mark-downs/assets/share-on-facebook2.png" alt="Share a file"><br>
+The facebook signature of your page creates the first perception. Let us work towards creating a good one!<br>
+<img src="https://surran.github.io/mark-downs/assets/share-on-facebook1.png" alt="Share a file"></p>
+<h3 id="solution">Solution</h3>
+<p>Key ingredients:</p>
+<ol>
+<li>add facebook crawler readable meta tags</li>
+<li>test on facebook developer tools</li>
+<li>post on facebook and test live</li>
+</ol>
+<p>Start with adding the image, title and description Open Graph meta tags to your index.html</p>
+<pre><code> &lt;meta property="og:image" content="http://www.website1.com/image.jpg" /&gt;
+ &lt;meta property="og:title" content="Page Title" /&gt;
+ &lt;meta property="og:description" content="Short one line description of the page." /&gt;
+</code></pre>
+<p>These would make sure that the image, title and description of your choice shows up when anybody shares a link to your page</p>
+<p>For the image you can use any standard format (jpg, png, gif) but make sure the image resolution is 1200 x 630px. A resolution lower than this ends up in a blurred image on mobile web. A resolution with a different aspect ration is automatically cropped by facebook to fit this frame.</p>
+<p>Next head to the facebook sharing debugger on<br>
+<a href="https://developers.facebook.com/tools/debug/sharing">https://developers.facebook.com/tools/debug/sharing</a></p>
+<p>Enter your website url on this page and press Debug. The crawl results should look like</p>
+<p>Here ‘Link Preview’ shows the post as it would look on facebook.  Play around with the meta tag contents till you get a ‘Link Preview’ of your satisfaction.</p>
+<p>Here are some more things your can try:<br>
+For pages where the description is more important than the image: Use an image with a taller aspect ratio (height more than width) so that facebook invokes the ‘small image &amp; large description’ post format.</p>
+<p><img src="https://surran.github.io/mark-downs/assets/share-on-facebook.png" alt="Share a file"><br>
+If the Open Graph image changes often then it is advisable to additionally have meta tags for image update time and image <em>alt</em> attribute</p>
+<pre><code> &lt;meta property="og:updated_time" content="" /&gt;
+ &lt;meta property="og:image:alt" content="Page Title" /&gt;
+</code></pre>
+</div>
+</body>
+
+</html>
