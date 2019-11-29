@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Facebook Share</title>
-  <link rel="stylesheet" href="https://stackedit.io/style.css" />
-</head>
-
-<body class="stackedit">
-  <div class="stackedit__html"><h1 id="optimizing-website-for-facebook-share">Optimizing website for Facebook Share</h1>
+<h1 id="optimizing-website-for-facebook-share">Optimizing website for Facebook Share</h1>
 <h3 id="scenario">Scenario</h3>
 <p>Imagine you spend a lot of time developing a webpage. Lisa likes the content and shares the url n ebok But ALAS the post looks something like this:<br>
 <img src="https://surran.github.io/mark-downs/assets/share-on-facebook2.png" alt="Share a file"><br>
@@ -40,7 +29,5 @@ If the Open Graph image changes often then it is advisable to additionally have 
 <pre><code> &lt;meta property="og:updated_time" content="" /&gt;
  &lt;meta property="og:image:alt" content="Page Title" /&gt;
 </code></pre>
-</div>
-</body>
+<p>If the re</p>
 
-</html>
