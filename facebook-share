@@ -1,4 +1,4 @@
-<h1 id="optimizing-website-for-facebook-share">Optimizing website for Facebook Share</h1>
+<div class="stackedit__html"><h1 id="optimizing-website-for-facebook-share">Optimizing website for Facebook Share</h1>
 <h3 id="scenario">Scenario</h3>
 <p>Imagine you spend a lot of time developing a webpage. Lisa likes the content and shares the url n ebok But ALAS the post looks something like this:<br>
 <img src="https://surran.github.io/mark-downs/assets/share-on-facebook2.png" alt="Share a file"><br>
@@ -30,4 +30,5 @@ If the Open Graph image changes often then it is advisable to additionally have 
  &lt;meta property="og:image:alt" content="Page Title" /&gt;
 </code></pre>
 <p>If the re</p>
+</div>
 
