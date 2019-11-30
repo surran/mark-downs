@@ -2,7 +2,15 @@
 	"name": "Hosting Multiple websites on Amazon Lightsail",
 	"desc": "This happens when you own multiple domains but do not wish to host them on separate servers.",
 	"handle": "virtual-host",
-	"searchTerms": ["Multiple", "Websites", "Single", "Server", "Lightsail", "Virtual", "Host"],
+	"searchTerms": ["Multiple", "Websites", "Lightsail", "AWS", "Single", "Server", "Virtual", "Host"],
 	"tags": ["backend"],
-	"date": "2015-03-25"
+	"date": "2019-11-25"
+},
+{
+	"name": "Optimizing website for Facebook Share",
+	"desc": "The facebook signature of your page creates the first perception. Let us work towards creating a good one!",
+	"handle": "facebook-share",
+	"searchTerms": ["Facebook", "Share", "Website", "Link", "Image", "URL", "Lightsail", "Timeline", "Likes"],
+	"tags": ["share"],
+	"date": "2019-11-30"
 }]
