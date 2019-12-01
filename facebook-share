@@ -1,10 +1,10 @@
 <div class="stackedit__html"><h1 id="optimizing-website-for-facebook-share">Optimizing website for Facebook Share</h1>
 <h3 id="scenario">Scenario</h3>
-<p>Sharing links to your website on facebook is a great way to draw visitors. But if your website is unprepared for this, the post on facebook may look quite unappealing, somwthing like:</p>
+<p>Sharing links to your website on facebook is a great way to draw visitors. But if your website is unprepared for this, the post on facebook may look quite unappealing, something like:</p>
 <p><img src="https://surran.github.io/mark-downs/assets/share-on-facebook2.png" alt="Share a file"></p>
 <p>The facebook signature of your page creates the first perception. Let us work towards creating a good one!</p>
 <h3 id="solution">Solution</h3>
-<p>The main ingredient this time is adding relevat meta tags on to you index.html file. Key steps:</p>
+<p>The main ingredient this time is adding relevant meta tags to you index.html file. Key steps:</p>
 <ol>
 <li>add facebook crawler readable meta tags</li>
 <li>test on facebook developer tools</li>
