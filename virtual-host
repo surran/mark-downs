@@ -2,7 +2,7 @@
 <h3 id="scenario">Scenario</h3>
 <p>I recently shifted my websites to AWS Lightsail. I purchased a single server to host three different websites. The immediate problem that came up was that traffic coming from all three domains (website addresses) reach the same server location. I had to figure out a way to further route this traffic (based on the domain name they come from) to their respective document root folders.</p>
 <h3 id="solution">Solution</h3>
-<p>The key to solving this is adding these domains as VirtualHost entires to your apache server config. Here are the steps involved:</p>
+<p>The key to solving this is adding these domains as VirtualHost entries to your apache server config. Here are the steps involved:</p>
 <ol>
 <li>Locate Virtual host File</li>
 <li>Add domains</li>
@@ -43,6 +43,6 @@
 <p>Once you are done with making changes to  <code>/extra/httpd-vhosts.conf</code> file, save the file and restart apache to see the changes taking effect.</p>
 <pre><code>sudo /opt/bitnami/ctlscript.sh restart apache
 </code></pre>
-<p>Open <a href="http://www.website1.com">www.website1.com</a> and <a href="http://www.website2.com">www.website2.com</a> on the browser to confirm that they are geeting routed to their intended document root locations.</p>
+<p>Open <a href="http://www.website1.com">www.website1.com</a> and <a href="http://www.website2.com">www.website2.com</a> on the browser to confirm that they are getting routed to their intended document root locations.</p>
 </div>
 
