@@ -18,7 +18,7 @@
 </code></pre>
 <h4 id="add-domains">Add domains</h4>
 <p>Open <code>/extra/httpd-vhosts.conf</code> file.</p>
-<p>A typical virtual host config for a domain (say <a href="http://www.website1.com">www.website1.com</a>) looks like this</p>
+<p>A typical virtual host config for a domain (say <a href="http://www.website1.com">www.website1.com</a>) looks like this:</p>
 <pre><code>&lt;VirtualHost *:80&gt;
     ServerAdmin your@email.com
     DocumentRoot "/opt/bitnami/apache2/docs/website1"
@@ -29,8 +29,7 @@
 &lt;/VirtualHost&gt;
 </code></pre>
 <p>Here <a href="http://website1.com">website1.com</a> is the domain name, and <code>/opt/bitnami/apache2/docs/website1</code> is the location of its respective <code>index(.html)</code> file</p>
-<p>You can add any number of such snippets to <code>/extra/httpd-vhosts.conf</code> file in order to host multiple websites on the same server.</p>
-<p>For example add the below snippet to also host <a href="http://website2.com">website2.com</a> and route its traffic to   <code>/opt/bitnami/apache2/docs/website2</code> folder.</p>
+<p>You can add any number of such snippets to <code>/extra/httpd-vhosts.conf</code> file in order to host multiple websites on the same server. For example to also host <a href="http://website2.com">website2.com</a> and route its traffic to   <code>/opt/bitnami/apache2/docs/website2</code> folder add:</p>
 <pre><code>&lt;VirtualHost *:80&gt;
     ServerAdmin your@email.com
     DocumentRoot "/opt/bitnami/apache2/docs/website2"
