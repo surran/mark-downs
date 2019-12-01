@@ -40,7 +40,7 @@
 &lt;/VirtualHost&gt;
 </code></pre>
 <h4 id="restart-apache-server">Restart Apache Server</h4>
-<p>Once you are done with making changes to  <code>/extra/httpd-vhosts.conf</code> file, save the file and restart apache to see the changes taking effect.</p>
+<p>Once you are done with making changes to  <code>/extra/httpd-vhosts.conf</code>, save the file and restart apache to see the changes taking effect.</p>
 <pre><code>sudo /opt/bitnami/ctlscript.sh restart apache
 </code></pre>
 <p>Open <a href="http://www.website1.com">www.website1.com</a> and <a href="http://www.website2.com">www.website2.com</a> on the browser to confirm that they are getting routed to their intended document root locations.</p>
