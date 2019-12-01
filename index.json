@@ -13,4 +13,12 @@
 	"searchTerms": ["Facebook", "Share", "Website", "Link", "Image", "URL", "Lightsail", "Timeline", "Likes"],
 	"tags": ["share"],
 	"date": "2019-11-30"
+},
+{
+	"name": "Adding Google Search Console to website",
+	"desc": "Google Search Console tools helps yue better track your sites traffic and performance",
+	"handle": "google-search-console",
+	"searchTerms": ["Google", "Website", "Search", "Console", "SEO", "traffic", "hits", "count", "report", "performance"],
+	"tags": ["share"],
+	"date": "2019-12-1"
 }]
