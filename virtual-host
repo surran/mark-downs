@@ -1,20 +1,23 @@
 <div class="stackedit__html"><h1 id="hosting-multiple-websites-on-amazon-lightsail">Hosting Multiple websites on Amazon Lightsail</h1>
-<h3 id="what-are-the-scenarios">What are the scenarios?</h3>
-<p>This happens when you own multiple domains but do not wish to host them on separate servers.</p>
-<h3 id="the-process">The Process</h3>
-<p>Key Steps:</p>
+<h3 id="scenario">Scenario</h3>
+<p>I recently shifted my websites to AWS Lightsail. I purchased a single server to host three different websites. The immediate problem that came up was that traffic coming from all three domains (website addresses) reach the same server location. I had to figure out a way to further route this traffic (based on the domain name they come from) to their respective document root folders.</p>
+<h3 id="solution">Solution</h3>
+<p>The key to solving this is adding these domains as VirtualHost entires to your apache server config. Here are the steps involved:</p>
 <ol>
 <li>Locate Virtual host File</li>
 <li>Add domains</li>
 <li>Restart Apache</li>
 </ol>
-<p>Load Bitnami terminal on Lightsail on your instance. Browse to the apache configuration files location.</p>
+<h4 id="locate-virtual-host-file">Locate Virtual host File</h4>
+<p>Load Bitnami terminal on your Lightsail instance, and browse to the apache configuration files location.</p>
 <pre><code>bitnami@ip-172-26-5-171:~$cd /opt/bitnami/apache2/conf
 </code></pre>
-<p>General Apache server configuration is handled by <code>httpd.conf</code> file. This file in turn loads other files for specific  settings. For setting up virtual hosts add/uncomment the following line in it and save the file.</p>
+<p>The <code>httpd.conf</code> file is the most important file at this location. It handles the general apache server configuration, and in turn loads other files for specific settings.</p>
+<p>Virtual Host specific settings are handled by  <code>/extra/httpd-vhosts.conf</code> file. Make sure you are loading it by adding (or uncommenting) the following line to your  <code>httpd.conf</code> file.</p>
 <pre><code>Include conf/extra/httpd-vhosts.conf
 </code></pre>
-<p>Now open <code>httpd-hosts.conf</code> located in the extras folder and configure Virtual hosts.</p>
+<h4 id="add-domains">Add domains</h4>
+<p>Open <code>/extra/httpd-vhosts.conf</code> file.</p>
 <p>A typical virtual host config for a domain (say <a href="http://www.website1.com">www.website1.com</a>) looks like this</p>
 <pre><code>&lt;VirtualHost *:80&gt;
     ServerAdmin your@email.com
@@ -24,8 +27,11 @@
     ErrorLog "logs/website1_error_log"
     CustomLog "logs/website1_access_log" common
 &lt;/VirtualHost&gt;
-
-&lt;VirtualHost *:80&gt;
+</code></pre>
+<p>Here <a href="http://website1.com">website1.com</a> is the domain name, and <code>/opt/bitnami/apache2/docs/website1</code> is the location of its respective <code>index(.html)</code> file</p>
+<p>You can add any number of such snippets to <code>/extra/httpd-vhosts.conf</code> file in order to multiple websites on the same server.</p>
+<p>For example add the below snippet to also host <a href="http://website2.com">website2.com</a> and route its traffic to   <code>/opt/bitnami/apache2/docs/website2</code> folder.</p>
+<pre><code>&lt;VirtualHost *:80&gt;
     ServerAdmin your@email.com
     DocumentRoot "/opt/bitnami/apache2/docs/website2"
     ServerName website2.com
@@ -34,10 +40,10 @@
     CustomLog "logs/website2_access_log" common
 &lt;/VirtualHost&gt;
 </code></pre>
-<p>You can add more such snippets to host more websites on the same server.</p>
-<p>Save the file and restart the apache server to see the changes taking effect</p>
+<h4 id="restart-apache-server">Restart Apache Server</h4>
+<p>Save the file and restart apache to see the changes taking effect</p>
 <pre><code>sudo /opt/bitnami/ctlscript.sh restart apache
 </code></pre>
-<p>Open <a href="http://www.website1.com">www.website1.com</a> and <a href="http://www.website2.com">www.website2.com</a> on the browser to confirm</p>
+<p>Open <a href="http://www.website1.com">www.website1.com</a> and <a href="http://www.website2.com">www.website2.com</a> on the browser to confirm that they are geeting routed to their intended document root locations.</p>
 </div>
 
