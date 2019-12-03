@@ -1,30 +1,30 @@
 <div class="stackedit__html"><h1 id="disable-server-side-routing">Disable server side routing</h1>
 <h3 id="scenario">Scenario</h3>
-<p>For a Single Page Applications (SPA) routing is client’s responsibility. For example, the URL <a href="http://www.website.com/category/post">www.website.com/category/post</a> for a SPA should load index.html located at document root on the server, instead of some file at root/category/post folder location.  Doing so requires disabling server side routing.</p>
+<p>For a Single Page Applications (SPA), routing is client’s responsibility. For example, the URL <a href="http://www.website.com/category/post">www.website.com/category/post</a> for a SPA should load index.html located at document root on the server, instead of some file at root/category/post folder location.  Doing so requires disabling server side routing.</p>
 <h3 id="solution">Solution</h3>
-<p>This can be solved by introducing custom re-write rules to the apache configuration file. Key steps are:</p>
+<p>This can be solved by introducing a RewriteRule in the apache configuration file. Key steps are:</p>
 <ol>
 <li>Locate Virtual host File</li>
 <li>Add Rewrite rule</li>
 <li>Restart Apache</li>
 </ol>
 <h4 id="locate-virtual-host-file">Locate virtual host file</h4>
-<p>Virtual hosts file is  is present in apache conf folder. Browse to this location and open httpd-vhost.conf file</p>
+<p>Virtual hosts file is present in apache conf folder. Browse to this location and open httpd-vhost.conf file</p>
 <pre><code>cd /opt/bitnami/apache2/conf/extra
 vi httpd-vhosts.conf
 </code></pre>
 <h4 id="add-rewrite-rule">Add rewrite rule</h4>
-<p>Add a rewrite rule under your website’s Virtual Host block</p>
+<p>Add a RewriteRule inside your websites’s VirtualHost tag wrapper</p>
 <pre><code>RewriteEngine On
 RewriteRule ^/[a-zA-Z0-9]+[/]?$ /index.html [QSA,L]
 </code></pre>
 <p>The above rewrite rule means that all urls of the form <a href="http://www.website.com/%5Banything%5D">www.website.com/[anything]</a> where [anything] could be any string made up of characters from a to z, A to Z and numbers from 0 to 9 would serve /index.html file.</p>
 <p>Here QSA and L are RewriteRule flags. QSA stands for Query String Append and L stands for Last. To know more, full documentation for query string flags is available on the official apache docementation <a href="http://httpd.apache.org/docs/2.2/en/rewrite/flags.html">http://httpd.apache.org/docs/2.2/en/rewrite/flags.html</a></p>
-<p>Some more useful rewrite rules:<br>
+<p>Here are some more useful rewrite rules:<br>
 <code>RewriteRule ^(.+)$ /index.html</code> serve /index.html for all paths<br>
-<code>RewriteRule ^/key1/(.*)/key2/(.*)$ /var/web/productdb/$1</code><br>
+<code>RewriteRule ^/(.*)/key/(.*)$ /grouping/$1/subgrouping/$2</code><br>
 If these don’t solve your senario then you can get more help at <a href="http://httpd.apache.org/docs/2.2/en/rewrite/intro.html#regex">http://httpd.apache.org/docs/2.2/en/rewrite/intro.html#regex</a></p>
-<p>Once the changes are made save the file. Your VirtualHost tag wrapper should look something like:</p>
+<p>Once the changes are made save the file. Your VirtualHost tag wrapper should now look something like:</p>
 <pre><code>&lt;VirtualHost *:80&gt;
     DocumentRoot "/opt/bitnami/apache2/docs/www.website.com"
     ServerName website.com
@@ -36,10 +36,9 @@ If these don’t solve your senario then you can get more help at <a href="http:
 &lt;/VirtualHost&gt;
 </code></pre>
 <h4 id="restart-apache">Restart Apache</h4>
-<p>Restart apache.</p>
 <pre><code>sudo /opt/bitnami/ctlscript.sh restart apache
 </code></pre>
-<p>With this the changes would have taken effect. Open a sample URL to confirm.</p>
-<p>Read more about <a href="https://www.terminalnotes.com/virtual-hosts">mutliple VirtualHosts</a>.</p>
+<p>With restart, the changes would have taken effect. Open a sample URL to confirm.</p>
+<p>Further Reading: <a href="https://www.terminalnotes.com/virtual-hosts">mutliple VirtualHosts</a>.</p>
 </div>
 
