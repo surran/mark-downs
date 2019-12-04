@@ -15,7 +15,7 @@
 	"date": "2019-11-30"
 },
 {
-	"name": "Server side Routing. How to rewrite, redirect and disable URLs",
+	"name": "Server side Routing. How to rewrite and redirect URLs",
 	"desc": "If your application has client side routing, you would like the server to load the same index file for all paths.",
 	"handle": "rewrite-rule",
 	"searchTerms": ["Rewrite", "Rule", "Virtual", "Host"],
