@@ -1,4 +1,4 @@
-<div class="stackedit__html"><p><a href="http://terminalnotes.com/rewrite-rule#">http://terminalnotes.com/rewrite-rule#</a> Disable server side routing</p>
+<div class="stackedit__html"><h1 id="server-side-routing.-how-to-rewrite-and-redirect-urls">Server Side Routing. How to rewrite and redirect URLs</h1>
 <h3 id="scenario">Scenario</h3>
 <p>For a Single Page Applications (SPA), routing is client’s responsibility. For example, the URL <a href="http://www.website.com/category/post">www.website.com/category/post</a> for a SPA should load index.html located at document root on the server, instead of some file at root/category/post folder location.  Doing so requires disabling server side routing.</p>
 <h3 id="solution">Solution</h3>
