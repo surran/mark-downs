@@ -24,7 +24,7 @@ RewriteRule ^/[a-zA-Z0-9]+[/]?$ /index.html [QSA,L]
 <ol>
 <li><code>RewriteRule ^/(.*)?$ /index.html</code> serve /index.html for all paths</li>
 <li><code>RewriteRule /(.*)?$ https://www.google.com [R]</code> Redirect all paths to <a href="https://www.google.com">https://www.google.com</a></li>
-<li><code>RewriteRule /(.*)/(.*)?$ https://youtu.be/$1?t=$2 [R]</code> Redirect paths of time /videoID/startTime to youtube. For example try the path /PFH36ouxA5o/69</li>
+<li><code>RewriteRule /(.*)/(.*)?$ https://youtu.be/$1?t=$2 [R]</code> Redirect paths of type /videoID/startTime to youtube. For example try the path /PFH36ouxA5o/69</li>
 <li><code>RewriteRule ^/[a-z^-^+]+[/]?$ /index.html [QSA,L]</code> serve /index.html for one level paths made up of characters from a-z and special characters - and +</li>
 </ol>
 <p>If these don’t solve your scenario then you can get more help at <a href="http://httpd.apache.org/docs/2.2/en/rewrite/intro.html#regex">http://httpd.apache.org/docs/2.2/en/rewrite/intro.html#regex</a></p>
@@ -43,6 +43,6 @@ RewriteRule ^/[a-zA-Z0-9]+[/]?$ /index.html [QSA,L]
 <pre><code>sudo /opt/bitnami/ctlscript.sh restart apache
 </code></pre>
 <p>With restart, the changes would have taken effect. Open a sample URL to confirm.</p>
-<p>Further Reading: <a href="https://www.terminalnotes.com/virtual-hosts">mutliple VirtualHosts</a>.</p>
+<p>Further Reading: <a href="http://www.terminalnotes.com/virtual-host">multiple VirtualHosts</a>.</p>
 </div>
 
