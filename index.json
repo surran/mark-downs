@@ -13,4 +13,12 @@
 	"searchTerms": ["Facebook", "Share", "Website", "Link", "Image", "URL", "Lightsail", "Timeline", "Likes"],
 	"tags": ["share"],
 	"date": "2019-11-30"
+},
+{
+	"name": "Server side Routing. How to rewrite, redirect and disable URLs",
+	"desc": "If your application has client side routing, you would like the server to load the same index file for all paths.",
+	"handle": "rewrite-rule",
+	"searchTerms": ["Rewrite", "Rule", "Virtual", "Host"],
+	"tags": ["backend"],
+	"date": "2019-12-5"
 }]
