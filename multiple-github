@@ -1,6 +1,6 @@
 <div class="stackedit__html"><h1 id="working-with-multiple-github-accounts">Working with multiple Github accounts</h1>
 <h3 id="scenario">Scenario</h3>
-<p>I have two github accounts, one <em>github-work</em> and the other <em>github-personal</em>. While pushing/pulling code I often get a permission denied error. To resolve this I end up changing my git user credentials every, only to get the same error again in due course of time. What is the simplest way to make this seamless?</p>
+<p>I have two github accounts, one <em>github-work</em> and the other <em>github-personal</em>. While pushing/pulling code I often get a permission denied error. To resolve this I end up changing my git user credentials everytime, only to get the same error again in due course of time. What is the simplest way to make this seamless?</p>
 <h3 id="solution">Solution</h3>
 <p>The permission issue comes because while pushing/pulling code from say a <em>github-work</em> repository, git might be using the <em>github-personal</em> private key or vice versa</p>
 <p>There are multiple ways to fix this. I will share that I found the simplest and most seamless.</p>
