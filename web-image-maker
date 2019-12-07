@@ -1,0 +1,68 @@
+<div class="stackedit__html"><h1 id="auto-process--export-image-assets-to-web">Auto process &amp; export Image assets to Web</h1>
+<h3 id="scenario">Scenario</h3>
+<p>My website constantly needs image uploads for new content. These images are high resolution images (&gt; 4MB in size) coming from Digital cameras/Scanners. I scale down these images to web acceptable sizes (&lt; 100KB) on image processing software; then rename them to fit my cataloging scheme and finally drag drop them into my Github assets repo. How to a automate this?</p>
+<h3 id="solution">Solution</h3>
+<p>We will first write a node process to export scaled down versions of a batch of input (high resolution) images.  Once this is working, we will write a shell script to run this node process and push its results to a github repository</p>
+<h4 id="node-process-to-scale-down-images">Node process to scale down images</h4>
+<p>Let us start by creating a root, input and output folder</p>
+<pre><code>mkdir webImageMaker 	# project root location
+cd webImageMaker
+mkdir input		
+mkdir output
+</code></pre>
+<p>Now create a nodeJS file called <code>processImages.mjs</code> at the project root location. Copy-&gt;paste the following code in it:</p>
+<pre><code>import resizer from 'node-image-resizer';
+import fs from 'fs';
+
+	/*--- Image Resizer Configuration ---*/ 
+	
+var path = './input/'
+var outputPath = "./output/"
+const setup = { 
+  all: {
+    path: outputPath,
+    quality: 80			// image quality
+  },
+  versions: [{
+    prefix: 'postcard_',	// image prefix
+    width: 1200			// image width
+  }]
+};
+ 
+       /*--- Process and Export Images ---*/
+       
+fs.readdir(path, function(err, items) {
+   console.log(items);
+   for (var i=0; i&lt;items.length; i++) {
+     resizer(path + items[i] , setup);
+   }
+ });
+
+</code></pre>
+<p>Save the file</p>
+<h4 id="shell-script-to-launch-the-above-node-process">Shell script to launch the above Node process</h4>
+<p>Create a shell script file called  <code>launch.sh</code> at the project root location. Copy-&gt;paste the following code in it:</p>
+<pre><code>node --experimental-modules processImages.mjs
+</code></pre>
+<p>Save the file</p>
+<h4 id="test-run">Test Run</h4>
+<p>Before starting with a test run make sure you have NodeJS and node-image-resizer installed on your system.</p>
+<ol>
+<li>NodeJS can be installed from <a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a></li>
+<li>node-image-resizer can be installed by running<code>npm i -D node-image-resizer</code> on command line</li>
+</ol>
+<p>Paste some high resolution image files in <code>webImageMaker/input</code> folder.</p>
+<p>Grant execute permissions to the shell script file and then execute it:</p>
+<pre><code>chmod +x launch.sh
+./launch.sh
+</code></pre>
+<p>You should the see the list of images that were present at <code>webImageMaker/input</code> getting printed on console. Once the run is over,  browse to <code>webImageMaker/output</code> location to find the resulting scaled down images</p>
+<h4 id="push-to-github">Push to Github</h4>
+<p>To take the automation one step further you can create a local git repository in <code>webImageMaker/output</code> folder</p>
+<p>Once that is done, you can automatically also push the exported files to your Github image assets repository by simply adding the following lines to your <a href="http://launch.sh">launch.sh</a> file</p>
+<pre><code>git reset --hard
+git commit -a -m "Adding Image assets" 
+git push origin master:master 
+</code></pre>
+</div>
+
