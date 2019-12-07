@@ -7,6 +7,14 @@
 	"date": "2019-12-07"
 },
 {
+	"name": "Working with multiple Github accounts",
+	"desc": "While pushing/pulling code I often get a permission denied error. Here is a simple way to make it seamless",
+	"handle": "multiple-github",
+	"searchTerms": [],
+	"tags": ["tools"],
+	"date": "2019-12-07"
+},
+{
 	"name": "Hosting Multiple websites on Amazon Lightsail",
 	"desc": "This happens when you own multiple domains but do not wish to host them on separate servers.",
 	"handle": "virtual-host",
