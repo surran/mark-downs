@@ -1,4 +1,12 @@
 [{
+	"name": "Auto process & export Image assets to Web",
+	"desc": "Is resizing, compressing  and uploading images to your website tedious. Here is a way to automate this!",
+	"handle": "web-image-maker",
+	"searchTerms": [],
+	"tags": ["tools"],
+	"date": "2019-12-07"
+},
+{
 	"name": "Hosting Multiple websites on Amazon Lightsail",
 	"desc": "This happens when you own multiple domains but do not wish to host them on separate servers.",
 	"handle": "virtual-host",
