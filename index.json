@@ -1,6 +1,6 @@
 [{
 	"name": "Auto process & export Image assets to Web",
-	"desc": "Is resizing, compressing  and uploading images to your website tedious. Here is a way to automate this!",
+	"desc": "Is resizing, compressing  and uploading images to your website tedious? Here is a way to automate this!",
 	"handle": "web-image-maker",
 	"searchTerms": [],
 	"tags": ["tools"],
@@ -8,7 +8,7 @@
 },
 {
 	"name": "Working with multiple Github accounts",
-	"desc": "While pushing/pulling code I often get a permission denied error. Here is a simple way to make it seamless",
+	"desc": "While pushing/pulling code do you often get a permission denied error? Here is a simple way to make it seamless",
 	"handle": "multiple-github",
 	"searchTerms": [],
 	"tags": ["tools"],
@@ -16,7 +16,7 @@
 },
 {
 	"name": "Hosting Multiple websites on Amazon Lightsail",
-	"desc": "This happens when you own multiple domains but do not wish to host them on separate servers.",
+	"desc": "You own multiple domains and wish to run all of them on the same server. Here is how",
 	"handle": "virtual-host",
 	"searchTerms": ["Multiple", "Websites", "Lightsail", "AWS", "Single", "Server", "Virtual", "Host"],
 	"tags": ["backend"],
@@ -24,7 +24,7 @@
 },
 {
 	"name": "Optimizing website for Facebook Share",
-	"desc": "The facebook signature of your page creates the first perception. Let us work towards creating a good one!",
+	"desc": "Fine-tune what gets posted when somebody shares your website URL on facebook",
 	"handle": "facebook-share",
 	"searchTerms": ["Facebook", "Share", "Website", "Link", "Image", "URL", "Lightsail", "Timeline", "Likes"],
 	"tags": ["share"],
