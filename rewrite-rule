@@ -1,6 +1,17 @@
 <div class="stackedit__html"><h1 id="server-side-routing.-how-to-rewrite-and-redirect-urls">Server Side Routing. How to rewrite and redirect URLs</h1>
 <h3 id="scenario">Scenario</h3>
-<p>For a Single Page Applications (SPA), routing is client’s responsibility. For example, the URL <a href="http://www.website.com/category/post">www.website.com/category/post</a> for a SPA should load index.html located at document root on the server, instead of some file at root/category/post folder location.  Doing so requires disabling server side routing.</p>
+<p>Typical scenarios where you would like to manipulate servers side routing are:</p>
+<ul>
+<li>
+<p>Load same index.html for all URL paths. This is a typical requirement when routing is happening on the client side.</p>
+</li>
+<li>
+<p>Conditionally load a html file based on URL regex. This happens when mulitple code bases run on the same website.</p>
+</li>
+<li>
+<p>Redirect to a different URL or domain.</p>
+</li>
+</ul>
 <h3 id="solution">Solution</h3>
 <p>This can be solved by introducing a RewriteRule in the apache configuration file. Key steps are:</p>
 <ol>
