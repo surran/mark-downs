@@ -1,6 +1,6 @@
 <div class="stackedit__html"><h1 id="auto-process--export-image-assets-to-web">Auto process &amp; export Image assets to Web</h1>
 <h3 id="scenario">Scenario</h3>
-<p>My website constantly needs image uploads for new content. These images are high resolution images (&gt; 4MB in size) coming from Digital cameras/Scanners. I scale down these images to web acceptable sizes (&lt; 100KB) on image processing software; then rename them to fit my cataloging scheme and finally drag drop them into my Github assets repo. How to a automate this?</p>
+<p>My website constantly needs image uploads for new content. These images are high resolution images (&gt; 4MB in size) coming from Digital cameras/Scanners. I scale down these images to web acceptable sizes (&lt; 100KB) on image processing software; then rename them to fit my cataloging scheme and finally drag drop them into my Github assets repo. How do I automate this?</p>
 <h3 id="solution">Solution</h3>
 <p>We will first write a node process to export scaled down versions of a batch of input (high resolution) images.  Once this is working, we will write a shell script to run this node process and push its results to a github repository</p>
 <h4 id="node-process-to-scale-down-images">Node process to scale down images</h4>
