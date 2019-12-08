@@ -32,7 +32,7 @@
 },
 {
 	"name": "Server side Routing. How to rewrite and redirect URLs",
-	"desc": "If your application has client side routing, you would like the server to load the same index file for all paths.",
+	"desc": "Explore some simple ways to control which html file gets served for what URL",
 	"handle": "rewrite-rule",
 	"searchTerms": ["Rewrite", "Rule", "Virtual", "Host"],
 	"tags": ["backend"],
