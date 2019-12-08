@@ -7,11 +7,11 @@
 <p>Browse to any of your local repository location and run the following command</p>
 <pre><code>git config core.sshCommand "ssh -i ~/.ssh/[insert_your_keyname]'
 </code></pre>
-<p>If the local repository belongs to say <em>github-work</em> account, then make sure in place of <code>[insert_your_keyname]</code> you enter the private key generated from the same Github account.</p>
+<p>If the local repository belongs to say <em>github-work</em> account, then make sure in place of <code>[insert_your_keyname]</code> you enter the private keyname generated from the same Github account.</p>
 <p>Once you execute the above command, the <code>.git/config</code> file in your local repository will additionally have the below line under the <code>[core]</code> section</p>
 <pre><code>sshCommand = ssh -i ~/.ssh/[your_keyname]
 </code></pre>
-<p>Now onwards all git commands (pull/push etc) from this local repository will use the specified private key</p>
+<p>Now onward all git commands (pull/push etc) from this local repository will use the specified private key</p>
 <p>Repeat the same steps for other local repositories on your machine.</p>
 </div>
 
