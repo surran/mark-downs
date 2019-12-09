@@ -13,7 +13,7 @@
 	"searchTerms": [],
 	"tags": ["backend"],
 	"date": "2019-12-09"
-}
+},
 {
 	"name": "Working with multiple Github accounts",
 	"desc": "While pushing/pulling code do you often get a permission denied error? Here is a simple way to make it seamless",
