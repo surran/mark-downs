@@ -1,28 +1,35 @@
 <div class="stackedit__html"><h1 id="continuous-deployment-to-server-on-every-code-push">Continuous deployment to server on every code push</h1>
 <h3 id="scenario">Scenario</h3>
-<p>The case for setting continuous integration exists if you face any of the following issues while deploying your latest code on server:</p>
+<p>The case for setting continuous integration exists if you face any of the following issues:</p>
 <ul>
-<li>There are one or more manual steps involved in the deployment</li>
+<li>There are one or more manual steps involved in deploying latest code on server</li>
 <li>There is a website downtime while building code on server</li>
 <li>In case the server build fails, the website goes down</li>
 </ul>
 <h3 id="solution">Solution</h3>
-<p>The solution we discuss here is in context of a single developer hosting a website on a single machine (server). The key parts of the solution are:</p>
+<p>The solution we discuss here is in (single developer)-&gt;(single server) context. The key parts of the solution are:</p>
 <ol>
 <li>Write a script to pull, build and deploy latest code on server</li>
 <li>Write another script to connect from your local machine to server and run script (1)</li>
-<li>create a git alias to push code to master and then run script (2)</li>
+<li>Create a git alias to push code to master and then run script (2)</li>
 </ol>
 <h4 id="script-to-pull-build-and-deploy-latest-code-on-server">Script to pull, build and deploy latest code on server</h4>
 <p>Create a file <code>launch.sh</code> in your project folder and copy paste the following code in it</p>
-<pre><code># Browse to project folder on server and pull code 
+<pre><code>	# Browse to project folder on server and pull code 
 cd ~/path/to/project
 git reset --hard
 git pull origin
 
-# Build Steps (These may be different for your case)
+	# Build Steps (These may be different for your case)
 npm install
+set -e		
+	# immediately exit script in case of an error in build step 
 npm run build
+echo Build Successful
+
+	# Copy to build-stable folder in case the build is successful
+cp -R build build-stable 
+	# Use build-stable instead of build folder to serve files
 </code></pre>
 <p>Save the file and grant execute permissions by running</p>
 <pre><code>chmod +x launch.sh
