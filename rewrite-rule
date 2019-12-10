@@ -21,13 +21,13 @@
 </ol>
 <h4 id="locate-virtual-host-file">Locate virtual host file</h4>
 <p>Virtual hosts file is present in apache conf folder. Browse to this location and open httpd-vhost.conf file</p>
-<pre><code>cd /opt/bitnami/apache2/conf/extra
-vi httpd-vhosts.conf
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">cd</span> /opt/bitnami/apache2/conf/extra
+<span class="token function">vi</span> httpd-vhosts.conf
 </code></pre>
 <h4 id="add-rewrite-rule">Add rewrite rule</h4>
 <p>Add a RewriteRule inside your websites’s VirtualHost tag wrapper</p>
-<pre><code>RewriteEngine On
-RewriteRule ^/[a-zA-Z0-9]+[/]?$ /index.html [QSA,L]
+<pre class=" language-bash"><code class="prism  language-bash">RewriteEngine On
+RewriteRule ^/<span class="token punctuation">[</span>a-zA-Z0-9<span class="token punctuation">]</span>+<span class="token punctuation">[</span>/<span class="token punctuation">]</span>?$ /index.html <span class="token punctuation">[</span>QSA,L<span class="token punctuation">]</span>
 </code></pre>
 <p>The above rewrite rule means that all urls of the form <a href="http://www.website.com/%5Banything%5D">www.website.com/[anything]</a> where [anything] could be any string made up of characters from a to z, A to Z and numbers from 0 to 9 would serve /index.html file.</p>
 <p>Also, here QSA and L are RewriteRule flags. QSA stands for Query String Append and L stands for Last. To know about RewriteRule flags in detail, you can refer to the official apache documentation <a href="http://httpd.apache.org/docs/2.2/en/rewrite/flags.html">http://httpd.apache.org/docs/2.2/en/rewrite/flags.html</a></p>
@@ -40,18 +40,18 @@ RewriteRule ^/[a-zA-Z0-9]+[/]?$ /index.html [QSA,L]
 </ol>
 <p>If these don’t solve your scenario then you can get more help at <a href="http://httpd.apache.org/docs/2.2/en/rewrite/intro.html#regex">http://httpd.apache.org/docs/2.2/en/rewrite/intro.html#regex</a></p>
 <p>Once the changes are made save the file. Your VirtualHost tag wrapper should now look something like:</p>
-<pre><code>&lt;VirtualHost *:80&gt;
-    DocumentRoot "/opt/bitnami/apache2/docs/www.website.com"
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token operator">&lt;</span>VirtualHost *:80<span class="token operator">&gt;</span>
+    DocumentRoot <span class="token string">"/opt/bitnami/apache2/docs/www.website.com"</span>
     ServerName website.com
     ServerAlias www.website.com
     RewriteEngine On
-    RewriteRule ^/[a-zA-Z0-9]+[/]?$ /index.html [QSA,L]
-    ErrorLog "logs/website.com-error_log"
-    CustomLog "logs/www.website.com-access_log" common
-&lt;/VirtualHost&gt;
+    RewriteRule ^/<span class="token punctuation">[</span>a-zA-Z0-9<span class="token punctuation">]</span>+<span class="token punctuation">[</span>/<span class="token punctuation">]</span>?$ /index.html <span class="token punctuation">[</span>QSA,L<span class="token punctuation">]</span>
+    ErrorLog <span class="token string">"logs/website.com-error_log"</span>
+    CustomLog <span class="token string">"logs/www.website.com-access_log"</span> common
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">&gt;</span>
 </code></pre>
 <h4 id="restart-apache">Restart Apache</h4>
-<pre><code>sudo /opt/bitnami/ctlscript.sh restart apache
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">sudo</span> /opt/bitnami/ctlscript.sh restart apache
 </code></pre>
 <p>With restart, the changes would have taken effect. Open a sample URL to confirm.</p>
 <p>Further Reading: <a href="http://www.terminalnotes.com/virtual-host">multiple VirtualHosts</a>.</p>
