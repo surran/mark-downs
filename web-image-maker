@@ -5,44 +5,44 @@
 <p>We will first write a node process to export scaled down versions of a batch of input (high resolution) images.  Once this is working, we will write a shell script to run this node process and push its results to a github repository</p>
 <h4 id="node-process-to-scale-down-images">Node process to scale down images</h4>
 <p>Let us start by creating a root, input and output folder</p>
-<pre><code>mkdir webImageMaker 	# project root location
-cd webImageMaker
-mkdir input		
-mkdir output
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">mkdir</span> webImageMaker 	<span class="token comment"># project root location</span>
+<span class="token function">cd</span> webImageMaker
+<span class="token function">mkdir</span> input		
+<span class="token function">mkdir</span> output
 </code></pre>
 <p>Now create a nodeJS file called <code>processImages.mjs</code> at the project root location. Copy-&gt;paste the following code in it:</p>
-<pre><code>import resizer from 'node-image-resizer';
-import fs from 'fs';
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">import</span> resizer <span class="token keyword">from</span> <span class="token string">'node-image-resizer'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> fs <span class="token keyword">from</span> <span class="token string">'fs'</span><span class="token punctuation">;</span>
 
-	/*--- Image Resizer Configuration ---*/ 
+	<span class="token comment">/*--- Image Resizer Configuration ---*/</span> 
 	
-var path = './input/'
-var outputPath = "./output/"
-const setup = { 
-  all: {
-    path: outputPath,
-    quality: 80			// image quality
-  },
-  versions: [{
-    prefix: 'postcard_',	// image prefix
-    width: 1200			// image width
-  }]
-};
+<span class="token keyword">var</span> path <span class="token operator">=</span> <span class="token string">'./input/'</span>
+<span class="token keyword">var</span> outputPath <span class="token operator">=</span> <span class="token string">"./output/"</span>
+<span class="token keyword">const</span> setup <span class="token operator">=</span> <span class="token punctuation">{</span> 
+  all<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    path<span class="token punctuation">:</span> outputPath<span class="token punctuation">,</span>
+    quality<span class="token punctuation">:</span> <span class="token number">80</span>			<span class="token comment">// image quality</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  versions<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">{</span>
+    prefix<span class="token punctuation">:</span> <span class="token string">'postcard_'</span><span class="token punctuation">,</span>	<span class="token comment">// image prefix</span>
+    width<span class="token punctuation">:</span> <span class="token number">1200</span>			<span class="token comment">// image width</span>
+  <span class="token punctuation">}</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
  
-       /*--- Process and Export Images ---*/
+       <span class="token comment">/*--- Process and Export Images ---*/</span>
        
-fs.readdir(path, function(err, items) {
-   console.log(items);
-   for (var i=0; i&lt;items.length; i++) {
-     resizer(path + items[i] , setup);
-   }
- });
+fs<span class="token punctuation">.</span><span class="token function">readdir</span><span class="token punctuation">(</span>path<span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>err<span class="token punctuation">,</span> items<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>items<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span>items<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+     <span class="token function">resizer</span><span class="token punctuation">(</span>path <span class="token operator">+</span> items<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token punctuation">,</span> setup<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span>
+ <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 </code></pre>
 <p>Save the file</p>
 <h4 id="shell-script-to-launch-the-above-node-process">Shell script to launch the above Node process</h4>
 <p>Create a shell script file called  <code>launch.sh</code> at the project root location. Copy-&gt;paste the following code in it:</p>
-<pre><code>node --experimental-modules processImages.mjs
+<pre class=" language-bash"><code class="prism  language-bash">node --experimental-modules processImages.mjs
 </code></pre>
 <p>Save the file</p>
 <h4 id="test-run">Test Run</h4>
@@ -53,16 +53,16 @@ fs.readdir(path, function(err, items) {
 </ol>
 <p>Paste some high resolution image files in <code>webImageMaker/input</code> folder.</p>
 <p>Grant execute permissions to the shell script file and then execute it:</p>
-<pre><code>chmod +x launch.sh
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">chmod</span> +x launch.sh
 ./launch.sh
 </code></pre>
 <p>You should the see the list of images that were present at <code>webImageMaker/input</code> getting printed on console. Once the run is over,  browse to <code>webImageMaker/output</code> location to find the resulting scaled down images</p>
 <h4 id="push-to-github">Push to Github</h4>
 <p>To take the automation one step further you can create a local git repository in <code>webImageMaker/output</code> folder</p>
 <p>Once that is done, you can automatically also push the exported files to your Github image assets repository by simply adding the following lines to your <a href="http://launch.sh">launch.sh</a> file</p>
-<pre><code>git reset --hard
-git commit -a -m "Adding Image assets" 
-git push origin master:master 
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">git</span> reset --hard
+<span class="token function">git</span> commit -a -m <span class="token string">"Adding Image assets"</span> 
+<span class="token function">git</span> push origin master:master 
 </code></pre>
 </div>
 
