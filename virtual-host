@@ -14,34 +14,34 @@
 </code></pre>
 <p>The <code>httpd.conf</code> file is the most important file at this location. It handles the general apache server configuration, and in turn loads other files for specific settings.</p>
 <p>Virtual Host specific settings are handled by  <code>/extra/httpd-vhosts.conf</code> file. Make sure you are loading it by adding (or uncommenting) the following line to your  <code>httpd.conf</code> file.</p>
-<pre><code>Include conf/extra/httpd-vhosts.conf
+<pre class=" language-bash"><code class="prism  language-bash">Include conf/extra/httpd-vhosts.conf
 </code></pre>
 <h4 id="add-domains">Add domains</h4>
 <p>Open <code>/extra/httpd-vhosts.conf</code> file.</p>
 <p>A typical virtual host config for a domain (say <a href="http://www.website1.com">www.website1.com</a>) looks like this:</p>
-<pre><code>&lt;VirtualHost *:80&gt;
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token operator">&lt;</span>VirtualHost *:80<span class="token operator">&gt;</span>
     ServerAdmin your@email.com
-    DocumentRoot "/opt/bitnami/apache2/docs/website1"
+    DocumentRoot <span class="token string">"/opt/bitnami/apache2/docs/website1"</span>
     ServerName website1.com
     ServerAlias www.website1.com
-    ErrorLog "logs/website1_error_log"
-    CustomLog "logs/website1_access_log" common
-&lt;/VirtualHost&gt;
+    ErrorLog <span class="token string">"logs/website1_error_log"</span>
+    CustomLog <span class="token string">"logs/website1_access_log"</span> common
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">&gt;</span>
 </code></pre>
 <p>Here <a href="http://website1.com">website1.com</a> is the domain name, and <code>/opt/bitnami/apache2/docs/website1</code> is the location of its respective <code>index(.html)</code> file</p>
 <p>You can add any number of such snippets to <code>/extra/httpd-vhosts.conf</code> file in order to host multiple websites on the same server. For example to also host <a href="http://website2.com">website2.com</a> and route its traffic to   <code>/opt/bitnami/apache2/docs/website2</code> folder add:</p>
-<pre><code>&lt;VirtualHost *:80&gt;
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token operator">&lt;</span>VirtualHost *:80<span class="token operator">&gt;</span>
     ServerAdmin your@email.com
-    DocumentRoot "/opt/bitnami/apache2/docs/website2"
+    DocumentRoot <span class="token string">"/opt/bitnami/apache2/docs/website2"</span>
     ServerName website2.com
     ServerAlias www.website2.com
-    ErrorLog "logs/website2_error_log"
-    CustomLog "logs/website2_access_log" common
-&lt;/VirtualHost&gt;
+    ErrorLog <span class="token string">"logs/website2_error_log"</span>
+    CustomLog <span class="token string">"logs/website2_access_log"</span> common
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">&gt;</span>
 </code></pre>
 <h4 id="restart-apache-server">Restart Apache Server</h4>
 <p>Once you are done with making changes to  <code>/extra/httpd-vhosts.conf</code>, save the file and restart apache to see the changes taking effect.</p>
-<pre><code>sudo /opt/bitnami/ctlscript.sh restart apache
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">sudo</span> /opt/bitnami/ctlscript.sh restart apache
 </code></pre>
 <p>Open <a href="http://www.website1.com">www.website1.com</a> and <a href="http://www.website2.com">www.website2.com</a> on the browser to confirm that they are getting routed to their intended document root locations.</p>
 </div>
