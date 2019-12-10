@@ -1,0 +1,41 @@
+<div class="stackedit__html"><h1 id="hidden-secrets-of-javascript-objects">Hidden secrets of Javascript Objects</h1>
+<p>JavaScript objects besides being simple pairs of keys and values hold a lot more peculiarities. Let us explore them one by one.</p>
+<h3 id="object-prototype">Object Prototype</h3>
+<p>JavaScript Objects consist of key value pairs defined by the user AND a key called <code>__proto__</code> with a pointer to another object as its value.<br>
+We all this ‘another object’ the object’s prototype.</p>
+<h4 id="prototype-chain">Prototype Chain</h4>
+<p>If a key is not present in an object then Javascript will look for the key in its prototype. This would continue till an Object with null prototype is reached. This is called ‘prototype chain’.</p>
+<h3 id="creating-an-object">Creating an Object</h3>
+<p>Object in javascript can be created by:</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>
+</code></pre>
+<p>This creates an empty object with <code>null</code> as the object’s prototype. Object in javascript can also by what is known as the <em>object literal notation</em></p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre>
+<p>This also creates an empty object BUT with <code>Object.prototype</code> as the object’s prototype. Infact all objects created by <em>object literal notation</em> have Object.prototype set as the object’s prototype.</p>
+<h4 id="object-property">Object Property</h4>
+<p>In our simple definitation of Javascript objects as key value pairs, each ‘key’ is also referred to as the  object’s property</p>
+<p>Each object property has these three boolean attributes</p>
+<ul>
+<li>enumeriable - the property value is enumerable (will come in loops)</li>
+<li>configurable - the property can be deleted or modified</li>
+<li>writable - property’s value can be changed</li>
+</ul>
+<p>An object with Object.prototype as its prototype, and a property ‘name’ with value ‘Ranjan’ can be defined by either of the following ways:</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">let</span> obj <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span>
+Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+	value<span class="token punctuation">:</span> <span class="token string">"Ranjan"</span><span class="token punctuation">,</span>
+	writable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+	enumerable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+	configurable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>or its equivalent</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">"Ranjan"</span><span class="token punctuation">}</span>
+</code></pre>
+<h3 id="properties-of-object.prototype">Properties of Object.prototype</h3>
+<p>The default properties of Object.prototype defined by JavaScript are not enumerable . In other words, they would not shown up if you run a look over an objects key value pairs.</p>
+<p>However if goes ahead and adds a new enumerable property to Object.prototype then this new property would also start showing up in loops!</p>
+<p>They way to avoid this is by using hasOwnProperty function (a property of Object.prototype). This function returns true only if the property is part of the object itself (does not check in the object’s prototype)</p>
+</div>
+
