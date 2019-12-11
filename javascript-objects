@@ -2,8 +2,7 @@
 <p>There are some aspects of JavaScript objects that are not apparent in its general usage. Let us explore them one by one.</p>
 <h3 id="object-prototype">Object Prototype</h3>
 <p>Any object you define in JavaScript, besides the keys you define, also contains a key called <code>__proto__</code> with a pointer to another object as its value. We call this ‘another object’ the object’s prototype.</p>
-<h4 id="prototype-chain">Prototype Chain</h4>
-<p>If a key is not present in an object then JavaScript will look for the key in its prototype. This would continue till an Object with null prototype is reached. This is called ‘prototype chain’.</p>
+<p>If JavaScript does not find a key in an object then it looks for the key in its prototype. If the key is also not present in its prototype the it looks in the prototype Object’s prototype. This would continue till an Object with null prototype is reached. This is known as <em>prototype chain</em>.</p>
 <h3 id="creating-an-object">Creating an Object</h3>
 <p>Object in JavaScript can be created by:</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>
