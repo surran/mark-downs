@@ -12,14 +12,13 @@
 </code></pre>
 <p>This also creates an empty object BUT with <code>Object.prototype</code> as  prototype. In fact all objects created by <em>object literal notation</em> have Object.prototype as prototype.</p>
 <h4 id="object-property">Object Property</h4>
-<p>Each key in an object is also referred to as the object’s property</p>
-<p>Each object property has these three boolean attributes</p>
+<p>Each key in an object is also referred to as the object’s property. Every such property has these three boolean attributes</p>
 <ul>
 <li>enumerable - the property value is enumerable (will come in loops)</li>
 <li>configurable - the property can be deleted or modified</li>
 <li>writable - property’s value can be changed</li>
 </ul>
-<p>An object with Object.prototype as its prototype, and a property ‘name’ with value ‘Ranjan’ can be defined by either of the following ways:</p>
+<p>Javascript allows us to set these attributes using the syntax:</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">let</span> obj <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>Object<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span>
 Object<span class="token punctuation">.</span><span class="token function">defineProperty</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token string">'name'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
 	value<span class="token punctuation">:</span> <span class="token string">"Ranjan"</span><span class="token punctuation">,</span>
@@ -28,7 +27,7 @@ Object<span class="token punctuation">.</span><span class="token function">defin
 	configurable<span class="token punctuation">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
-<p>or its equivalent</p>
+<p>Note that the above code syntax is equivalent to the more familiar:</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">let</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>name<span class="token punctuation">:</span> <span class="token string">"Ranjan"</span><span class="token punctuation">}</span>
 </code></pre>
 <h3 id="properties-of-object.prototype">Properties of Object.prototype</h3>
