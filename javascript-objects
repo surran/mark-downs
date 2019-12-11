@@ -2,17 +2,17 @@
 <p>There are some aspects of JavaScript objects that are not apparent in its general usage. Let us explore them one by one.</p>
 <h3 id="object-prototype">Object Prototype</h3>
 <p>Any object you define in JavaScript, besides the keys you define, also contains a key called <code>__proto__</code> with a pointer to another object as its value. We call this ‘another object’ the object’s prototype.</p>
-<p>If JavaScript does not find a key in an object then it looks for the key in its prototype. If the key is also not present in its prototype the it looks in the prototype Object’s prototype. This would continue till an Object with null prototype is reached. This is known as <em>prototype chain</em>.</p>
+<p>If JavaScript does not find a key in an object then it looks for the key in its prototype. If the key is also not present in its prototype the it looks in the prototype’s prototype. This would continue till an Object with null prototype is reached. This is known as <em>prototype chain</em>.</p>
 <h3 id="creating-an-object">Creating an Object</h3>
 <p>Object in JavaScript can be created by:</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token keyword">null</span><span class="token punctuation">)</span>
 </code></pre>
-<p>This creates an empty object with <code>null</code> as the object’s prototype. Object in JavaScript can also by what is known as the <em>object literal notation</em></p>
+<p>This creates an empty object with prototype set as <code>null</code>. An Object can also be created by what is known as the <em>object literal notation</em></p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
 </code></pre>
-<p>This also creates an empty object BUT with <code>Object.prototype</code> as the object’s prototype. In fact all objects created by <em>object literal notation</em> have Object.prototype set as the object’s prototype.</p>
+<p>This also creates an empty object BUT with <code>Object.prototype</code> as  prototype. In fact all objects created by <em>object literal notation</em> have Object.prototype as prototype.</p>
 <h4 id="object-property">Object Property</h4>
-<p>In our simple definition of JavaScript objects as key value pairs, each ‘key’ is also referred to as the  object’s property</p>
+<p>Each key in an object is also referred to as the object’s property</p>
 <p>Each object property has these three boolean attributes</p>
 <ul>
 <li>enumerable - the property value is enumerable (will come in loops)</li>
