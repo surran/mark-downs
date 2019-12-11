@@ -22,6 +22,14 @@
 	"tags": ["coding"],
 	"date": "2019-12-11"
 },
+ {
+	"name": "Determining/Specifying context of a function call in JavaScript",
+	"desc": "JavaScript objects besides being simple pairs of keys and values hold a lot more peculiarities. Let's explore",
+	"handle": "javascript-objects",
+	"searchTerms": [],
+	"tags": ["coding"],
+	"date": "2019-12-11"
+},
 {
 	"name": "Working with multiple Github accounts",
 	"desc": "While pushing/pulling code do you often get a permission denied error? Here is a simple way to make it seamless",
