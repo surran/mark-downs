@@ -6,13 +6,21 @@
 	"tags": ["tools"],
 	"date": "2019-12-07"
 },
- {
+{
 	"name": "Continious deployment to server on every code push",
 	"desc": "Does your code deployment routine involve manual steps or website down time. Here are some ways to improve.",
 	"handle": "push-deploy",
 	"searchTerms": [],
 	"tags": ["backend"],
 	"date": "2019-12-09"
+},
+{
+	"name": "Hidden secrets of JavaScript Objects",
+	"desc": "JavaScript objects besides being simple pairs of keys and values hold a lot more peculiarities. Let's explore",
+	"handle": "javascript-objects",
+	"searchTerms": [],
+	"tags": ["tools"],
+	"date": "2019-12-11"
 },
 {
 	"name": "Working with multiple Github accounts",
