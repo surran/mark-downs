@@ -33,6 +33,6 @@ Object<span class="token punctuation">.</span><span class="token function">defin
 <h3 id="properties-of-object.prototype">Properties of Object.prototype</h3>
 <p>The default properties of Object.prototype defined by JavaScript are not enumerable . In other words, they would not shown up if you run a loop over an object’s key value pairs.</p>
 <p>However if a developer goes ahead and adds a new enumerable property to Object.prototype then this new property would also start showing up in loops!</p>
-<p>The way to avoid this is by using hasOwnProperty function (a property of Object.prototype). This function returns true only if the property is part of the object itself (does not check in the object’s prototype)</p>
+<p>The way to avoid this is by using hasOwnProperty function (a property of Object.prototype). This function returns true only if a property is part of the object itself (does not check in the object’s prototype)</p>
 </div>
 
