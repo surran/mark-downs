@@ -46,5 +46,8 @@ obj<span class="token punctuation">.</span><span class="token function">fn</span
 <p>Note that functions with a context bound to them (the above example) are executable in their bound contexts only. In other words executing the below function call would still point to <code>"Hallway"</code> as the context instead of <code>"Office"</code></p>
 <pre class=" language-js"><code class="prism  language-js">obj<span class="token punctuation">.</span>fn<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token string">"Office"</span><span class="token punctuation">,</span> <span class="token string">"Ranjan"</span><span class="token punctuation">)</span>
 </code></pre>
+<p>produce the output:</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token string">"context: Hallway value: Ranjan"</span>
+</code></pre>
 </div>
 
