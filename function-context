@@ -1,0 +1,50 @@
+<div class="stackedit__html"><h1 id="determiningspecifying-context-of-a-function-call-in-javascript">Determining/Specifying context of a function call in JavaScript</h1>
+<h3 id="context-of-a-function">Context of a function</h3>
+<p>Let us define a JavaScript function</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`context: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> value: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span> <span class="token punctuation">}</span>
+</code></pre>
+<p>If you invoke this function using the simple function call syntax:</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token function">fn</span><span class="token punctuation">(</span><span class="token string">"Ranjan"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>You would get the following output</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token string">"context: [object Window] value: Ranjan"</span>
+</code></pre>
+<p>Here the Window object is the context of the function. We got the context using <code>this</code> which for a function is nothing but a pointer pointing to the context of that function</p>
+<h3 id="passing-context-in-a-function-call">Passing context in a function call</h3>
+<p>A function call can also specifying its context by using the syntax</p>
+<pre class=" language-js"><code class="prism  language-js">fn<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>Window<span class="token punctuation">,</span> <span class="token string">"Ranjan"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>since we are specifying Window as the context, this is equivalent to</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token function">fn</span><span class="token punctuation">(</span><span class="token string">"Ranjan"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>But we can pass something else also as context. For example</p>
+<pre class=" language-js"><code class="prism  language-js">fn<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token string">"Office"</span><span class="token punctuation">,</span> <span class="token string">"Ranjan"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>would produce the following output</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token string">"context: Office value: Ranjan"</span>
+</code></pre>
+<h3 id="context-of-a-object-member-function">Context of a Object member function</h3>
+<p>In case fn is a member function of an Object then in a simple syntax function call, the Object is passed as the context of the function. For example</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`context: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> value: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span> <span class="token punctuation">}</span>
+<span class="token keyword">const</span> obj <span class="token operator">=</span> <span class="token punctuation">{</span>fn<span class="token punctuation">:</span> fn<span class="token punctuation">}</span>
+obj<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token string">"Ranjan"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>produces the following output</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token string">"context: [object Object] value: Ranjan"</span>
+</code></pre>
+<h3 id="passing-context-to-a-object-member-function">Passing context to a Object member function</h3>
+<p>You can specify the context of an Object member function by calling it using the syntax:</p>
+<pre class=" language-js"><code class="prism  language-js">obj<span class="token punctuation">.</span>fn<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token string">"Office"</span><span class="token punctuation">,</span> <span class="token string">"Ranjan"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>There is another way to do this by binding a context to a function. For example</p>
+<pre class=" language-js"><code class="prism  language-js">obj<span class="token punctuation">.</span>fn <span class="token operator">=</span> obj<span class="token punctuation">.</span>fn<span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token string">"Hallway"</span><span class="token punctuation">)</span>
+obj<span class="token punctuation">.</span><span class="token function">fn</span><span class="token punctuation">(</span><span class="token string">"Ranjan"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>produces the output</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token string">"context: Hallway value: Ranjan"</span>
+</code></pre>
+<p>Note that functions with a context bound to them (the above example) are executable in their bound contexts only. In other words executing the below function call would still point to <code>"Hallway"</code> as the context instead of <code>"Office"</code></p>
+<pre class=" language-js"><code class="prism  language-js">obj<span class="token punctuation">.</span>fn<span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span><span class="token string">"Office"</span><span class="token punctuation">,</span> <span class="token string">"Ranjan"</span><span class="token punctuation">)</span>
+</code></pre>
+</div>
+
