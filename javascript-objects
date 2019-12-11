@@ -1,7 +1,7 @@
 <div class="stackedit__html"><h1 id="hidden-secrets-of-javascript-objects">Hidden secrets of JavaScript Objects</h1>
-<p>JavaScript objects besides being simple pairs of keys and values hold a lot more peculiarities. Let us explore them one by one.</p>
+<p>There are some aspects of JavaScript objects that are not apparent in its general usage. Let us explore them one by one.</p>
 <h3 id="object-prototype">Object Prototype</h3>
-<p>JavaScript Objects consist of key value pairs defined by the user AND a key called <code>__proto__</code> with a pointer to another object as its value. We call this ‘another object’ the object’s prototype.</p>
+<p>Any object you define in JavaScript, besides the keys you define, also contains a key called <code>__proto__</code> with a pointer to another object as its value. We call this ‘another object’ the object’s prototype.</p>
 <h4 id="prototype-chain">Prototype Chain</h4>
 <p>If a key is not present in an object then JavaScript will look for the key in its prototype. This would continue till an Object with null prototype is reached. This is called ‘prototype chain’.</p>
 <h3 id="creating-an-object">Creating an Object</h3>
