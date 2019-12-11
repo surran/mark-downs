@@ -24,7 +24,7 @@
 },
  {
 	"name": "Determining/Specifying context of a function call in JavaScript",
-	"desc": "JavaScript objects besides being simple pairs of keys and values hold a lot more peculiarities. Let's explore",
+	"desc": "A typical function calls in javascript passes lot more than arguments. Let's explore",
 	"handle": "javascript-objects",
 	"searchTerms": [],
 	"tags": ["coding"],
