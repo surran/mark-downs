@@ -28,7 +28,7 @@
 <span class="token keyword">echo</span> Build Successful
 
 	<span class="token comment"># Copy to build-stable folder in case the build is successful</span>
-<span class="token function">cp</span> -R build build-stable 
+<span class="token function">cp</span> -rf build/* build-stable 
 	<span class="token comment"># Use build-stable instead of build folder to serve files</span>
 </code></pre>
 <p>Save the file and grant execute permissions by running</p>
