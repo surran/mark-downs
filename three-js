@@ -4,42 +4,42 @@
 <p>The objective of this note is to cover setup and step by step build up of a basic 3d project.</p>
 <h3 id="setup">Setup</h3>
 <p>Start by creating a development folder and within it create a <code>index.html</code> file. Copy and paste the below code in it</p>
-<pre class=" language-js"><code class="prism  language-js"><span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span>html lang<span class="token operator">=</span><span class="token string">"en"</span><span class="token operator">&gt;</span>
-  <span class="token operator">&lt;</span>head<span class="token operator">&gt;</span>
-    <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span>Three<span class="token punctuation">.</span>js Basic Setup<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">&gt;</span>
-    <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token operator">&gt;</span>
-    <span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string">"viewport"</span> content<span class="token operator">=</span><span class="token string">"width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"</span><span class="token operator">&gt;</span>
+<pre class=" language-html"><code class="prism  language-html"><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Three.js Basic Setup<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
 
-    <span class="token operator">&lt;</span>style<span class="token operator">&gt;</span>
-      body <span class="token punctuation">{</span>
-        background<span class="token operator">-</span>color<span class="token punctuation">:</span> #f0f0f0<span class="token punctuation">;</span>
-        color<span class="token punctuation">:</span> #<span class="token number">444</span><span class="token punctuation">;</span>
-        text<span class="token operator">-</span>align<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
-        font<span class="token operator">-</span>family<span class="token punctuation">:</span> Monospace<span class="token punctuation">;</span>
-        font<span class="token operator">-</span>size<span class="token punctuation">:</span> 13px<span class="token punctuation">;</span>
-        line<span class="token operator">-</span>height<span class="token punctuation">:</span> 24px<span class="token punctuation">;</span>
-        overscroll<span class="token operator">-</span>behavior<span class="token punctuation">:</span> none<span class="token punctuation">;</span>
-        margin<span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
+      <span class="token selector">body </span><span class="token punctuation">{</span>
+        <span class="token property">background-color</span><span class="token punctuation">:</span> <span class="token hexcode">#f0f0f0</span><span class="token punctuation">;</span>
+        <span class="token property">color</span><span class="token punctuation">:</span> <span class="token hexcode">#444</span><span class="token punctuation">;</span>
+        <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+        <span class="token property">font-family</span><span class="token punctuation">:</span> Monospace<span class="token punctuation">;</span>
+        <span class="token property">font-size</span><span class="token punctuation">:</span> <span class="token number">13</span>px<span class="token punctuation">;</span>
+        <span class="token property">line-height</span><span class="token punctuation">:</span> <span class="token number">24</span>px<span class="token punctuation">;</span>
+        <span class="token property">overscroll-behavior</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+        <span class="token property">margin</span><span class="token punctuation">:</span> <span class="token number">0</span>px<span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
 
-      canvas <span class="token punctuation">{</span>
-        display<span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+      <span class="token selector">canvas </span><span class="token punctuation">{</span>
+        <span class="token property">display</span><span class="token punctuation">:</span> block<span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
 
-      #id <span class="token punctuation">{</span>
-        position<span class="token punctuation">:</span>absolute<span class="token punctuation">;</span> 
-        width<span class="token punctuation">:</span>100vw<span class="token punctuation">;</span>
+      <span class="token selector"><span class="token id">#id</span> </span><span class="token punctuation">{</span>
+        <span class="token property">position</span><span class="token punctuation">:</span>absolute<span class="token punctuation">;</span> 
+        <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">100</span>vw<span class="token punctuation">;</span>
       <span class="token punctuation">}</span>
 
-    <span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span>
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
 
-  <span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">&gt;</span>
-  <span class="token operator">&lt;</span>body<span class="token operator">&gt;</span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
 
-    <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"info"</span> style<span class="token operator">=</span><span class="token string">"position:absolute; width:100vw;"</span><span class="token operator">&gt;</span>Three<span class="token punctuation">.</span>js Basic Setup<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>info<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">position</span><span class="token punctuation">:</span>absolute<span class="token punctuation">;</span> <span class="token property">width</span><span class="token punctuation">:</span><span class="token number">100</span>vw<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>Three.js Basic Setup<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
 
-    <span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"module"</span><span class="token operator">&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>module<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token script language-javascript">
       <span class="token keyword">import</span> <span class="token string">'https://threejs.org/build/three.min.js'</span>
 
       <span class="token keyword">function</span> <span class="token function">defineCamera</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -100,9 +100,9 @@
 
       <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
       
-    <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
-  <span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">&gt;</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">&gt;</span>
+    </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
 <p>Host the index.html file on a local server. If you dont have a local server already installed,  you can try <a href="https://www.npmjs.com/package/http-server">https://www.npmjs.com/package/http-server</a></p>
 <h3 id="execution">Execution</h3>
