@@ -1,0 +1,157 @@
+<div class="stackedit__html"><h1 id="display-and-handle-a-3d-object-on-browser">Display and handle a 3D object on browser</h1>
+<h3 id="objective">Objective</h3>
+<p>If your requirement involves displaying 3d objects on browser,  you would invariably come across a javascript library called three.js</p>
+<p>The objective of this note is to cover setup and step by step build up of a basic 3d project.</p>
+<h3 id="setup">Setup</h3>
+<p>Start by creating a development folder and within it create a <code>index.html</code> file. Copy and paste the below code in it</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>html lang<span class="token operator">=</span><span class="token string">"en"</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>head<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span>Three<span class="token punctuation">.</span>js Basic Setup<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>meta charset<span class="token operator">=</span><span class="token string">"utf-8"</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>meta name<span class="token operator">=</span><span class="token string">"viewport"</span> content<span class="token operator">=</span><span class="token string">"width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"</span><span class="token operator">&gt;</span>
+
+    <span class="token operator">&lt;</span>style<span class="token operator">&gt;</span>
+      body <span class="token punctuation">{</span>
+        background<span class="token operator">-</span>color<span class="token punctuation">:</span> #f0f0f0<span class="token punctuation">;</span>
+        color<span class="token punctuation">:</span> #<span class="token number">444</span><span class="token punctuation">;</span>
+        text<span class="token operator">-</span>align<span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+        font<span class="token operator">-</span>family<span class="token punctuation">:</span> Monospace<span class="token punctuation">;</span>
+        font<span class="token operator">-</span>size<span class="token punctuation">:</span> 13px<span class="token punctuation">;</span>
+        line<span class="token operator">-</span>height<span class="token punctuation">:</span> 24px<span class="token punctuation">;</span>
+        overscroll<span class="token operator">-</span>behavior<span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+        margin<span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      canvas <span class="token punctuation">{</span>
+        display<span class="token punctuation">:</span> block<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+      #id <span class="token punctuation">{</span>
+        position<span class="token punctuation">:</span>absolute<span class="token punctuation">;</span> 
+        width<span class="token punctuation">:</span>100vw<span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+
+    <span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span>
+
+  <span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>body<span class="token operator">&gt;</span>
+
+    <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"info"</span> style<span class="token operator">=</span><span class="token string">"position:absolute; width:100vw;"</span><span class="token operator">&gt;</span>Three<span class="token punctuation">.</span>js Basic Setup<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+
+    <span class="token operator">&lt;</span>script type<span class="token operator">=</span><span class="token string">"module"</span><span class="token operator">&gt;</span>
+      <span class="token keyword">import</span> <span class="token string">'https://threejs.org/build/three.min.js'</span>
+
+      <span class="token keyword">function</span> <span class="token function">defineCamera</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> camera <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>PerspectiveCamera</span><span class="token punctuation">(</span> <span class="token number">45</span><span class="token punctuation">,</span> window<span class="token punctuation">.</span>innerWidth <span class="token operator">/</span> window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">10000</span> <span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token punctuation">;</span>
+        camera<span class="token punctuation">.</span>position<span class="token punctuation">.</span><span class="token keyword">set</span><span class="token punctuation">(</span> <span class="token number">500</span><span class="token punctuation">,</span> <span class="token number">800</span><span class="token punctuation">,</span> <span class="token number">1300</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        camera<span class="token punctuation">.</span><span class="token function">lookAt</span><span class="token punctuation">(</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> camera
+      <span class="token punctuation">}</span>
+      
+      <span class="token keyword">const</span> <span class="token function-variable function">defineObjectsInScene</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> <span class="token function-variable function">edgesObject</span> <span class="token operator">=</span> <span class="token punctuation">(</span>geometry<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> edges <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>EdgesGeometry</span><span class="token punctuation">(</span>geometry<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">const</span> edgesMaterial <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>LineBasicMaterial</span><span class="token punctuation">(</span><span class="token punctuation">{</span>color<span class="token punctuation">:</span> <span class="token number">0xffffff</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">const</span> edgesMesh <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>LineSegments</span><span class="token punctuation">(</span>edges<span class="token punctuation">,</span> edgesMaterial<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span> edgesMesh<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">const</span> <span class="token function-variable function">surfaceObject</span> <span class="token operator">=</span> <span class="token punctuation">(</span>geometry<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> material <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>MeshBasicMaterial</span><span class="token punctuation">(</span> <span class="token punctuation">{</span>color<span class="token punctuation">:</span><span class="token number">0x880000</span> <span class="token punctuation">}</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">const</span> surfaceMesh <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>Mesh</span><span class="token punctuation">(</span> geometry<span class="token punctuation">,</span> material<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">return</span> surfaceMesh<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">const</span> <span class="token function-variable function">coneGeometry</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> geometry <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>CylinderGeometry</span><span class="token punctuation">(</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">,</span> <span class="token number">20</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token comment">//geometry.position.add(new THREE.Vector3( 0, 250, 0 ))</span>
+          <span class="token keyword">return</span> geometry
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">const</span> geometry <span class="token operator">=</span> <span class="token function">coneGeometry</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span> <span class="token punctuation">[</span><span class="token function">surfaceObject</span><span class="token punctuation">(</span>geometry<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">edgesObject</span><span class="token punctuation">(</span>geometry<span class="token punctuation">)</span><span class="token punctuation">]</span>
+      <span class="token punctuation">}</span>       
+
+      <span class="token keyword">const</span> <span class="token function-variable function">defineScene</span> <span class="token operator">=</span> <span class="token punctuation">(</span>objectsInScene<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> scene <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>Scene</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        scene<span class="token punctuation">.</span>background <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>Color</span><span class="token punctuation">(</span> <span class="token number">0xf0f0f0</span> <span class="token punctuation">)</span>
+        objectsInScene<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>obj <span class="token operator">=&gt;</span> scene<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span>obj<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> scene
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">const</span> <span class="token function-variable function">render</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>WebGLRenderer</span><span class="token punctuation">(</span> <span class="token punctuation">{</span> antialias<span class="token punctuation">:</span> <span class="token boolean">true</span> <span class="token punctuation">}</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        renderer<span class="token punctuation">.</span><span class="token function">setPixelRatio</span><span class="token punctuation">(</span> window<span class="token punctuation">.</span>devicePixelRatio <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        renderer<span class="token punctuation">.</span><span class="token function">setSize</span><span class="token punctuation">(</span> window<span class="token punctuation">.</span>innerWidth<span class="token punctuation">,</span> window<span class="token punctuation">.</span>innerHeight <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span> renderer<span class="token punctuation">.</span>domElement <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> renderer
+      <span class="token punctuation">}</span>
+
+      <span class="token keyword">const</span> <span class="token function-variable function">main</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> objectsInScene <span class="token operator">=</span> <span class="token function">defineObjectsInScene</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">const</span> scene <span class="token operator">=</span> <span class="token function">defineScene</span><span class="token punctuation">(</span>objectsInScene<span class="token punctuation">)</span>
+        <span class="token keyword">const</span> camera <span class="token operator">=</span> <span class="token function">defineCamera</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">defineRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+        renderer<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>scene<span class="token punctuation">,</span> camera<span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+
+      <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      
+    <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">&gt;</span>
+</code></pre>
+<p>Host the index.html file on a local server. If you dont have a local server already installed,  you can try <a href="https://www.npmjs.com/package/http-server">https://www.npmjs.com/package/http-server</a></p>
+<h3 id="execution">Execution</h3>
+<p>On running the code you should see the following page on localhost</p>
+<p>The core components of the code are the function calls made in the <code>main</code> function:</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> objectsInScene <span class="token operator">=</span> <span class="token function">defineObjectsInScene</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> scene <span class="token operator">=</span> <span class="token function">defineScene</span><span class="token punctuation">(</span>objectsInScene<span class="token punctuation">)</span>
+<span class="token keyword">const</span> camera <span class="token operator">=</span> <span class="token function">defineCamera</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">defineRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+renderer<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>scene<span class="token punctuation">,</span> camera<span class="token punctuation">)</span>
+</code></pre>
+<ul>
+<li><code>defineObjectsInScene</code> defines geometry and materials. It returns a list of all objects that are to be rendered,</li>
+<li><code>defineScene</code> defines the background where these objects are to be shown</li>
+<li><code>defineCamera</code> defines the point of view</li>
+<li><code>defineRenderer</code> defines rendering engine for displaying 3d graphics</li>
+<li>And finally <code>renderer.render(scene, camera)</code> integrates all together.</li>
+</ul>
+<h3 id="adding-features">Adding features</h3>
+<p>Here are some more things you can add to the above basic code setup</p>
+<h4 id="add-continious-3d-rotation">Add Continious 3D rotation</h4>
+<p>Define a animate function</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> <span class="token function-variable function">animate</span> <span class="token operator">=</span> <span class="token punctuation">(</span>objectsInScene<span class="token punctuation">,</span> scene<span class="token punctuation">,</span> camera<span class="token punctuation">,</span> renderer<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+
+  <span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">animate</span><span class="token punctuation">(</span>objectsInScene<span class="token punctuation">,</span> scene<span class="token punctuation">,</span> camera<span class="token punctuation">,</span> renderer<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  objectsInScene<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span> object <span class="token operator">=&gt;</span> object<span class="token punctuation">.</span>rotation<span class="token punctuation">.</span>x <span class="token operator">+=</span> <span class="token number">0.01</span><span class="token punctuation">)</span>
+  objectsInScene<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span> object <span class="token operator">=&gt;</span> object<span class="token punctuation">.</span>rotation<span class="token punctuation">.</span>y <span class="token operator">+=</span> <span class="token number">0.02</span><span class="token punctuation">)</span>
+
+  renderer<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span> scene<span class="token punctuation">,</span> camera <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>call it instead of renderer.render function</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token comment">// replace renderer.render(scene, camera) with the below function call</span>
+<span class="token function">animate</span><span class="token punctuation">(</span>objectsInScene<span class="token punctuation">,</span> scene<span class="token punctuation">,</span> camera<span class="token punctuation">,</span> renderer<span class="token punctuation">)</span>
+</code></pre>
+<h4 id="add-3d-orbit-controls">Add 3D Orbit Controls</h4>
+<p>Add</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">import</span> <span class="token string">'https://threejs.org/examples/js/controls/OrbitControls.js'</span>
+</code></pre>
+<p>Define orbit controls function</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> <span class="token function-variable function">defineOrbitControls</span> <span class="token operator">=</span> <span class="token punctuation">(</span>camera<span class="token punctuation">,</span> renderer<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">new</span> <span class="token class-name">THREE<span class="token punctuation">.</span>OrbitControls</span><span class="token punctuation">(</span>camera<span class="token punctuation">,</span> renderer<span class="token punctuation">.</span>domElement<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>call it before animate function. Note since Orbit controls require re-rendering of scene, having an animate function is necessary for controls to work.</p>
+<p>3D orbit controls allow for rotate, pan and zoom using left, right and middle mouse buttons respectively.</p>
+</div>
+
