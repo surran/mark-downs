@@ -1,6 +1,6 @@
 <div class="stackedit__html"><h1 id="display-and-handle-a-3d-object-on-browser">Display and handle a 3D object on browser</h1>
 <h3 id="objective">Objective</h3>
-<p>If your requirement involves displaying 3d objects on browser,  you would invariably come across a javascript library called three.js</p>
+<p>If your requirement involves displaying 3d objects on browser,  you would invariably come across a JavaScript library called three.js</p>
 <p>The objective of this note is to cover setup and step by step build up of a basic 3d project.</p>
 <h3 id="setup">Setup</h3>
 <p>Start by creating a development folder and within it create a <code>index.html</code> file. Copy and paste the below code in it</p>
@@ -104,7 +104,7 @@
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p>Host the index.html file on a local server. If you dont have a local server already installed,  you can try <a href="https://www.npmjs.com/package/http-server">https://www.npmjs.com/package/http-server</a></p>
+<p>Host the index.html file on a local server. If you don’t have a local server already installed,  you can try <a href="https://www.npmjs.com/package/http-server">https://www.npmjs.com/package/http-server</a></p>
 <h3 id="execution">Execution</h3>
 <p>On running the code you should see the following page on localhost</p>
 <p><img src="https://surran.github.io/mark-downs/assets/three-js.png" alt="Cone graphic"></p>
@@ -125,7 +125,7 @@ renderer<span class="token punctuation">.</span><span class="token function">ren
 </ul>
 <h3 id="adding-features">Adding features</h3>
 <p>Here are some more things you can add to the above basic code setup</p>
-<h4 id="add-continious-3d-rotation">Add Continious 3D rotation</h4>
+<h4 id="add-continuous-3d-rotation">Add Continuous 3D rotation</h4>
 <p>Define a animate function</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> <span class="token function-variable function">animate</span> <span class="token operator">=</span> <span class="token punctuation">(</span>objectsInScene<span class="token punctuation">,</span> scene<span class="token punctuation">,</span> camera<span class="token punctuation">,</span> renderer<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
 
@@ -154,5 +154,17 @@ renderer<span class="token punctuation">.</span><span class="token function">ren
 </code></pre>
 <p>call it before animate function. Note since Orbit controls require re-rendering of scene, having an animate function is necessary for controls to work.</p>
 <p>3D orbit controls allow for rotate, pan and zoom using left, right and middle mouse buttons respectively.</p>
+<h4 id="re-render-on-window-resize">Re render on window resize</h4>
+<p>Define window resize function</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> <span class="token function-variable function">onWindowResize</span> <span class="token operator">=</span> <span class="token punctuation">(</span>camera<span class="token punctuation">,</span> renderer<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  camera<span class="token punctuation">.</span>aspect <span class="token operator">=</span> window<span class="token punctuation">.</span>innerWidth <span class="token operator">/</span> window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">;</span>
+  camera<span class="token punctuation">.</span><span class="token function">updateProjectionMatrix</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  renderer<span class="token punctuation">.</span><span class="token function">setSize</span><span class="token punctuation">(</span> window<span class="token punctuation">.</span>innerWidth<span class="token punctuation">,</span> window<span class="token punctuation">.</span>innerHeight <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+</code></pre>
+<p>add a event listener for it in main function</p>
+<pre class=" language-js"><code class="prism  language-js">window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span> <span class="token string">'resize'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> 
+  <span class="token function">onWindowResize</span><span class="token punctuation">(</span>camera<span class="token punctuation">,</span> renderer<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token boolean">false</span> <span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 </div>
 
