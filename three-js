@@ -1,6 +1,6 @@
 <div class="stackedit__html"><h1 id="display-and-handle-a-3d-object-on-browser">Display and handle a 3D object on browser</h1>
 <h3 id="objective">Objective</h3>
-<p>If your requirement involves displaying 3d objects on browser,  you would invariably come across a JavaScript library called three.js</p>
+<p>If your requirement involves displaying 3D objects on browser,  you would invariably come across a JavaScript library called three.js</p>
 <p>The objective of this note is to cover setup and step by step build up of a basic 3d project.</p>
 <h3 id="setup">Setup</h3>
 <p>Start by creating a development folder and within it create a <code>index.html</code> file. Copy and paste the below code in it</p>
