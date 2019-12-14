@@ -107,6 +107,7 @@
 <p>Host the index.html file on a local server. If you dont have a local server already installed,  you can try <a href="https://www.npmjs.com/package/http-server">https://www.npmjs.com/package/http-server</a></p>
 <h3 id="execution">Execution</h3>
 <p>On running the code you should see the following page on localhost</p>
+<p><img src="https://surran.github.io/mark-downs/assets/three-js.png" alt="Cone graphic"></p>
 <p>The core components of the code are the function calls made in the <code>main</code> function:</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> objectsInScene <span class="token operator">=</span> <span class="token function">defineObjectsInScene</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 <span class="token keyword">const</span> scene <span class="token operator">=</span> <span class="token function">defineScene</span><span class="token punctuation">(</span>objectsInScene<span class="token punctuation">)</span>
