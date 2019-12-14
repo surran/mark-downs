@@ -24,7 +24,7 @@
 },
 {
 	"name": "Display and handle a 3D object on browser",
-	"desc": "Covers setup and step by step build up of a basic 3d project in three.js",
+	"desc": "Covers setup and step by step build up of a basic 3D project in three.js",
 	"handle": "three-js",
 	"searchTerms": [],
 	"tags": ["explore"],
