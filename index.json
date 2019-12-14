@@ -22,6 +22,14 @@
 	"tags": ["coding"],
 	"date": "2019-12-11"
 },
+{
+	"name": "Display and handle a 3D object on browser",
+	"desc": "Covers setup and step by step build up of a basic 3d project in three.js",
+	"handle": "three-js",
+	"searchTerms": [],
+	"tags": ["explore"],
+	"date": "2019-12-14"
+},
  {
 	"name": "Determining/Specifying context of a function call in JavaScript",
 	"desc": "A typical function calls in javascript passes lot more than arguments. Let's explore",
