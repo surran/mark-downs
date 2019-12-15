@@ -33,7 +33,7 @@
  {
 	"name": "Determining/Specifying context of a function call in JavaScript",
 	"desc": "A typical function calls in javascript passes lot more than arguments. Let's explore",
-	"handle": "javascript-objects",
+	"handle": "function-context",
 	"searchTerms": [],
 	"tags": ["coding"],
 	"date": "2019-12-11"
