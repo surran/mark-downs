@@ -1,0 +1,50 @@
+<div class="stackedit__html"><h1 id="parallel-processing-in-javascript">Parallel processing in Javascript</h1>
+<h3 id="scenario">Scenario</h3>
+<p>The javascript page has 1 or more numerical computation processes embedded in it. The page also has a dynamic user interface. The objectives here are to complete all the nummerical computation processes as quick as possible and at the same time make sure the page remains nimble enough while these computations are happening</p>
+<h3 id="solution">Solution</h3>
+<p>We explore the idea of parallel processing in solving this. Our javascript implementation will be based on the concept of Webworkers. These allow the page to run several computational processes (not involving DOM) in their own separate threads. Webworker threads are spawed by javascript’s main thread for the page. They run in parallel without affecting each others or the main page’s performance.</p>
+<p>Let us start by writing a javascript snippet that defines a task. Create a file called task1.js and copy paste the following code in it.</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> <span class="token function-variable function">getCurrentTime</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">var</span> d <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">return</span> d<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> initialTime <span class="token operator">=</span> <span class="token function">getCurrentTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> <span class="token number">10000000</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span>
+<span class="token punctuation">{</span>
+	<span class="token keyword">let</span> isOdd <span class="token operator">=</span> <span class="token boolean">true</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>i<span class="token operator">%</span><span class="token number">2</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		isOdd <span class="token operator">=</span> <span class="token boolean">true</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">var</span> d <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	<span class="token keyword">let</span> timeDifference <span class="token operator">=</span> d<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> initialTime
+<span class="token punctuation">}</span>
+
+<span class="token keyword">let</span> timeDifference <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token function">getCurrentTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> initialTime<span class="token punctuation">)</span><span class="token operator">/</span><span class="token number">1000</span>
+<span class="token function">postMessage</span><span class="token punctuation">(</span><span class="token string">"Task 1 took "</span> <span class="token operator">+</span> timeDifference <span class="token operator">+</span> <span class="token string">" seconds"</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Create another file called task2.js and copy paste the above in it also. To differentiate the output of this file replace “Task 1 took” with “Task 2 took” in the last linke of the code</p>
+<p>Now let us write a html file to invoke these processes in parallel threads. Create a file called index.html and copy and paste the following code in it.</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
+  <span class="token keyword">let</span> worker1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Worker</span><span class="token punctuation">(</span><span class="token string">'task1.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> worker2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Worker</span><span class="token punctuation">(</span><span class="token string">'task2.js'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  worker1<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  worker2<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'message'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
+</code></pre>
+<p>Host the index.html file on a local server. If you don’t have a local server already installed,  you can try <a href="https://www.npmjs.com/package/http-server">https://www.npmjs.com/package/http-server</a></p>
+<p>When you run the above index.html on browser, it should produce an output similar to:</p>
+<pre class=" language-bash"><code class="prism  language-bash">Task 2 took 2.257 seconds
+Task 1 took 2.301 seconds
+</code></pre>
+<p>You would also note that both processes reach completion simultaneously rather than one after the other. This happens because both the processes are spawned simultaneously and run in parallel on different threads.</p>
+<p>You can play around by increasing/decreasing individual task processing times (by manipulating loop lengths). You can try running more such tasks in parallel. Maximum number of web workers that can be spawned are a property of the browser and its version.</p>
+</div>
+
