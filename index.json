@@ -7,6 +7,14 @@
 	"date": "2019-12-07"
 },
 {
+	"name": "Parallel Processing in Javascript",
+	"desc": "Ways to run several numerical computations in parallel without slowing down the page UI.",
+	"handle": "parallel-processing",
+	"searchTerms": [],
+	"tags": ["tools"],
+	"date": "2019-17-07"
+},
+{
 	"name": "Continious deployment to server on every code push",
 	"desc": "Does your code deployment routine involve manual steps or website down time. Here are some ways to improve.",
 	"handle": "push-deploy",
