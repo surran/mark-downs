@@ -77,4 +77,12 @@
 	"searchTerms": ["Rewrite", "Rule", "Virtual", "Host"],
 	"tags": ["backend"],
 	"date": "2019-12-5"
+},
+{
+	"name": "Adding Social share buttons to your webpage",
+	"desc": "Encourage users to link to your website from various social media platforms.",
+	"handle": "social-share-buttons",
+	"searchTerms": [],
+	"tags": ["share"],
+	"date": "2019-12-31"
 }]
