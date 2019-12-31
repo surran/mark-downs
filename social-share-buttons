@@ -1,0 +1,50 @@
+<div class="stackedit__html"><h1 id="adding-social-share-buttons-to-your-website">Adding Social share buttons to your website</h1>
+<h3 id="scenario">Scenario</h3>
+<p>Social share buttons encourage users to link to your website from their profile on various social media platforms.</p>
+<h3 id="solution">Solution</h3>
+<p>Adding a social share button requires the following steps:</p>
+<ol>
+<li>Figure out the sharer link</li>
+<li>Obtain svg graphic of sharer icon</li>
+<li>Create an anchor tag with above sharer link and icon</li>
+<li>Test share</li>
+</ol>
+<p>Sharer link and sharer icon for various social media platforms are listed below.</p>
+<h4 id="facebook">Facebook</h4>
+<pre><code>https://www.facebook.com/sharer/sharer.php?caption=${post_caption}&amp;u={url}
+</code></pre>
+<p>You can use the below svg code to get the facebook button icon <sub><svg id="facebook_social_icon" viewBox="0 0 18 18" width="30px" fill="#3b5998"><br></br>
+<path d="M15.7,1.5H2.3c-0.5,0-0.8,0.4-0.8,0.8v13.3c0,0.5,0.4,0.8,0.8,0.8h7.2v-5.8h-2V8.4h2V6.8c0-1.9,1.2-3,2.9-3 c0.8,0,1.5,0.1,1.7,0.1v2l-1.2,0c-0.9,0-1.1,0.4-1.1,1.1v1.4h2.2l-0.3,2.3h-1.9v5.8h3.8c0.5,0,0.8-0.4,0.8-0.8V2.3 C16.5,1.9,16.1,1.5,15.7,1.5z"><br></br>
+</path><br></br>
+</svg></sub></p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token operator">&lt;</span>svg id<span class="token operator">=</span><span class="token string">"facebook_social_icon"</span> viewBox<span class="token operator">=</span><span class="token string">"0 0 18 18"</span> width<span class="token operator">=</span><span class="token string">"30px"</span>  fill<span class="token operator">=</span><span class="token string">"#3b5998"</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>path d<span class="token operator">=</span><span class="token string">"M15.7,1.5H2.3c-0.5,0-0.8,0.4-0.8,0.8v13.3c0,0.5,0.4,0.8,0.8,0.8h7.2v-5.8h-2V8.4h2V6.8c0-1.9,1.2-3,2.9-3 c0.8,0,1.5,0.1,1.7,0.1v2l-1.2,0c-0.9,0-1.1,0.4-1.1,1.1v1.4h2.2l-0.3,2.3h-1.9v5.8h3.8c0.5,0,0.8-0.4,0.8-0.8V2.3 C16.5,1.9,16.1,1.5,15.7,1.5z"</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>path<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>svg<span class="token operator">&gt;</span>
+</code></pre>
+<h4 id="twitter">Twitter</h4>
+<p>For Twitter share button, create an anchor linking to the below url</p>
+<pre><code>https://twitter.com/intent/tweet?text={post_caption}&amp;url={url}
+</code></pre>
+<p>You can use the below svg code to get the twitter button icon <sub><svg id="twitter_social_icon" viewBox="0 0 18 18" width="30px" fill="#1dcaff"><path d="M16.5,4.3c-0.6,0.2-1.1,0.4-1.8,0.5c0.6-0.4,1.1-1,1.4-1.7c-0.6,0.4-1.3,0.6-2,0.8c-0.6-0.6-1.4-1-2.2-1 c-1.7,0-3.1,1.4-3.1,3.1c0,0.2,0,0.5,0.1,0.7C6.3,6.5,4.1,5.3,2.5,3.4C2.3,3.9,2.1,4.4,2.1,5c0,1.1,0.5,2,1.4,2.6 c-0.5,0-1-0.2-1.4-0.4c0,0,0,0,0,0c0,1.5,1.1,2.8,2.5,3.1c-0.3,0.1-0.5,0.1-0.8,0.1c-0.2,0-0.4,0-0.6-0.1c0.4,1.2,1.5,2.1,2.9,2.2 c-1.1,0.8-2.4,1.3-3.8,1.3c-0.2,0-0.5,0-0.7,0c1.4,0.9,3,1.4,4.7,1.4c5.7,0,8.8-4.7,8.8-8.9c0-0.1,0-0.3,0-0.4 C15.6,5.5,16.1,4.9,16.5,4.3"></path></svg></sub></p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token operator">&lt;</span>svg id<span class="token operator">=</span><span class="token string">"twitter_social_icon"</span> viewBox<span class="token operator">=</span><span class="token string">"0 0 18 18"</span> width<span class="token operator">=</span><span class="token string">"30px"</span> fill<span class="token operator">=</span><span class="token string">"#1dcaff"</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>path d<span class="token operator">=</span><span class="token string">"M16.5,4.3c-0.6,0.2-1.1,0.4-1.8,0.5c0.6-0.4,1.1-1,1.4-1.7c-0.6,0.4-1.3,0.6-2,0.8c-0.6-0.6-1.4-1-2.2-1 c-1.7,0-3.1,1.4-3.1,3.1c0,0.2,0,0.5,0.1,0.7C6.3,6.5,4.1,5.3,2.5,3.4C2.3,3.9,2.1,4.4,2.1,5c0,1.1,0.5,2,1.4,2.6 c-0.5,0-1-0.2-1.4-0.4c0,0,0,0,0,0c0,1.5,1.1,2.8,2.5,3.1c-0.3,0.1-0.5,0.1-0.8,0.1c-0.2,0-0.4,0-0.6-0.1c0.4,1.2,1.5,2.1,2.9,2.2 c-1.1,0.8-2.4,1.3-3.8,1.3c-0.2,0-0.5,0-0.7,0c1.4,0.9,3,1.4,4.7,1.4c5.7,0,8.8-4.7,8.8-8.9c0-0.1,0-0.3,0-0.4 C15.6,5.5,16.1,4.9,16.5,4.3"</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>path<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>svg<span class="token operator">&gt;</span>
+</code></pre>
+<h4 id="linkedin">Linkedin</h4>
+<p>For Linkedin share button, create an anchor linking to the below url</p>
+<pre><code>https://www.facebook.com/sharer/sharer.php?caption=${post_caption}&amp;u={url}
+</code></pre>
+<p>You can use the below svg code to get the linkedin button icon <sub><svg id="twitter_social_icon" viewBox="0 0 18 18" width="30px" fill="#0e76a8"><br></br>
+<path d="M15.4,1.5H2.6C2,1.5,1.5,2,1.5,2.6v12.8c0,0.6,0.5,1.1,1.1,1.1h12.8c0.6,0,1.1-0.5,1.1-1.1V2.6C16.5,2,16,1.5,15.4,1.5z M3.8,7.1H6v7.2H3.8V7.1z M4.9,6.1c-0.7,0-1.3-0.6-1.3-1.3c0-0.7,0.6-1.3,1.3-1.3c0.7,0,1.3,0.6,1.3,1.3C6.2,5.6,5.6,6.1,4.9,6.1z M14.5,14.3h-2.3v-3.5c0-0.8,0-1.9-1.2-1.9c-1.2,0-1.4,0.9-1.4,1.8v3.5H7.4V7.1h2.2v1h0c0.3-0.6,1-1.2,2.1-1.2 c2.3,0,2.7,1.5,2.7,3.4V14.3z"></path></svg></sub></p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token operator">&lt;</span>svg id<span class="token operator">=</span><span class="token string">"twitter_social_icon"</span> viewBox<span class="token operator">=</span><span class="token string">"0 0 18 18"</span> width<span class="token operator">=</span><span class="token string">"30px"</span> fill<span class="token operator">=</span><span class="token string">"#0e76a8"</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>path d<span class="token operator">=</span><span class="token string">"M15.4,1.5H2.6C2,1.5,1.5,2,1.5,2.6v12.8c0,0.6,0.5,1.1,1.1,1.1h12.8c0.6,0,1.1-0.5,1.1-1.1V2.6C16.5,2,16,1.5,15.4,1.5z M3.8,7.1H6v7.2H3.8V7.1z M4.9,6.1c-0.7,0-1.3-0.6-1.3-1.3c0-0.7,0.6-1.3,1.3-1.3c0.7,0,1.3,0.6,1.3,1.3C6.2,5.6,5.6,6.1,4.9,6.1z M14.5,14.3h-2.3v-3.5c0-0.8,0-1.9-1.2-1.9c-1.2,0-1.4,0.9-1.4,1.8v3.5H7.4V7.1h2.2v1h0c0.3-0.6,1-1.2,2.1-1.2 c2.3,0,2.7,1.5,2.7,3.4V14.3z"</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>path<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>svg<span class="token operator">&gt;</span>
+</code></pre>
+<h3 id="test-share">Test Share</h3>
+<p>Use each social share button and view the resulting post.</p>
+<p>Related reading: Enhance social media posts of your website by adding open graph meta tags  <a href="http://terminalnotes.com/facebook-share">http://terminalnotes.com/facebook-share</a></p>
+</div>
+
