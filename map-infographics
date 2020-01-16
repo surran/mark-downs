@@ -1,6 +1,6 @@
 <div class="stackedit__html"><h1 id="display-interactive-info-graphics-on-a-geographical-map">Display interactive info-graphics on a geographical map</h1>
 <p>Let us start from a svg image file of a map. Download <a href="https://upload.wikimedia.org/wikipedia/commons/c/c4/English_official_in_India.svg">https://upload.wikimedia.org/wikipedia/commons/c/c4/English_official_in_India.svg</a> and rename the file as map.svg in your development folder.</p>
-<p>Create a simple index.html to display this file on local server.</p>
+<p>Next create a simple index.html to display this file on local server.</p>
 <pre><code>&lt;img src="map.svg" /&gt;
 </code></pre>
 <p>If you don’t have a local server already installed, you can try <a href="https://www.npmjs.com/package/http-server">https://www.npmjs.com/package/http-server</a></p>
