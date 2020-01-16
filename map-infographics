@@ -4,7 +4,7 @@
 <pre><code>&lt;img src="map.svg" /&gt;
 </code></pre>
 <p>If you don’t have a local server already installed, you can try <a href="https://www.npmjs.com/package/http-server">https://www.npmjs.com/package/http-server</a></p>
-<p>At this point your would show the following graphic</p>
+<p>At this point your browser window should show the following graphic</p>
 <!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 
 <p><svg version="1.1" id="svg3642" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="100%" viewBox="0 0 1476 1680" xml:space="preserve"><br></br>
