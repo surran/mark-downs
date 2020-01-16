@@ -2106,12 +2106,13 @@
 <rect id="rect4190" x="1344.753" y="192.875" fill="none" width="15.5" height="7"></rect><br></br>
 </svg></p>
 <h2 id="adding-features">Adding Features</h2>
+<p>svg images unlike other images formats are fully customizable through JavaScript. Let us see how:</p>
 <h3 id="controlling-colors-of-regions">Controlling colors of Regions</h3>
 <p>If you go through map.svg file you will see each state’s geometry is declared in a separate path tag. Each such path tag has an id which makes changing fill color of a region pretty simple. For example simply run the below code on browser console:</p>
 <pre class=" language-js"><code class="prism  language-js">document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"jharkhand_1_"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"fill"</span> <span class="token punctuation">,</span> <span class="token string">"green"</span><span class="token punctuation">)</span>
 </code></pre>
 <p>You will see that one of the regions on the map turns green.</p>
-<p>The below self contained code renders the map and sets fill color of all regions to purple. Note that here we load the map through JavaScript instead of HTML.</p>
+<p>Now instead of changing color of a single region, lets write a code that sets color of all regions as soon as the map loads.</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">"container"</span> 
      style<span class="token operator">=</span><span class="token string">"width: 100%, height: 100%; overflow: hidden"</span><span class="token operator">&gt;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
@@ -2125,8 +2126,9 @@
       states<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>state <span class="token operator">=&gt;</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"fill"</span><span class="token punctuation">,</span> <span class="token string">"purple"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span>
 </code></pre>
+<p>Copy and paste the above code in a separate .html file and host it on local server. You will see that this loads map.svg through JavaScript (instead of HTML); and on load sets color of regions to purple.</p>
 <h4 id="represent-data-by-color-intensity">Represent Data by Color Intensity</h4>
-<p>Now you know how to control a region’s fill color. Next lets try to show geographical distribution of data using the same.</p>
+<p>Now you know how to control a region’s fill color. Next, lets try to use this to show a geographical data distribution.</p>
 <p>Let us assume we have access to normalized data values. Normalized value for a value v is given by (v - v<sub>min</sub>)/(v<sub>max</sub> - v<sub>min</sub>). For simplicity we use Math.random() function for this.</p>
 <p>The below code uses hsl (Hue, Saturation, and Lightness) color scheme to define fill color intensity based on normalized values.</p>
 <pre class=" language-js"><code class="prism  language-js">states<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span>state <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
