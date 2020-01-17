@@ -38,6 +38,14 @@
 	"tags": ["explore"],
 	"date": "2019-12-14"
 },
+{
+	"name": " Display interactive info-graphics on a geographical map",
+	"desc": "Covers converting a simple svg(Scalable Vector Graphic) image into a interactive info-graphic",
+	"handle": "function-context",
+	"searchTerms": [],
+	"tags": ["coding"],
+	"date": "2020-01-17"
+},
  {
 	"name": "Determining/Specifying context of a function call in JavaScript",
 	"desc": "A typical function calls in javascript passes lot more than arguments. Let's explore",
