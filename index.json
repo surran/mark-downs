@@ -40,7 +40,7 @@
 },
 {
 	"name": " Display interactive info-graphics on a geographical map",
-	"desc": "Covers converting a simple svg(Scalable Vector Graphic) image into a interactive info-graphic",
+	"desc": "Covers converting a simple svg (Scalable Vector Graphic) image into a interactive info-graphic",
 	"handle": "map-infographics",
 	"searchTerms": [],
 	"tags": ["explore"],
