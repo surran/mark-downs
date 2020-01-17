@@ -2106,7 +2106,7 @@
 <rect id="rect4190" x="1344.753" y="192.875" fill="none" width="15.5" height="7"></rect><br></br>
 </svg></p>
 <h2 id="adding-features">Adding Features</h2>
-<p>svg images unlike other images formats are fully customizable through JavaScript. Let us see how:</p>
+<p>Svg (Scalable Vector Graphics) images unlike other images formats are fully customizable through JavaScript. Let us see how:</p>
 <h3 id="controlling-colors-of-regions">Controlling colors of Regions</h3>
 <p>If you go through map.svg file you will see each state’s geometry is declared in a separate path tag. Each such path tag has an id which makes changing fill color of a region pretty simple. For example simply run the below code on browser console:</p>
 <pre class=" language-js"><code class="prism  language-js">document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"jharkhand_1_"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"fill"</span> <span class="token punctuation">,</span> <span class="token string">"green"</span><span class="token punctuation">)</span>
@@ -2145,8 +2145,9 @@ The example uses hsl (Hue, Saturation, and Lightness) color scheme to define fil
   document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span>state<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">"fill"</span><span class="token punctuation">,</span> color<span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 <p>Here values from 0 to 1 are represented on a red-&gt;yellow-&gt;green color scale.</p>
+<p><img src="https://surran.github.io/mark-downs/assets/map-infographics2.png" alt="" title="India Random distribution map"></p>
 <h3 id="zoom-in-zoom-out-functions">Zoom in, zoom out functions</h3>
-<p>Copy and paste the below code in your html</p>
+<p>You can addtionally add click to zoom in/out on svg elements, buttons or text. Here are the zoom functions</p>
 <pre class=" language-js"><code class="prism  language-js">zoomedInFlag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 
 <span class="token keyword">function</span> <span class="token function">zoomToGeometry</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -2171,17 +2172,6 @@ The example uses hsl (Hue, Saturation, and Lightness) color scheme to define fil
 	document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"svg3642"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>transform <span class="token operator">=</span> <span class="token string">"unset"</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>This enables you to zoom in/out to regions using simple functions calls. For example:</p>
-<ol>
-<li>zoom in to jharkhand region</li>
-</ol>
-<pre class=" language-js"><code class="prism  language-js"><span class="token function">zoomToGeometry</span><span class="token punctuation">(</span><span class="token string">"jharkhand_1_"</span><span class="token punctuation">)</span>
-</code></pre>
-<ol start="2">
-<li>zoom out</li>
-</ol>
-<pre class=" language-js"><code class="prism  language-js"><span class="token function">zoomOut</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-</code></pre>
-<p>These functions can be attached to onclick, onhover event in you code</p>
+<p>To zoom  in call <code>zoomToGeometry("jharkhand_1_")</code> and to zoom out call <code>zoomOut()</code></p>
 </div>
 
