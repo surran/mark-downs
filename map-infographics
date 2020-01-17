@@ -2147,7 +2147,7 @@ The example uses hsl (Hue, Saturation, and Lightness) color scheme to define fil
 <p>Here values from 0 to 1 are represented on a red-&gt;yellow-&gt;green color scale.</p>
 <p><img src="https://surran.github.io/mark-downs/assets/map-infographics2.png" alt="" title="India Random distribution map"></p>
 <h3 id="zoom-in-zoom-out-functions">Zoom in, zoom out functions</h3>
-<p>You can addtionally add click to zoom in/out on svg elements, buttons or text. Here are the zoom functions</p>
+<p>You can additionally add click to zoom in/out in the map by attaching function calls to svg elements, buttons or text anchors.  Copy and paste the below snippet in your code and call <code>zoomToGeometry("jharkhand_1_")</code> to zoom in.</p>
 <pre class=" language-js"><code class="prism  language-js">zoomedInFlag <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
 
 <span class="token keyword">function</span> <span class="token function">zoomToGeometry</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">{</span>
@@ -2172,6 +2172,5 @@ The example uses hsl (Hue, Saturation, and Lightness) color scheme to define fil
 	document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"svg3642"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>transform <span class="token operator">=</span> <span class="token string">"unset"</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>To zoom  in call <code>zoomToGeometry("jharkhand_1_")</code> and to zoom out call <code>zoomOut()</code></p>
 </div>
 
