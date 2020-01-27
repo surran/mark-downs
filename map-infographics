@@ -1,4 +1,5 @@
 <div class="stackedit__html"><h1 id="display-interactive-info-graphics-on-a-geographical-map">Display interactive info-graphics on a geographical map</h1>
+<h3 id="getting-started-with-an-svg-image-of-a-map">Getting started with an svg image of a map</h3>
 <p>Let us start from a svg image file of a map. Download <a href="https://upload.wikimedia.org/wikipedia/commons/c/c4/English_official_in_India.svg">https://upload.wikimedia.org/wikipedia/commons/c/c4/English_official_in_India.svg</a> and rename the file as map.svg in your development folder.</p>
 <p>Next create a simple index.html to display this file on local server.</p>
 <pre><code>&lt;img src="map.svg" /&gt;
@@ -73,5 +74,7 @@ The example uses hsl (Hue, Saturation, and Lightness) color scheme to define fil
 	document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"svg3642"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>style<span class="token punctuation">.</span>transform <span class="token operator">=</span> <span class="token string">"unset"</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 </code></pre>
+<h2 id="infomaps-project">InfoMaps Project</h2>
+<p>In this post we developed a framework to add data and interaction to a simple svg. Built on the same principles, here is a project showing the power of interaction infographics <a href="http://www.terminalnotes.com/project/infomaps">www.terminalnotes.com/project/infomaps</a></p>
 </div>
 
