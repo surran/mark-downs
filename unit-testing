@@ -1,0 +1,129 @@
+<div class="stackedit__html"><h1 id="add-unit-testing-to-your-application">Add Unit Testing to your application</h1>
+<h3 id="scenario">Scenario</h3>
+<p>Unit Testing is a level of software testing where individual components of an application are tested. The purpose Unit tests is to statistically validate:</p>
+<ul>
+<li>There are no regressions</li>
+<li>All parts of the code are covered by unit tests</li>
+<li>Key components are covered by multiple tests</li>
+</ul>
+<p>In this note let us build a simple unit test framework using jest for an application.</p>
+<h3 id="solution">Solution</h3>
+<p>The job at hand can be broken down into the following key steps:</p>
+<ul>
+<li>Create development folder, install and configure jest in it.</li>
+<li>Write application and test suite files.</li>
+<li>Figure out how to selectively or collectively run test suites.</li>
+<li>View code coverage Report</li>
+</ul>
+<p>Create a development folder for the application</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">mkdir</span> dev <span class="token operator">&amp;&amp;</span> <span class="token function">cd</span> dev
+</code></pre>
+<p>Initialize a npm project in the folder location</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">npm</span> init -y
+</code></pre>
+<p>Install jest</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">npm</span> i jest --save-dev
+</code></pre>
+<h4 id="babel-installation-and-setup">Babel installation and setup</h4>
+<p>Install <code>@babel/preset-env</code> for running jest on es6 code</p>
+<pre><code>npm install @babel/preset-env
+</code></pre>
+<p>Create a file called <code>.babelrc</code> and copy-&gt;paste the following code in it.</p>
+<pre><code>{ "presets": ["@babel/preset-env"] }
+</code></pre>
+<h2 id="jest-setup">Jest Setup</h2>
+<p>Open <code>package.json</code> file and define “jest” as the value for scripts.test key</p>
+<pre class=" language-json"><code class="prism  language-json">  <span class="token string">"scripts"</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    <span class="token string">"test"</span><span class="token punctuation">:</span> <span class="token string">"jest"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+</code></pre>
+<p>Create a folder called <code>__tests__</code> inside your application folder</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">mkdir</span> __test__
+</code></pre>
+<p>This is the default location used by jest to access test cases. Now let us begin with writing a simple application and a couple of test cases for it.</p>
+<h2 id="jest-application">Jest Application</h2>
+<p>Create a file <code>index.js</code> and copy-&gt;paste the following code in it.</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">export</span> <span class="token keyword">const</span> <span class="token function-variable function">isPositiveEven</span> <span class="token operator">=</span> <span class="token punctuation">(</span>input<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>input <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>input <span class="token operator">%</span> <span class="token number">2</span> <span class="token operator">===</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">true</span>
+    <span class="token keyword">return</span> <span class="token boolean">false</span> 
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Our simple application is a function that returns true or false based on whether a input number is positive even number or not.</p>
+<p>Now create a file <code>index-basic.js</code> inside <code>__tests__</code> folder and copy-&gt;paste the following code in it</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">import</span>  <span class="token punctuation">{</span> isPositiveEven <span class="token punctuation">}</span>  <span class="token keyword">from</span> <span class="token string">'../index'</span><span class="token punctuation">;</span> 
+
+<span class="token function">describe</span><span class="token punctuation">(</span>"B
+asic Test Suite"<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"Check for a even number"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">isPositiveEven</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</code></pre>
+<p>Create another file <code>index-comprehensive.js</code> inside <code>__tests__</code> folder and copy-&gt;paste the following code in it</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">import</span>  <span class="token punctuation">{</span> isPositiveEven <span class="token punctuation">}</span>  <span class="token keyword">from</span> <span class="token string">'../index'</span><span class="token punctuation">;</span>
+
+<span class="token function">describe</span><span class="token punctuation">(</span><span class="token string">"Comprehensive Test Suite"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+   <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"Check for a few even numbers"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">isPositiveEven</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+	    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">isPositiveEven</span><span class="token punctuation">(</span><span class="token number">258</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+	    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">isPositiveEven</span><span class="token punctuation">(</span><span class="token number">47875562</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"Check for non even numbers"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">isPositiveEven</span><span class="token punctuation">(</span><span class="token number">4.2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+	    <span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">isPositiveEven</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+	<span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token function">test</span><span class="token punctuation">(</span><span class="token string">"Check for non positive even numbers"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">isPositiveEven</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+	<span class="token function">expect</span><span class="token punctuation">(</span><span class="token function">isPositiveEven</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toEqual</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>At this point our application and test suite files are ready</p>
+<h2 id="run-test-suites">Run Test Suites</h2>
+<p>Test Suites can be individually or collectively run by executing the <code>test</code> script (defined in <code>package.json</code>)</p>
+<h4 id="all-test-suites">All test suites</h4>
+<p>Command:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">npm</span> <span class="token function">test</span>
+</code></pre>
+<p>Output:</p>
+<pre class=" language-bash"><code class="prism  language-bash"> PASS  __tests__/index-basic.js
+ PASS  __tests__/index-comprehensive.js
+
+Test Suites: 2 passed, 2 total
+Tests:       4 passed, 4 total
+</code></pre>
+<h4 id="basic-test-suite-only">Basic test suite only</h4>
+<p>Command:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">npm</span> <span class="token function">test</span> index-basic 
+</code></pre>
+<p>Output:</p>
+<pre class=" language-bash"><code class="prism  language-bash"> PASS  __tests__/index-basic.js
+ 
+Test Suites: 1 passed, 1 total
+Tests:       1 passed, 1 total
+</code></pre>
+<h4 id="all-test-suites-containing-the-word-index">All test suites containing the word index</h4>
+<p>Command:</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">npm</span> <span class="token function">test</span> index 
+</code></pre>
+<p>Output:</p>
+<pre class=" language-bash"><code class="prism  language-bash"> PASS  __tests__/index-basic.js
+ PASS  __tests__/index-comprehensive.js
+
+Test Suites: 2 passed, 2 total
+Tests:       4 passed, 4 total
+</code></pre>
+<h2 id="code-coverage">Code Coverage</h2>
+<p>You can generate code Code Coverage Report by adding <code>--coverage</code> command line parameter</p>
+<p>Alternatively, you can set it permanantly by adding this as a config in package.json</p>
+<pre><code>"jest": {
+     "collectCoverage": true
+}
+</code></pre>
+<p>Once this parameter is in place, every subsequent test run will produce a code coverage report in the <code>dev/coverage/lcov-report/index.html</code> file.</p>
+<p>Here you can also view code coverage for individual files by clicking on them</p>
+<p>As a follow up exercise you can compare the code coverage reports generated after individually running <code>index-basic</code>  and <code>index-comprehensive</code>test suites.</p>
+</div>
+
