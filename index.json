@@ -1,4 +1,12 @@
 [{
+	"name": "Add Unit Testing to your Application",
+	"desc": "Moving towards automated testing, rapid deployemnt & contininious Integration? Here is a key ingredient.",
+	"handle": "unit-testing",
+	"searchTerms": [],
+	"tags": ["explore"],
+	"date": "2020-2-25"
+},
+	{
 	"name": "Auto process & export Image assets to Web",
 	"desc": "Is resizing, compressing  and uploading images to your website tedious? Here is a way to automate this!",
 	"handle": "web-image-maker",
