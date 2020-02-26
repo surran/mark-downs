@@ -6,6 +6,14 @@
 	"tags": ["explore"],
 	"date": "2020-2-25"
 },
+{
+	"name": "Curry Functions in JavaScript",
+	"desc": "Innovative way to pause, keep and resume processing in code? Found out how",
+	"handle": "curry-functions",
+	"searchTerms": [],
+	"tags": ["coding"],
+	"date": "2020-2-26"
+},
 	{
 	"name": "Auto process & export Image assets to Web",
 	"desc": "Is resizing, compressing  and uploading images to your website tedious? Here is a way to automate this!",
