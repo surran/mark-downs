@@ -1,0 +1,56 @@
+<div class="stackedit__html"><h1 id="curry-functions-in-javascript">Curry Functions in JavaScript</h1>
+<p>Currying is the technique of translating the evaluation of a function that takes multiple arguments into evaluating a sequence of functions. In other words it translates a function f(a, b) into a function sequence f(a)(b)</p>
+<h3 id="curry-a-simple-function">Curry a simple function</h3>
+<p>Let us take a simple function to add two numbers</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> <span class="token function">add</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">+</span> b
+</code></pre>
+<p>Let us now use this function to add two numbers</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Curried implementation of the same function is</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> <span class="token function-variable function">curryAdd</span> <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">return</span> a <span class="token operator">+</span> b
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>This can be called as the below function sequence to yield the same result</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token function">curryAdd</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>
+</code></pre>
+<p>In this example the functions curryAdd and curryAdd(3) were the single argument functions called in sequence.</p>
+<h3 id="curry-recursive-function">Curry recursive function</h3>
+<p>Any recursive function in itself, constitutes of a sequence of function calls. The basic structure of a curry recursive function is:</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> <span class="token function-variable function">curryRecursive</span> <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">/* Code to be executed on first 
+       function call goes here */</span>
+    <span class="token keyword">return</span> <span class="token function-variable function">f</span> <span class="token operator">=</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>terminatingCondition<span class="token punctuation">)</span>
+	    <span class="token keyword">return</span> someValue
+	<span class="token keyword">else</span> <span class="token punctuation">{</span>
+	    <span class="token comment">/* Code to be executed on every 
+	       subsiquent function call 
+	       goes here*/</span>
+	    <span class="token keyword">return</span> f
+	<span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>As a practical application of the above code, let us write a <code>curryAdder</code> which is able to add any sequence of positive numbers (say 4, 3, 6, 6, 9).</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> <span class="token function-variable function">curryAdder</span> <span class="token operator">=</span> <span class="token punctuation">(</span>a<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    total <span class="token operator">=</span> a
+    <span class="token keyword">return</span> <span class="token function-variable function">f</span> <span class="token operator">=</span> <span class="token punctuation">(</span>b<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span><span class="token punctuation">(</span>b <span class="token operator">&lt;</span> <span class="token number">1</span><span class="token punctuation">)</span>
+	    <span class="token keyword">return</span> total
+	<span class="token keyword">else</span> <span class="token punctuation">{</span>
+	    total <span class="token operator">+=</span> b
+	    <span class="token keyword">return</span> f
+	<span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Run the above code by calling</p>
+<pre><code>curryAdd(4)(3)(6)(6)(9)(0) 
+</code></pre>
+<p>You should see the result <code>28</code> getting printed on the console. (Note the last number 0 here is used to formulate the terminating condition)</p>
+</div>
+
