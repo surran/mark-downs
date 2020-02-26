@@ -58,5 +58,6 @@
 <span class="token comment">/* Some code to obtain values 8 and 10 */</span>
 <span class="token keyword">const</span> finalValue <span class="token operator">=</span> <span class="token function">intermediateFunction</span><span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>
 </code></pre>
+<p>This keeping curry functions in intermediate state is a powerful concept that allows a programmer to first configure a curry function (by adding values and parameters at different code locations) and then finally fetch its output.</p>
 </div>
 
