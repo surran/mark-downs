@@ -1,32 +1,32 @@
 <div class="stackedit__html"><h1 id="setup-mongodb-atlas.-access-it-from-local-terminal">Setup MongoDB Atlas. Access it from local terminal</h1>
 <p>MongoDB is a popular NoSQL database that uses JSON like documents with schema. It offers advantages like easy scalability and faster access over traditional RDBMS (Relational Databases)</p>
 <h3 id="scenario">Scenario</h3>
-<p>The Objective of this note is to setup a simple database in mongoDB Atlas (Free Tier) and write to data to it by running a node.js process from terminal</p>
+<p>The Objective of this note is to setup a simple database in mongoDB Atlas (Free Tier) and write a simple script to populate it.</p>
 <h3 id="solution">Solution</h3>
 <p>Key steps:</p>
 <ul>
 <li>Sign up on MongoDB website and create a free Atlas cluster</li>
 <li>Setup Database and Network Access.</li>
-<li>Write node.js code to access database and add sample data (collections) to it.</li>
+<li>Write code to access database and add sample data to it.</li>
 </ul>
 <h4 id="sign-up-on-mongodb">Sign up on MongoDB</h4>
 <p>Sign up on MongoDB landing page <a href="https://www.mongodb.com/cloud/atlas">https://www.mongodb.com/cloud/atlas</a>. After registration you can create a Free Starter cluster<br>
 <img src="https://surran.github.io/mark-downs/assets/mongo-intro1.png" alt="" title="Create 
 Free Cluster"><br>
-Choose aws as the cloud provider and a server with geographical location that is near your target audience.<br>
+Choose aws as the cloud provider and select a server with a geographical location that is near your target audience.<br>
 <img src="https://surran.github.io/mark-downs/assets/mongo-intro2.png" alt="" title="Create Free Cluster">Click create cluster. Once the cluster is created the below screen would show up.<br>
 <img src="https://surran.github.io/mark-downs/assets/mongo-intro3.png" alt="" title="Create Free Cluster"></p>
 <h4 id="setup-database-and-network-access">Setup Database and Network Access</h4>
-<p>Click on Database access in the left panel. Create a database user for accessing the database.<br>
-Click on Network access in the left panel. Add your current ip to list of ips whitelisted for database access.<br>
-Click on connect in Cluster 0 sandbox. The below panel would open<br>
+<p>Click on Database access in the left side-bar. Create a database user for accessing the database.<br>
+Click on Network access in the left side-bar. Add your current IP to list of ips whitelisted for database access.<br>
+Click on ‘CONNECT’ in Cluster 0 sandbox. The below panel would open<br>
 <img src="https://surran.github.io/mark-downs/assets/mongo-intro4.png" alt="" title="Create Free Cluster"><br>
-Click on ‘Connect your application’. Copy the connection sting for the panel that opens up. The connection string should look similar to:</p>
+Click on ‘Connect your application’. A panel opens up. Copy the connection string from it. The connection string should look similar to:</p>
 <pre><code>mongodb+srv://&lt;username&gt;:&lt;password&gt;@cluster0-v0a9a.mongodb.net
 /test?retryWrites=true&amp;w=majority  
 </code></pre>
-<p>Make sure to replace <code>&lt;username&gt;</code> and <code>&lt;password&gt;</code> with the credentials of the database user you just created.</p>
-<h4 id="database-access">Database access</h4>
+<p>When using the connection string, make sure to replace <code>&lt;username&gt;</code> and <code>&lt;password&gt;</code> with the credentials of the database user you just created.</p>
+<h4 id="access-and-write-to-database">Access and write to Database</h4>
 <p>Create a dev folder on your local machine</p>
 <pre><code>mkdir dev &amp;&amp; cd dev
 </code></pre>
@@ -49,9 +49,9 @@ kitty<span class="token punctuation">.</span><span class="token function">save</
 <p>Make sure to replace  <code>connectionString</code> value in the above code with your connection string. Save the file and run the code on terminal</p>
 <pre class=" language-bash"><code class="prism  language-bash">node createDB.js
 </code></pre>
-<p>If the run is successful you should see the word meow getting printed. Now head to you mongoDB account on <a href="https://www.mongodb.com/cloud/atlas">https://www.mongodb.com/cloud/atlas</a> click on Collections in Cluster 0 sandbox. You should see the entry name: “MyCat” in test.Cat collection.</p>
+<p>If the run is successful you should see the word meow getting printed. Now head to you mongoDB account on <a href="https://www.mongodb.com/cloud/atlas">https://www.mongodb.com/cloud/atlas</a>. click on ‘COLLECTIONS’ in Cluster 0 sandbox. You should see the entry name: “MyCat” in test.Cat collection.</p>
 <p><img src="https://surran.github.io/mark-downs/assets/mongo-intro5.png" alt="" title="Create Free Cluster"></p>
-<p>We just accessed our MongoDB cluster from terminal (using node.js) and created a “Cat” collection in “test” database. You can further change the database on which you want to create this collection by replacing test with the desired database name in <code>connectionString</code></p>
-<p>This process is useful making script based additions/modifications to database.</p>
+<p>We just accessed our MongoDB cluster from terminal (using node.js) and created a “Cat” collection in “test” database. In our script we can change the database (that is written on) by replacing test with the desired database name in <code>connectionString</code></p>
+<p>This process is useful making script based additions/modifications to database. Next we shall explore doing similar things using Web APIs</p>
 </div>
 
