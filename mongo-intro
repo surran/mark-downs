@@ -10,7 +10,7 @@
 <li>Write code to access database and add sample data to it.</li>
 </ul>
 <h4 id="sign-up-on-mongodb">Sign up on MongoDB</h4>
-<p>Sign up on MongoDB landing page <a href="https://www.mongodb.com/cloud/atlas">https://www.mongodb.com/cloud/atlas</a>. After registration you can create a Free Starter cluster</p>
+<p>Sign up on MongoDB landing page <a href="https://www.mongodb.com/cloud/atlas">https://www.mongodb.com/cloud/atlas</a>. After registration you can create a Free Starter cluster.</p>
 <p><img src="https://surran.github.io/mark-downs/assets/mongo-intro1.png" alt="" title="Create 
 Free Cluster"></p>
 <p>Choose aws as the cloud provider and select a server with a geographical location that is near your target audience.</p>
