@@ -10,12 +10,13 @@
 <li>Write code to access database and add sample data to it.</li>
 </ul>
 <h4 id="sign-up-on-mongodb">Sign up on MongoDB</h4>
-<p>Sign up on MongoDB landing page <a href="https://www.mongodb.com/cloud/atlas">https://www.mongodb.com/cloud/atlas</a>. After registration you can create a Free Starter cluster<br>
-<img src="https://surran.github.io/mark-downs/assets/mongo-intro1.png" alt="" title="Create 
-Free Cluster"><br>
-Choose aws as the cloud provider and select a server with a geographical location that is near your target audience.<br>
-<img src="https://surran.github.io/mark-downs/assets/mongo-intro2.png" alt="" title="Create Free Cluster">Click create cluster. Once the cluster is created the below screen would show up.<br>
-<img src="https://surran.github.io/mark-downs/assets/mongo-intro3.png" alt="" title="Create Free Cluster"></p>
+<p>Sign up on MongoDB landing page <a href="https://www.mongodb.com/cloud/atlas">https://www.mongodb.com/cloud/atlas</a>. After registration you can create a Free Starter cluster</p>
+<p><img src="https://surran.github.io/mark-downs/assets/mongo-intro1.png" alt="" title="Create 
+Free Cluster"></p>
+<p>Choose aws as the cloud provider and select a server with a geographical location that is near your target audience.</p>
+<p><img src="https://surran.github.io/mark-downs/assets/mongo-intro2.png" alt="" title="Create Free Cluster"></p>
+<p>Click create cluster. Once the cluster is created the below screen would show up.</p>
+<p><img src="https://surran.github.io/mark-downs/assets/mongo-intro3.png" alt="" title="Create Free Cluster"></p>
 <h4 id="setup-database-and-network-access">Setup Database and Network Access</h4>
 <p>Click on Database access in the left side-bar. Create a database user for accessing the database.<br>
 Click on Network access in the left side-bar. Add your current IP to list of ips whitelisted for database access.<br>
