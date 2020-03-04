@@ -53,7 +53,7 @@ kitty<span class="token punctuation">.</span><span class="token function">save</
 <p>If the run is successful you should see the word meow getting printed. Now head to you mongoDB account on <a href="https://www.mongodb.com/cloud/atlas">https://www.mongodb.com/cloud/atlas</a>. click on ‘COLLECTIONS’ in Cluster 0 sandbox. You should see the entry name: “MyCat” in test.Cat collection.</p>
 <p><img src="https://surran.github.io/mark-downs/assets/mongo-intro5.png" alt="" title="Create Free Cluster"></p>
 <h2 id="conclusion">Conclusion</h2>
-<p>We just accessed our MongoDB cluster from terminal (using node.js) and created a “Cat” collection in “test” database. In our script we can change the database (that is written on) by simply replacing test with the desired database name in <code>connectionString</code>.</p>
-<p>Script based writing in useful in prepoulating or making mass modifications to a database. Next we shall explore doing similar things using Web APIs.</p>
+<p>We just accessed our MongoDB cluster from local terminal and created a “Cat” collection in “test” database. In our script we can change the database (that is written on) by simply replacing ‘test’ with the desired database name in <code>connectionString</code>.</p>
+<p>Script based solutions are useful in repopulating or making mass modifications to a database. Next we shall explore doing similar things using Web APIs.</p>
 </div>
 
