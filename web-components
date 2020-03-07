@@ -4,16 +4,16 @@
 <li><strong>Reusability</strong> - Componant can be easily used at multiple places</li>
 <li><strong>Encapsilation</strong>  - CSS and JS of the component apply in its local scope</li>
 </ul>
-<p>Web Components constitute of the following four features collectively:</p>
+<p>Web Components are made of the following four features:</p>
 <ul>
 <li>Custom Elements</li>
 <li>Shadow DOM</li>
 <li>HTML templates</li>
 <li>HTML imports</li>
 </ul>
-<p>Lets us go over them one by one</p>
+<p>Lets us go over them one by one.</p>
 <h2 id="custom-elements">Custom Elements</h2>
-<p>Custom elements are a way to add elements with custom names and their own encapsulated behaviors to HTML markup. Let us see how</p>
+<p>Custom elements are a way to add elements with custom names and with their own encapsulated behaviors to HTML markup. Let us see how</p>
 <p>Create a index.html file. Copy paste the below code in it and run it on browser.</p>
 <pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>greeting-element</span><span class="token punctuation">&gt;</span></span>Hello<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>greeting-element</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
@@ -116,7 +116,7 @@
   </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<p>Templates serve a purpose more than just being chunks static of html. They do so by supporting the <code>slot</code> tag when used in <em>Web Components</em>. The slot tag acts like a placeholder for values defined in the element where the template is being applied. Here is an example:</p>
+<p>Templates serve a purpose more than just being chunks static of html. They support  <code>slot</code> tag when used in <em>Web Components</em>. The slot tag acts like a placeholder for values defined in the element where the template is being applied. Here is an example:</p>
 <pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>mytemp<span class="token punctuation">"</span></span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">color</span><span class="token punctuation">:</span> red</span><span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span><span class="token style-attr language-css"><span class="token attr-name"> <span class="token attr-name">style</span></span><span class="token punctuation">="</span><span class="token attr-value"><span class="token property">color</span><span class="token punctuation">:</span> red</span><span class="token punctuation">"</span></span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>title<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>TITLE GOES HERE<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
