@@ -7,6 +7,14 @@
 	"date": "2020-2-25"
 },
 {
+	"name": "Web Components in JavaScript",
+	"desc": "Is your webpage in need of self-contained or embedded compoenents? JavaScript provides a way
+	"handle": "web-components",
+	"searchTerms": [],
+	"tags": ["coding"],
+	"date": "2020-3-7"
+},
+{
 	"name": "Setup MongoDB Atlas. Access it from local terminal",
 	"desc": "Thinking of trying out a NoSQL database. Get your hands dirty on the most popular one.",
 	"handle": "mongo-intro",
