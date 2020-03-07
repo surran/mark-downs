@@ -1,0 +1,58 @@
+<div class="stackedit__html"><h1 id="promises--asyncawait-in-javascript">Promises &amp; Async/Await in JavaScript</h1>
+<p>A website is composed of several code, image and data resources. These resources might have interdependence, like for example a code resource should run only after a certain data resource has loaded.</p>
+<p>This calls for a way to gauge completion status of processes (here download status) and on there completion execute a callback function.</p>
+<p>The above requirement is best fulfilled by a JavaScript feature called Promise</p>
+<h2 id="promises">Promises</h2>
+<p>Promises are JavaScript objects that represent an operation that hasn’t been fulfilled yet.</p>
+<p>A promise object constructor accepts a callback function This function has two build in arguments resolve and reject. They can be called within the closure of this function to indicate successful completion or error in completion of the concerned process.</p>
+<p>When a promise is defined, its callback function gets called immediately (processing starts). In order to receive the processing result, the promise object has three consumer functions <code>then</code>, <code>catch</code> and <code>finally</code></p>
+<p><code>then</code> supports 2 callback functions, one of which gets called based on whether the promise is resolved or rejected</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token function">then</span><span class="token punctuation">(</span>successCallback<span class="token punctuation">,</span> errorCallback<span class="token punctuation">)</span>
+</code></pre>
+<p><code>catch</code> supports just 1 callback, which gets called in case the promise is rejected.</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">catch</span><span class="token punctuation">(</span>errorFunction<span class="token punctuation">)</span>
+</code></pre>
+<p><code>finally</code> supports 1 callback function, which gets called when the promise is resolved or rejected (for both cases)</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">finally</span><span class="token punctuation">(</span>bothSuccessOrErrorCallback<span class="token punctuation">)</span>
+</code></pre>
+<p>Here is an example:</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">function</span> <span class="token function">delay</span><span class="token punctuation">(</span>ms<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span><span class="token punctuation">(</span>resolve<span class="token punctuation">,</span> reject<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`hello after </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ms<span class="token operator">/</span><span class="token number">1000</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">s`</span></span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span> ms<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">delay</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>res<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
+<p>The above code prints “hello after 3s” on browser console 3 seconds after execution.</p>
+<p>Rules for resolve and reject:</p>
+<ul>
+<li>both accept a single data argument which gets passed on subsequent callback functions in .then() and .error() functions.</li>
+<li>A promise can be resolved or rejected only once. All subsequent resolve/rejects get ignored</li>
+</ul>
+<h2 id="asyncawait">Async/Await</h2>
+<p>A async function is a function that returns a promise. It can be defined using either of these syntax:</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>     <span class="token comment">/* regular function syntax */</span>
+<span class="token keyword">const</span> f <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>  <span class="token comment">/* arrow function syntax */</span>
+</code></pre>
+<p><code>await</code> is a keyword that can be used only within an async function to halt the async function’s execution until the promise is settled. Here is an example.</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> promise1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span>resolve <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> 	    
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">"Hello"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> promise1Result <span class="token operator">=</span> <span class="token keyword">await</span> promise1 <span class="token comment">/* execution halts here */</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Promise 1 result: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>promise1Result<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span> 
+    
+    <span class="token keyword">const</span> promise2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Promise</span><span class="token punctuation">(</span>resolve <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> 	    
+        <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token function">resolve</span><span class="token punctuation">(</span><span class="token string">"Namaste"</span><span class="token punctuation">)</span><span class="token punctuation">,</span><span class="token number">1000</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword">const</span> promise2Result <span class="token operator">=</span> <span class="token keyword">await</span> promise2 <span class="token comment">/* execution halts here */</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Promise 2 result: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>promise2Result<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>  
+<span class="token punctuation">}</span>
+    
+<span class="token function">f</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token keyword">catch</span><span class="token punctuation">(</span>alert<span class="token punctuation">)</span>
+</code></pre>
+<p>The above code prints “Promise 1 result: Hello” after 1 second of execution, and then after another 1 second prints “Promise 2 result: Namaste”</p>
+<p>In case a <em>awaited</em> promise gets rejected, then the promise returned by the async function also gets rejected.</p>
+</div>
+
