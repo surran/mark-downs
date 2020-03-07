@@ -1,4 +1,4 @@
-<div class="stackedit__html"><h1 id="web-components-in-javascript">Web components in JavaScript</h1>
+<div class="stackedit__html"><h1 id="web-components-in-javascript">Web Components in JavaScript</h1>
 <p>Web Components are a set of features that provide for a standard component model in JavaScript. The main highlights of web components are:</p>
 <ul>
 <li><strong>Reusability</strong> - Componant can be easily used at multiple places</li>
