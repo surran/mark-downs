@@ -1,6 +1,6 @@
 <div class="stackedit__html"><h1 id="promises--asyncawait-in-javascript">Promises &amp; Async/Await in JavaScript</h1>
 <p>A website is composed of several code, image and data resources. These resources might have interdependence, like for example a code resource should run only after a certain data resource has loaded.</p>
-<p>This calls for a way to gauge completion status of processes (here download status) and on there completion execute a callback function.</p>
+<p>This calls for a way to gauge completion status of processes (here download status) and on their completion execute a callback function.</p>
 <p>The above requirement is best fulfilled by a JavaScript feature called Promise</p>
 <h2 id="promises">Promises</h2>
 <p>Promises are JavaScript objects that represent an operation that hasn’t been fulfilled yet.</p>
