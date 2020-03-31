@@ -3,6 +3,7 @@
 	"desc": "Moving towards automated testing, rapid deployemnt & contininious Integration? Here is a key ingredient.",
 	"handle": "unit-testing",
 	"searchTerms": [],
+	"illustration": {"text": "UNIT TESTING", "image": ""},
 	"tags": ["explore"],
 	"date": "2020-2-25"
 },
@@ -10,6 +11,7 @@
 	"name": "Web Components in JavaScript",
 	"desc": "Is your webpage in need of self-contained or embedded compoenents? JavaScript provides a way",
 	"handle": "web-components",
+	"illustration": {"text": "WEB COMPONENTS", "image": ""},
 	"searchTerms": [],
 	"tags": ["coding"],
 	"date": "2020-3-7"
@@ -18,6 +20,7 @@
 	"name": "Setup MongoDB Atlas. Access it from local terminal",
 	"desc": "Thinking of trying out a NoSQL database. Get your hands dirty on the most popular one.",
 	"handle": "mongo-intro",
+	"illustration": {"text": "MONGO DB", "image": ""},
 	"searchTerms": [],
 	"tags": ["backend"],
 	"date": "2020-3-4"
@@ -26,6 +29,7 @@
 	"name": "Curry Functions in JavaScript",
 	"desc": "Innovative way to pause, keep and resume processing in code? Found out how",
 	"handle": "curry-functions",
+	"illustration": {"text": "JS CURRY FUNCTIONS", "image": ""},
 	"searchTerms": [],
 	"tags": ["coding"],
 	"date": "2020-2-26"
@@ -34,6 +38,7 @@
 	"name": "Auto process & export Image assets to Web",
 	"desc": "Is resizing, compressing  and uploading images to your website tedious? Here is a way to automate this!",
 	"handle": "web-image-maker",
+	"illustration": {"text": "IMAGE PROCESSING", "image": ""},
 	"searchTerms": [],
 	"tags": ["tools"],
 	"date": "2019-12-07"
@@ -42,6 +47,7 @@
 	"name": "Parallel Processing in Javascript",
 	"desc": "Ways to run several numerical computations in parallel without slowing down the page UI.",
 	"handle": "parallel-processing",
+	"illustration": {"text": "PARALLEL PROCESSING", "image": ""},
 	"searchTerms": [],
 	"tags": ["coding"],
 	"date": "2019-17-07"
@@ -50,6 +56,7 @@
 	"name": "Continious deployment to server on every code push",
 	"desc": "Does your code deployment routine involve manual steps or website down time. Here are some ways to improve.",
 	"handle": "push-deploy",
+	"illustration": {"text": "CONTINIOUS DEPLOYMENT", "image": ""},
 	"searchTerms": [],
 	"tags": ["backend"],
 	"date": "2019-12-09"
@@ -58,6 +65,7 @@
 	"name": "Hidden secrets of JavaScript Objects",
 	"desc": "JavaScript objects besides being simple pairs of keys and values hold a lot more peculiarities. Let's explore",
 	"handle": "javascript-objects",
+	"illustration": {"text": "JS OBJECTS", "image": ""},
 	"searchTerms": [],
 	"tags": ["coding"],
 	"date": "2019-12-11"
@@ -66,6 +74,7 @@
 	"name": "Display and handle a 3D object on browser",
 	"desc": "Covers setup and step by step build up of a basic 3D project in three.js",
 	"handle": "three-js",
+	"illustration": {"text": "3D", "image": ""},
 	"searchTerms": [],
 	"tags": ["explore"],
 	"date": "2019-12-14"
@@ -74,6 +83,7 @@
 	"name": " Display interactive info-graphics on a geographical map",
 	"desc": "Covers converting a simple svg (Scalable Vector Graphic) image into a interactive info-graphic",
 	"handle": "map-infographics",
+	"illustration": {"text": "MAP INFOGRAPHICS", "image": ""},
 	"searchTerms": [],
 	"tags": ["explore"],
 	"date": "2020-01-17"
@@ -82,6 +92,7 @@
 	"name": "Determining/Specifying context of a function call in JavaScript",
 	"desc": "A typical function calls in javascript passes lot more than arguments. Let's explore",
 	"handle": "function-context",
+	"illustration": {"text": "JS FUNCTIONS", "image": ""},
 	"searchTerms": [],
 	"tags": ["coding"],
 	"date": "2019-12-11"
@@ -90,6 +101,7 @@
 	"name": "Working with multiple Github accounts",
 	"desc": "While pushing/pulling code do you often get a permission denied error? Here is a simple way to make it seamless",
 	"handle": "multiple-github",
+	"illustration": {"text": "GITHUB", "image": ""},
 	"searchTerms": [],
 	"tags": ["tools"],
 	"date": "2019-12-07"
@@ -98,6 +110,7 @@
 	"name": "Hosting Multiple websites on Amazon Lightsail",
 	"desc": "You own multiple domains and wish to run all of them on the same server. Here is how",
 	"handle": "virtual-host",
+	"illustration": {"text": "VIRTUAL HOST", "image": ""},
 	"searchTerms": ["Multiple", "Websites", "Lightsail", "AWS", "Single", "Server", "Virtual", "Host"],
 	"tags": ["backend"],
 	"date": "2019-11-25"
@@ -106,6 +119,7 @@
 	"name": "Optimizing website for Facebook Share",
 	"desc": "Fine-tune what gets posted when somebody shares your website URL on facebook",
 	"handle": "facebook-share",
+	"illustration": {"text": "FACEBOOK SHARE", "image": ""},
 	"searchTerms": ["Facebook", "Share", "Website", "Link", "Image", "URL", "Lightsail", "Timeline", "Likes"],
 	"tags": ["share"],
 	"date": "2019-11-30"
@@ -114,6 +128,7 @@
 	"name": "Server side Routing. How to rewrite and redirect URLs",
 	"desc": "Explore some simple ways to control which html file gets served for what URL",
 	"handle": "rewrite-rule",
+	"illustration": {"text": "REWRITE RULE", "image": ""},
 	"searchTerms": ["Rewrite", "Rule", "Virtual", "Host"],
 	"tags": ["backend"],
 	"date": "2019-12-5"
@@ -122,6 +137,7 @@
 	"name": "Adding Social share buttons to your webpage",
 	"desc": "Encourage users to link to your website from various social media platforms.",
 	"handle": "social-share-buttons",
+	"illustration": {"text": "SOCIAL SHARE", "image": ""},
 	"searchTerms": [],
 	"tags": ["share"],
 	"date": "2019-12-31"
