@@ -208,12 +208,12 @@ app<span class="token punctuation">.</span><span class="token function">listen</
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
 <h4 id="run-the-code">Run the code</h4>
-<p>Browse to your <code>dev</code> and issue the following command</p>
+<p>Change directory to your <code>dev</code> folder on terminal and issue the following command</p>
 <pre class=" language-bash"><code class="prism  language-bash">node sse.js
 </code></pre>
-<p>You should see the following text getting printed on the terminal.</p>
+<p>You should see the following text printed .</p>
 <pre><code>Listening on port 3000!
 </code></pre>
-<p>Open <a href="http://localhost:3000/">http://localhost:3000/</a> in web browser to view the server rack simulation in operation.</p>
+<p>You are all set now. Open <a href="http://localhost:3000/">http://localhost:3000/</a> in web browser to view the server rack simulation in operation.</p>
 </div>
 
