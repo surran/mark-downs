@@ -1,8 +1,8 @@
 <div class="stackedit__html"><h1 id="simulate-a-server-rack-using-sse-server-side-events">Simulate a Server Rack using SSE (Server Side Events)</h1>
 <h3 id="scenario">Scenario</h3>
 <p>Server Side Events is a light weight &amp; unidirectional way to push data from server to client over a http stream. It fits in well in places where a client needs to be notified or updated constantly with latest data from the server.</p>
-<p>Let us simulate a server rack like the below image using server side events.<br>
-<img src="https://surran.github.io/mark-downs/assets/sse1.png" alt="" title="SSE Screenshot"></p>
+<p>Let us simulate a server rack like the below image using server side events.</p>
+<p><img src="https://surran.github.io/mark-downs/assets/sse1.png" alt="" title="SSE Screenshot"></p>
 <h3 id="solution">Solution</h3>
 <p>Create a dev folder. npm init and install express in it.</p>
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token function">mkdir</span> dev <span class="token operator">&amp;&amp;</span> <span class="token function">cd</span> dev
