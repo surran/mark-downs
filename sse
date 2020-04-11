@@ -10,12 +10,12 @@
 <li>write code for client in html</li>
 <li>run node server to see the code in operation</li>
 </ol>
+<h4 id="server">Server</h4>
 <p>Create a dev folder. npm init and install express in it.</p>
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token function">mkdir</span> dev <span class="token operator">&amp;&amp;</span> <span class="token function">cd</span> dev
 <span class="token function">npm</span> init -y
 <span class="token function">npm</span> <span class="token function">install</span> express
 </code></pre>
-<h4 id="server">Server</h4>
 <p>Create a file <code>sse.js</code> and copy paste the below code in it. This file shall generate the api server for us.</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">var</span> express <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
@@ -79,7 +79,7 @@ app<span class="token punctuation">.</span><span class="token function">listen</
 <p>Inside <code>dev</code> folder create a <code>public</code> folder.</p>
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token function">mkdir</span> public <span class="token operator">&amp;&amp;</span> <span class="token function">cd</span> public
 </code></pre>
-<p>Create a index.html file in this folder and copy paste the following code in it. This html file shall serve as a client to the server. Any number of such clients can be created by opening this html in different browser tabs/windows.</p>
+<p>Create a <code>index.html</code> file in this folder and copy paste the following code in it. This html file shall serve as a client to the server. Any number of such clients can be created by opening this html in different browser tabs/windows.</p>
 <pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>Server Rack: <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>state<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
   In this simulation we assume a server goes 'down' if its cpu usage goes above 98%. A down server takes 10 seconds to reboot and come back up.
