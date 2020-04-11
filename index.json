@@ -1,4 +1,13 @@
 [{
+	"name": "Simulate Server Rack using Server Side Events",
+	"desc": "Exploring server push techniques? Here is one way of doing it",
+	"handle": "sse",
+	"searchTerms": [],
+	"illustration": {"text": "SERVER SIDE EVENTS", "image": ""},
+	"tags": ["explore"],
+	"date": "2020-4-11"
+},
+{
 	"name": "Add Unit Testing to your Application",
 	"desc": "Moving towards automated testing, rapid deployemnt & contininious Integration? Here is a key ingredient.",
 	"handle": "unit-testing",
