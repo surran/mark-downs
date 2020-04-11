@@ -4,6 +4,12 @@
 <p>Let us simulate a server rack (as shown in the below image) using server side events.</p>
 <p><img src="https://surran.github.io/mark-downs/assets/sse1.png" alt="" title="SSE Screenshot"></p>
 <h3 id="solution">Solution</h3>
+<p>The solution involves the following key steps:</p>
+<ol>
+<li>write code for api server in nodejs</li>
+<li>write code for client in html</li>
+<li>run node server to see the code in operation</li>
+</ol>
 <p>Create a dev folder. npm init and install express in it.</p>
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token function">mkdir</span> dev <span class="token operator">&amp;&amp;</span> <span class="token function">cd</span> dev
 <span class="token function">npm</span> init -y
