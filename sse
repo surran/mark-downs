@@ -1,7 +1,7 @@
-<div class="stackedit__html"><h1 id="simulate-a-server-rack-using-sse-server-side-events">Simulate a Server Rack using SSE (Server Side Events)</h1>
+<div class="stackedit__html"><h1 id="simulate-a-server-rack-using-sse-server-sent-events">Simulate a Server Rack using SSE (Server Sent Events)</h1>
 <h3 id="scenario">Scenario</h3>
-<p>Server Side Events is a light weight &amp; unidirectional way to push data from server to client over a http stream. It fits well in scenarios where clients needs to be notified or updated constantly with latest data from the server.</p>
-<p>Let us simulate a server rack (as shown in the below image) using server side events.</p>
+<p>Server Sent Events is a light weight &amp; unidirectional way to push data from server to client over a http stream. It fits well in scenarios where clients needs to be notified or updated constantly with latest data from the server.</p>
+<p>Let us simulate a server rack (as shown in the below image) using server sent events.</p>
 <p><img src="https://surran.github.io/mark-downs/assets/sse1.png" alt="" title="SSE Screenshot"></p>
 <h3 id="solution">Solution</h3>
 <p>The solution involves the following key steps:</p>
