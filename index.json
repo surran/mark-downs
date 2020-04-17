@@ -74,7 +74,7 @@
 	"name": "Hidden secrets of JavaScript Objects",
 	"desc": "JavaScript objects besides being simple pairs of keys and values hold a lot more peculiarities. Let's explore",
 	"handle": "javascript-objects",
-	"illustration": {"text": "JS Oobjects", "image": ""},
+	"illustration": {"text": "JS Objects", "image": ""},
 	"searchTerms": [],
 	"tags": ["coding"],
 	"date": "2019-12-11"
