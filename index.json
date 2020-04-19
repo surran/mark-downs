@@ -4,7 +4,7 @@
 	"handle": "ssl-certificate",
 	"searchTerms": [],
 	"illustration": {"text": "SSL Certificate", "image": ""},
-	"tags": ["share"],
+	"tags": ["share", "growth"],
 	"date": "2020-4-19"
 },
 {
@@ -22,7 +22,7 @@
 	"handle": "unit-testing",
 	"searchTerms": [],
 	"illustration": {"text": "Unit Testing", "image": ""},
-	"tags": ["tools"],
+	"tags": ["tools", "infrastructure"],
 	"date": "2020-2-25"
 },
 {
@@ -31,7 +31,7 @@
 	"handle": "web-components",
 	"illustration": {"text": "Web Components", "image": ""},
 	"searchTerms": [],
-	"tags": ["coding"],
+	"tags": ["coding", "frontend"],
 	"date": "2020-3-7"
 },
 {
@@ -49,7 +49,7 @@
 	"handle": "curry-functions",
 	"illustration": {"text": "JS Curry Functions", "image": ""},
 	"searchTerms": [],
-	"tags": ["coding"],
+	"tags": ["coding", "frontend"],
 	"date": "2020-2-26"
 },
 	{
@@ -58,7 +58,7 @@
 	"handle": "web-image-maker",
 	"illustration": {"text": "Image Processing", "image": ""},
 	"searchTerms": [],
-	"tags": ["tools"],
+	"tags": ["tools", "infrastructure"],
 	"date": "2019-12-07"
 },
 {
@@ -67,7 +67,7 @@
 	"handle": "parallel-processing",
 	"illustration": {"text": "Parallel Processing", "image": ""},
 	"searchTerms": [],
-	"tags": ["coding"],
+	"tags": ["coding", "frontend"],
 	"date": "2019-17-07"
 },
 {
@@ -76,7 +76,7 @@
 	"handle": "push-deploy",
 	"illustration": {"text": "Continious Deployment", "image": ""},
 	"searchTerms": [],
-	"tags": ["tools"],
+	"tags": ["tools", "infrastructure"],
 	"date": "2019-12-09"
 },
 {
@@ -85,7 +85,7 @@
 	"handle": "javascript-objects",
 	"illustration": {"text": "JS Objects", "image": ""},
 	"searchTerms": [],
-	"tags": ["coding"],
+	"tags": ["coding", "frontend"],
 	"date": "2019-12-11"
 },
 {
@@ -94,7 +94,7 @@
 	"handle": "three-js",
 	"illustration": {"text": "3D", "image": ""},
 	"searchTerms": [],
-	"tags": ["explore"],
+	"tags": ["explore", "projects"],
 	"date": "2019-12-14"
 },
 {
@@ -103,7 +103,7 @@
 	"handle": "map-infographics",
 	"illustration": {"text": "Map Infographics", "image": ""},
 	"searchTerms": [],
-	"tags": ["explore"],
+	"tags": ["explore", "projects"],
 	"date": "2020-01-17"
 },
  {
@@ -112,7 +112,7 @@
 	"handle": "function-context",
 	"illustration": {"text": "JS Functions", "image": ""},
 	"searchTerms": [],
-	"tags": ["coding"],
+	"tags": ["coding", "frontend"],
 	"date": "2019-12-11"
 },
 {
@@ -121,7 +121,7 @@
 	"handle": "multiple-github",
 	"illustration": {"text": "Github", "image": ""},
 	"searchTerms": [],
-	"tags": ["tools"],
+	"tags": ["tools", "infrastructure"],
 	"date": "2019-12-07"
 },
 {
@@ -139,7 +139,7 @@
 	"handle": "facebook-share",
 	"illustration": {"text": "Facebook Share", "image": ""},
 	"searchTerms": ["Facebook", "Share", "Website", "Link", "Image", "URL", "Lightsail", "Timeline", "Likes"],
-	"tags": ["share"],
+	"tags": ["share", "growth"],
 	"date": "2019-11-30"
 },
 {
@@ -157,6 +157,6 @@
 	"handle": "social-share-buttons",
 	"illustration": {"text": "Social Share", "image": ""},
 	"searchTerms": [],
-	"tags": ["share"],
+	"tags": ["share", "growth"],
 	"date": "2019-12-31"
 }]
