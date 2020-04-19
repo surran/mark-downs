@@ -1,4 +1,4 @@
-<div class="stackedit__html"><h1 id="secure-your-website-with-https">Secure your website with https</h1>
+<div class="stackedit__html"><h1 id="secure-your-website-with-https">Secure your Website with HTTPS</h1>
 <h3 id="scenario">Scenario</h3>
 <p>A SSL certificate allows you to operate your website on https protocol. For simple websites this means the browser does not mark your website ‘insecure’ and search engines like give Google give you a higher search ranking. That’s why securing your website, even if you are operating a single page website, is important.</p>
 <h3 id="solution">Solution</h3>
