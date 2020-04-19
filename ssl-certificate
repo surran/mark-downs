@@ -11,18 +11,18 @@
 </ol>
 <h4 id="generate-ssl-certificate">Generate SSL certificate</h4>
 <p>In this step we will use <a href="https://letsencrypt.org/">https://letsencrypt.org/</a> (a popular free service provider) to generate SSL certificate for a domain. For easing our communication with Let’s Encrypt we will install its client service <a href="https://github.com/xenolf/lego">Lego</a>.</p>
-<pre><code>cd /tmp
-curl -Ls https://api.github.com/repos/xenolf/lego/releases/latest | grep browser_download_url | grep linux_amd64 | cut -d '"' -f 4 | wget -i -
-tar xf lego_vX.Y.Z_linux_amd64.tar.gz
-sudo mkdir -p /opt/bitnami/letsencrypt
-sudo mv lego /opt/bitnami/letsencrypt/lego
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">cd</span> /tmp
+curl -Ls https://api.github.com/repos/xenolf/lego/releases/latest <span class="token operator">|</span> <span class="token function">grep</span> browser_download_url <span class="token operator">|</span> <span class="token function">grep</span> linux_amd64 <span class="token operator">|</span> <span class="token function">cut</span> -d <span class="token string">'"'</span> -f 4 <span class="token operator">|</span> <span class="token function">wget</span> -i -
+<span class="token function">tar</span> xf lego_vX.Y.Z_linux_amd64.tar.gz
+<span class="token function">sudo</span> <span class="token function">mkdir</span> -p /opt/bitnami/letsencrypt
+<span class="token function">sudo</span> <span class="token function">mv</span> lego /opt/bitnami/letsencrypt/lego
 </code></pre>
 <p>With the lego client installed, now let let us move to certificate generation. Substitute EMAIL, DOMAIN and www.DOMAIN in the below commands and run them on console. (Stopping your server for a few seconds is necessary here)</p>
-<pre><code>sudo /opt/bitnami/ctlscript.sh stop
-sudo /opt/bitnami/letsencrypt/lego --tls --email="EMAIL" --domains="DOMAIN" --domains="www.DOMAIN" --path="/opt/bitnami/letsencrypt" run
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">sudo</span> /opt/bitnami/ctlscript.sh stop
+<span class="token function">sudo</span> /opt/bitnami/letsencrypt/lego --tls --email<span class="token operator">=</span><span class="token string">"EMAIL"</span> --domains<span class="token operator">=</span><span class="token string">"DOMAIN"</span> --domains<span class="token operator">=</span><span class="token string">"www.DOMAIN"</span> --path<span class="token operator">=</span><span class="token string">"/opt/bitnami/letsencrypt"</span> run
 </code></pre>
 <p>During processing, if prompted, agree to the terms of service. Restart apache once completed.</p>
-<pre><code>sudo /opt/bitnami/ctlscript.sh start
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">sudo</span> /opt/bitnami/ctlscript.sh start
 </code></pre>
 <p>On successful completion, your set of certificates would have downloaded to <em>/opt/bitnami/letsencrypt/certificates</em> directory. This set includes the server certificate file <em>DOMAIN.crt</em> and the server certificate key file <em>DOMAIN.key</em>.</p>
 <h4 id="configure-port-443">Configure Port 443</h4>
@@ -39,14 +39,14 @@ sudo /opt/bitnami/letsencrypt/lego --tls --email="EMAIL" --domains="DOMAIN" --do
 <p>The above configration turns on SSL certificate verification for port 443 (for the given DOMAIN only). Further the SSLCertificateFile and SSLCertificateKeyFile are set to the files we earlier generated.</p>
 <h4 id="redirect-from-http-to-https">Redirect from http to https</h4>
 <p>In the same virtual host file add/edit the following configuration</p>
-<pre class=" language-c"><code class="prism  language-c"><span class="token operator">&lt;</span>VirtualHost <span class="token operator">*</span><span class="token punctuation">:</span><span class="token number">80</span><span class="token operator">&gt;</span>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token operator">&lt;</span>VirtualHost *:80<span class="token operator">&gt;</span>
     DocumentRoot <span class="token string">"/path/to/root/folder"</span>
     ServerName DOMAIN
-    ServerAlias www<span class="token punctuation">.</span>DOMAIN
+    ServerAlias www.DOMAIN
     RewriteEngine On
-    RewriteCond <span class="token operator">%</span><span class="token punctuation">{</span>HTTPS<span class="token punctuation">}</span> <span class="token operator">!=</span>on
-    RewriteRule <span class="token operator">^</span><span class="token operator">/</span><span class="token operator">?</span><span class="token punctuation">(</span><span class="token punctuation">.</span><span class="token operator">*</span><span class="token punctuation">)</span> https<span class="token punctuation">:</span><span class="token operator">/</span><span class="token operator">/</span><span class="token operator">%</span><span class="token punctuation">{</span>SERVER_NAME<span class="token punctuation">}</span><span class="token operator">/</span>$<span class="token number">1</span> <span class="token punctuation">[</span>R<span class="token punctuation">,</span>L<span class="token punctuation">]</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>VirtualHost<span class="token operator">&gt;</span>
+    RewriteCond %<span class="token punctuation">{</span>HTTPS<span class="token punctuation">}</span> <span class="token operator">!=</span>on
+    RewriteRule ^/?<span class="token punctuation">(</span>.*<span class="token punctuation">)</span> https://%<span class="token punctuation">{</span>SERVER_NAME<span class="token punctuation">}</span>/<span class="token variable">$1</span> <span class="token punctuation">[</span>R,L<span class="token punctuation">]</span>
+<span class="token operator">&lt;</span>/VirtualHost<span class="token operator">&gt;</span>
 </code></pre>
 <p>The above configuration ensures that client requests received on port 80 (default port for  http) are redirected to port 443 (default port for https) keeping the url same.</p>
 <p>Restart apache to bring virtual host configurations into effect.</p>
@@ -55,21 +55,21 @@ sudo /opt/bitnami/letsencrypt/lego --tls --email="EMAIL" --domains="DOMAIN" --do
 <p>Certificates generated by Let’s Encrypt are valid for a period of 3 months only. Let us write a script to re generate certificates<br>
 Browse to a folder location where you keep your script files.</p>
 <p>Write the following shell script called <code>regenerate-certificates.sh</code> to renew certificate (Substitute EMAIL, DOMAIN and www.DOMAIN)</p>
-<pre class=" language-sh"><code class="prism  language-sh">sudo /opt/bitnami/ctlscript.sh stop
-sudo /opt/bitnami/letsencrypt/lego --tls --email="EMAIL" --domains="DOMAIN" --domains="www.DOMAIN" --path="/opt/bitnami/letsencrypt" run
-sudo /opt/bitnami/ctlscript.sh start 
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">sudo</span> /opt/bitnami/ctlscript.sh stop
+<span class="token function">sudo</span> /opt/bitnami/letsencrypt/lego --tls --email<span class="token operator">=</span><span class="token string">"EMAIL"</span> --domains<span class="token operator">=</span><span class="token string">"DOMAIN"</span> --domains<span class="token operator">=</span><span class="token string">"www.DOMAIN"</span> --path<span class="token operator">=</span><span class="token string">"/opt/bitnami/letsencrypt"</span> run
+<span class="token function">sudo</span> /opt/bitnami/ctlscript.sh start 
 </code></pre>
 <p>Give execute permissions to the script</p>
-<pre><code>sudo chmod +x regenerate-certificates.sh
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">sudo</span> <span class="token function">chmod</span> +x regenerate-certificates.sh
 </code></pre>
 <p>Run the script once to ensure that it is running smoothly and without any errors.</p>
-<pre><code>./regenerate-certificates.sh
+<pre class=" language-bash"><code class="prism  language-bash">./regenerate-certificates.sh
 </code></pre>
 <p>Once you see that the script run is successful and new certificates set is actually generated, setup a cron job to run the same script on the first day of every month. For doing this open crontab  editor</p>
-<pre><code>sudo crontab -e
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">sudo</span> <span class="token function">crontab</span> -e
 </code></pre>
 <p>Add the below code in crontab file and save.</p>
-<pre><code>0 0 1 * * /opt/bitnami/letsencrypt/scripts/regenerate-certificates.sh 2&gt; /dev/null
+<pre class=" language-c"><code class="prism  language-c"><span class="token number">0</span> <span class="token number">0</span> <span class="token number">1</span> <span class="token operator">*</span> <span class="token operator">*</span> <span class="token operator">/</span>opt<span class="token operator">/</span>bitnami<span class="token operator">/</span>letsencrypt<span class="token operator">/</span>scripts<span class="token operator">/</span>regenerate<span class="token operator">-</span>certificates<span class="token punctuation">.</span>sh <span class="token number">2</span><span class="token operator">&gt;</span> <span class="token operator">/</span>dev<span class="token operator">/</span>null
 </code></pre>
 <p>That’s it. Your migration to https is some complete!</p>
 </div>
