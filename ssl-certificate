@@ -2,15 +2,15 @@
 <h3 id="scenario">Scenario</h3>
 <p>A SSL certificate allows you to operate your website on https protocol. For simple websites this means the browser does not mark your website ‘insecure’ and search engines like Google give it a higher search ranking. That’s why securing your website, even if you are operating a single page website, is important.</p>
 <h3 id="solution">Solution</h3>
-<p>We shall discuss a solution on bitnami enabled apache server platform (this configuration is easily available on AWS Cloud servers). Key steps for moving your website to secure https:</p>
+<p>We shall discuss a solution on bitnami enabled apache server platform (this configuration is easily available on AWS Cloud servers). Key steps for moving your website to secure HTTPS are:</p>
 <ol>
 <li>Generate SSL certificate from a free service provider</li>
 <li>Link Virtual host configuration for port 443 to the above generated files</li>
 <li>Set up auto redirect on http to https.</li>
-<li>Set up script and cron job to periodically Renew certificates</li>
+<li>Set up script and cron job to periodically regenrate/renew certificates</li>
 </ol>
 <h4 id="generate-ssl-certificate">Generate SSL certificate</h4>
-<p>In this step we will use <a href="https://letsencrypt.org/">https://letsencrypt.org/</a> (a popular free service provider) to generate SSL certificate for our website domain. For easing our commuication with this website we will install its client service <a href="https://github.com/xenolf/lego">Lego</a>.</p>
+<p>In this step we will use <a href="https://letsencrypt.org/">https://letsencrypt.org/</a> (a popular free service provider) to generate SSL certificate for a domain. For easing our communication with Let’s Encrypt we will install its client service <a href="https://github.com/xenolf/lego">Lego</a>.</p>
 <pre><code>cd /tmp
 curl -Ls https://api.github.com/repos/xenolf/lego/releases/latest | grep browser_download_url | grep linux_amd64 | cut -d '"' -f 4 | wget -i -
 tar xf lego_vX.Y.Z_linux_amd64.tar.gz
