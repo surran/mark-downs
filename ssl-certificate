@@ -10,14 +10,15 @@
 <li>Set up script and cron job to periodically regenrate/renew certificates</li>
 </ol>
 <h4 id="generate-ssl-certificate">Generate SSL certificate</h4>
-<p>In this step we will use <a href="https://letsencrypt.org/">https://letsencrypt.org/</a> (a popular free service provider) to generate SSL certificate for a domain. For easing our communication with Let’s Encrypt we will install its client service <a href="https://github.com/xenolf/lego">Lego</a>.</p>
+<p>In this step we will use <a href="https://letsencrypt.org/">https://letsencrypt.org/</a> (a popular free service provider) to generate SSL certificate for a domain.</p>
+<p>For easing our communication with Let’s Encrypt we will install its client service <a href="https://github.com/xenolf/lego">Lego</a>.</p>
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token function">cd</span> /tmp
 curl -Ls https://api.github.com/repos/xenolf/lego/releases/latest <span class="token operator">|</span> <span class="token function">grep</span> browser_download_url <span class="token operator">|</span> <span class="token function">grep</span> linux_amd64 <span class="token operator">|</span> <span class="token function">cut</span> -d <span class="token string">'"'</span> -f 4 <span class="token operator">|</span> <span class="token function">wget</span> -i -
 <span class="token function">tar</span> xf lego_vX.Y.Z_linux_amd64.tar.gz
 <span class="token function">sudo</span> <span class="token function">mkdir</span> -p /opt/bitnami/letsencrypt
 <span class="token function">sudo</span> <span class="token function">mv</span> lego /opt/bitnami/letsencrypt/lego
 </code></pre>
-<p>With the lego client installed, now let let us move to certificate generation. Substitute EMAIL, DOMAIN and www.DOMAIN in the below commands and run them on console. (Stopping your server for a few seconds is necessary here)</p>
+<p>With the lego client installed, now let us move to certificate generation. Substitute EMAIL, DOMAIN and www.DOMAIN in the below commands and run them on console. (Stopping your server for a few seconds is necessary here)</p>
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token function">sudo</span> /opt/bitnami/ctlscript.sh stop
 <span class="token function">sudo</span> /opt/bitnami/letsencrypt/lego --tls --email<span class="token operator">=</span><span class="token string">"EMAIL"</span> --domains<span class="token operator">=</span><span class="token string">"DOMAIN"</span> --domains<span class="token operator">=</span><span class="token string">"www.DOMAIN"</span> --path<span class="token operator">=</span><span class="token string">"/opt/bitnami/letsencrypt"</span> run
 </code></pre>
