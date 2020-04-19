@@ -1,4 +1,13 @@
 [{
+	"name": "Secure your Website with HTTPS",
+	"desc": "Moving to HTTPS improves your website's search ranking, and avoids browser marking it 'not secure'!",
+	"handle": "ssl-certificate",
+	"searchTerms": [],
+	"illustration": {"text": "SSL Certificate", "image": ""},
+	"tags": ["share"],
+	"date": "2020-4-11"
+},
+{
 	"name": "Simulate Server Rack using Server Sent Events",
 	"desc": "Exploring server push techniques? Here is one way of doing it",
 	"handle": "sse",
