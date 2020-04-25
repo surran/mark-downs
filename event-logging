@@ -3,7 +3,7 @@
 <p>Which pages on your website are more popular than the others? How much time do users spend on various pages? What is the general navigation pattern?</p>
 <p>Answers to these questions provide you useful (and many times surprising) insight on user behavior. Let us design a service that lets you gain access to all this information.</p>
 <h3 id="solution">Solution</h3>
-<p>Setting up event logging on your website has a detailed execution. In this discussion we will limit to higher level details only. Let us begin by answering these questions :</p>
+<p>Let us begin by answering these questions :</p>
 <ol>
 <li>What events to log?</li>
 <li>What data to log while logging an event?</li>
