@@ -60,7 +60,7 @@
 <p>Next, in eventsDB create a collection called <em>{your-website-name}-events</em></p>
 <p>This completes the database setup.</p>
 <h4 id="microservice-to-interact-with-database">Microservice to interact with Database</h4>
-<p>Write a microservice that receives data from client and posts it to eventsDB database. (A simplified implementation for this is discussed in <a href="https://terminalnotes.com/mongo-intro">https://terminalnotes.com/mongo-intro</a>)</p>
+<p>Write a microservice that receives data from client and posts it to eventsDB database.</p>
 <p>A few things worth discussing here are:</p>
 <h4 id="include-client-ip-address-in-events-data">1. Include client IP address in events data</h4>
 <p>IP address lets you derive information about the cilent’s geo location and network service provider. If your website does not ask users to Sign Up, an IP address also servers as a makeshift user id.</p>
