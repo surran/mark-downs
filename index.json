@@ -1,4 +1,13 @@
 [{
+	"name": "Event Logging for tracking User Behaviour",
+	"desc": "Monitor the way individual users as well as your collective audience is interacting with your website.",
+	"handle": "event-logging",
+	"searchTerms": [],
+	"illustration": {"text": "Event Logging", "image": ""},
+	"tags": ["growth"],
+	"date": "2020-4-26"
+},
+{
 	"name": "Secure your Website with HTTPS",
 	"desc": "Moving to HTTPS improves your website's search ranking and avoids browser marking it 'not secure'!",
 	"handle": "ssl-certificate",
