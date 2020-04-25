@@ -1,8 +1,8 @@
 <div class="stackedit__html"><h1 id="event-logging-for-tracking-user-behavior">Event Logging for tracking user behavior</h1>
 <h3 id="scenario">Scenario</h3>
 <p>Which pages on your website are more popular than the others? How much time do users spend on various pages? What is the general navigation pattern?</p>
-<p>Answers to these questions provide you useful (and many times surprising) insight on user behavior. This also helps you fine tune content and feature development based on the preferences of your user base.</p>
-<p>Let us design a robust event logging service for this  requirement.</p>
+<p>Answers to these questions provide you useful (and many times surprising) insight on user behavior. This also helps you fine tune website’s content and development.</p>
+<p>In order to help you gain all this information, let us design a robust event logging service.</p>
 <h3 id="solution">Solution</h3>
 <p>Setting up event logging on your website has a detailed execution. In this discussion we will limit to higher level details only. Let us start designing with answering these questions :</p>
 <ol>
