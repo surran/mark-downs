@@ -64,9 +64,10 @@
 <p>A few things worth discussing here are:</p>
 <h4 id="include-client-ip-address-in-events-data">1. Include client IP address in events data</h4>
 <p>IP address lets you derive information about the cilent’s geo location and network service provider. If your website does not ask users to Sign Up, an IP address also servers as a makeshift user id.</p>
+<p>You can easily get it from request header in nodeJS using the below code.</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span>  ip  <span class="token operator">=</span>  req<span class="token punctuation">.</span>headers<span class="token punctuation">[</span><span class="token string">'x-forwarded-for'</span><span class="token punctuation">]</span> <span class="token operator">||</span>  req<span class="token punctuation">.</span>connection<span class="token punctuation">.</span>remoteAddress<span class="token punctuation">;</span>
 </code></pre>
-<p>It is possible for a client to hide or mask an IP address, that is why an IP address and its associated information cannot be considered accurate on all occasions.</p>
+<p>It is possible for a client to hide or mask an IP address, that is why it cannot be considered accurate on all occasions.</p>
 <h4 id="reduce-byte-size-of-events-document">2. Reduce byte size of events document</h4>
 <p>Since we will be storing millions of event documents, it is important to optimize on space. It is possible to reduce the size of a document by 60-70% by the following simple techniques:</p>
 <ol>
