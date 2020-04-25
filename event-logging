@@ -54,17 +54,15 @@
 <h3 id="event-database-and-microservice">Event Database and Microservice</h3>
 <p>The second part of the solution is to push information sent by clients into persistent storage on the server. Let us tackle this part in the following steps:</p>
 <ol>
-<li>Create an events Database (on MongoDB)</li>
-<li>Run an ‘event’ service (in nodeJS) to write events data to Database.</li>
+<li>Create a database (on MongoDB) for storing events.</li>
+<li>Write a micro service to interact with database.</li>
 </ol>
-<h4 id="create-an-events-database">Create an Events Database</h4>
-<p>Create a Database called eventsDB in mongoDB. You can use this database for storing events received from all websites you own.</p>
+<h4 id="database-for-storing-events">Database for storing events</h4>
+<p>Create a database called eventsDB in mongoDB. You can use this for storing events received from all websites you own.</p>
 <p>Next, in eventsDB create a collection called <em>{your-website-name}-events</em></p>
-<p>This completes the database setup.</p>
 <p>If you are not familiar with mongoDB,  you can refer to <a href="https://terminalnotes.com/mongo-intro">https://terminalnotes.com/mongo-intro</a> for setup and a brief introduction.</p>
 <h4 id="microservice-to-interact-with-database">Microservice to interact with Database</h4>
-<p>Write a microservice that receives data from client and posts it to eventsDB database.</p>
-<p>A few things about this microservice worth discussing here are:</p>
+<p>Write a microservice that receives data from client and posts it to eventsDB database. A few things about this microservice worth discussing here are:</p>
 <h4 id="include-client-ip-address-in-events-data">1. Include client IP address in events data</h4>
 <p>IP address lets you derive information about the cilent’s geo location and network service provider. If your website does not ask users to Sign Up, an IP address also servers as a makeshift user id.</p>
 <p>You can easily get it from request header in nodeJS using the below code.</p>
