@@ -1,7 +1,7 @@
 <div class="stackedit__html"><h1 id="working-with-multiple-github-accounts">Working with multiple Github accounts</h1>
-<h3 id="scenario">Scenario</h3>
+<blockquote>
 <p>I have two github accounts, one <em>github-work</em> and the other <em>github-personal</em>. While pushing/pulling code I often get a permission denied error. To resolve this I end up changing my git user credentials everytime, only to get the same error again in due course of time. What is the simplest way to make this seamless?</p>
-<h3 id="solution">Solution</h3>
+</blockquote>
 <p>The permission issue comes because while pushing/pulling code from say a <em>github-work</em> repository, git might be using the <em>github-personal</em> private key or vice versa</p>
 <p>There are multiple ways to fix this. I will share the one which I found the simplest and most seamless.</p>
 <p>Browse to any of your local repository location and run the following command</p>
@@ -9,7 +9,7 @@
 </code></pre>
 <p>If the local repository belongs to say <em>github-work</em> account, then make sure in place of <code>[insert_your_keyname]</code> you enter the private keyname generated from the same Github account.</p>
 <p>Once you execute the above command, the <code>.git/config</code> file in your local repository will additionally have the below line under the <code>[core]</code> section</p>
-<pre><code>sshCommand = ssh -i ~/.ssh/[your_keyname]
+<pre class=" language-con"><code class="prism  language-con">sshCommand = ssh -i ~/.ssh/[your_keyname]
 </code></pre>
 <p>Now onward all git commands (pull/push etc) from this local repository will use the specified private key</p>
 <p>Repeat the same steps for other local repositories on your machine.</p>
