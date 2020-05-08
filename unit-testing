@@ -1,5 +1,5 @@
 <div class="stackedit__html"><h1 id="add-unit-testing-to-your-application">Add Unit Testing to your Application</h1>
-<h3 id="scenario">Scenario</h3>
+<blockquote>
 <p>Unit Testing is a level of software testing where individual components of an application are tested. The purpose Unit tests is to statistically validate:</p>
 <ul>
 <li>There are no regressions</li>
@@ -7,7 +7,7 @@
 <li>Key components are covered by multiple tests</li>
 </ul>
 <p>In this note let us build a simple unit test framework using jest for an application.</p>
-<h3 id="solution">Solution</h3>
+</blockquote>
 <p>The job at hand can be broken down into the following key steps:</p>
 <ul>
 <li>Create development folder, install and configure jest in it.</li>
@@ -24,7 +24,7 @@
 <p>Install jest</p>
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token function">npm</span> i jest --save-dev
 </code></pre>
-<h4 id="babel-installation-and-setup">Babel installation and setup</h4>
+<h3 id="babel-installation-and-setup">Babel installation and setup</h3>
 <p>Install <code>@babel/preset-env</code> for running jest on es6 code</p>
 <pre><code>npm install @babel/preset-env
 </code></pre>
@@ -125,5 +125,6 @@ Tests:       4 passed, 4 total
 <p>Once this parameter is in place, every subsequent test run will produce a code coverage report in the <code>dev/coverage/lcov-report/index.html</code> file.</p>
 <p>Here you can also view code coverage for individual files by clicking on them</p>
 <p>As a follow up exercise you can compare the code coverage reports generated after individually running <code>index-basic</code>  and <code>index-comprehensive</code>test suites.</p>
+<p>Simple TestDriven development</p>
 </div>
 
