@@ -1,5 +1,5 @@
 <div class="stackedit__html"><h1 id="server-side-routing.-how-to-rewrite-and-redirect-urls">Server Side Routing. How to rewrite and redirect URLs</h1>
-<h3 id="scenario">Scenario</h3>
+<blockquote>
 <p>Typical scenarios where you would like to manipulate servers side routing are:</p>
 <ul>
 <li>
@@ -12,19 +12,19 @@
 <p>Redirect to a different URL or domain.</p>
 </li>
 </ul>
-<h3 id="solution">Solution</h3>
+</blockquote>
 <p>This can be solved by introducing a RewriteRule in the apache configuration file. Key steps are:</p>
 <ol>
 <li>Locate Virtual host File</li>
 <li>Add Rewrite rule</li>
 <li>Restart Apache</li>
 </ol>
-<h4 id="locate-virtual-host-file">Locate virtual host file</h4>
+<h3 id="locate-virtual-host-file">Locate virtual host file</h3>
 <p>Virtual hosts file is present in apache conf folder. Browse to this location and open httpd-vhost.conf file</p>
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token function">cd</span> /opt/bitnami/apache2/conf/extra
 <span class="token function">vi</span> httpd-vhosts.conf
 </code></pre>
-<h4 id="add-rewrite-rule">Add rewrite rule</h4>
+<h3 id="add-rewrite-rule">Add rewrite rule</h3>
 <p>Add a RewriteRule inside your websites’s VirtualHost tag wrapper</p>
 <pre class=" language-bash"><code class="prism  language-bash">RewriteEngine On
 RewriteRule ^/<span class="token punctuation">[</span>a-zA-Z0-9<span class="token punctuation">]</span>+<span class="token punctuation">[</span>/<span class="token punctuation">]</span>?$ /index.html <span class="token punctuation">[</span>QSA,L<span class="token punctuation">]</span>
@@ -50,7 +50,7 @@ RewriteRule ^/<span class="token punctuation">[</span>a-zA-Z0-9<span class="toke
     CustomLog <span class="token string">"logs/www.website.com-access_log"</span> common
 <span class="token operator">&lt;</span>/VirtualHost<span class="token operator">&gt;</span>
 </code></pre>
-<h4 id="restart-apache">Restart Apache</h4>
+<h3 id="restart-apache">Restart Apache</h3>
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token function">sudo</span> /opt/bitnami/ctlscript.sh restart apache
 </code></pre>
 <p>With restart, the changes would have taken effect. Open a sample URL to confirm.</p>
