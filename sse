@@ -1,16 +1,16 @@
 <div class="stackedit__html"><h1 id="simulate-a-server-rack-using-sse-server-sent-events">Simulate a Server Rack using SSE (Server Sent Events)</h1>
-<h3 id="scenario">Scenario</h3>
-<p>Server Sent Events is a light weight &amp; unidirectional way to push data from server to client over a http stream. It fits well in scenarios where clients needs to be notified or updated constantly with latest data from the server.</p>
-<p>Let us simulate a server rack (as shown in the below image) using server sent events.</p>
+<blockquote>
+<p>Server Sent Events is a light weight &amp; unidirectional way to push data from server to client over a http stream. It fits well in scenarios where clients needs to be notified or updated constantly with latest data from the server.<br>
+Let us simulate a server rack (as shown in the below image) using server sent events.</p>
+</blockquote>
 <p><img src="https://surran.github.io/mark-downs/assets/sse1.png" alt="" title="SSE Screenshot"></p>
-<h3 id="solution">Solution</h3>
 <p>The solution involves the following key steps:</p>
 <ol>
 <li>write code for api server in nodejs</li>
 <li>write code for client in html</li>
 <li>run node server to see the code in operation</li>
 </ol>
-<h4 id="server">Server</h4>
+<h3 id="server">Server</h3>
 <p>Create a dev folder. npm init and install express in it.</p>
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token function">mkdir</span> dev <span class="token operator">&amp;&amp;</span> <span class="token function">cd</span> dev
 <span class="token function">npm</span> init -y
@@ -75,7 +75,7 @@ app<span class="token punctuation">.</span><span class="token keyword">get</span
 app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Listening on port 3000!'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <p>Here we are creating a simulation of a rack of 8 servers. For each server, its cpu &amp; memory usage is passed to the client every 100 millisecond. In our simulation we assume a server goes ‘down’ if its cpu usage goes above 98%. A ‘down’ server takes 10 seconds to reboot and come back ‘up’.</p>
-<h4 id="client">Client</h4>
+<h3 id="client">Client</h3>
 <p>Inside <code>dev</code> folder create a <code>public</code> folder.</p>
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token function">mkdir</span> public <span class="token operator">&amp;&amp;</span> <span class="token function">cd</span> public
 </code></pre>
@@ -207,7 +207,7 @@ app<span class="token punctuation">.</span><span class="token function">listen</
   <span class="token punctuation">}</span>
 </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
-<h4 id="run-the-code">Run the code</h4>
+<h3 id="run-the-code">Run the code</h3>
 <p>Change directory to your <code>dev</code> folder on terminal and issue the following command</p>
 <pre class=" language-bash"><code class="prism  language-bash">node sse.js
 </code></pre>
