@@ -1,19 +1,19 @@
 <div class="stackedit__html"><h1 id="continuous-deployment-to-server-on-every-code-push">Continuous deployment to server on every code push</h1>
-<h3 id="scenario">Scenario</h3>
+<blockquote>
 <p>The case for setting continuous integration exists if you face any of the following issues:</p>
 <ul>
 <li>There are one or more manual steps involved in deploying latest code on server</li>
 <li>There is a website downtime while building code on server</li>
 <li>In case the server build fails, the website goes down</li>
 </ul>
-<h3 id="solution">Solution</h3>
+</blockquote>
 <p>The solution we discuss here is in (single developer)-&gt;(single server) context. The key parts of the solution are:</p>
 <ol>
 <li>Write a script to pull, build and deploy latest code on server</li>
 <li>Write another script to connect from your local machine to server and run script (1)</li>
 <li>Create a git alias to push code to master and then run script (2)</li>
 </ol>
-<h4 id="script-to-pull-build-and-deploy-latest-code-on-server">Script to pull, build and deploy latest code on server</h4>
+<h3 id="script-to-pull-build-and-deploy-latest-code-on-server">Script to pull, build and deploy latest code on server</h3>
 <p>Create a file <code>launch.sh</code> in your project folder and copy paste the following code in it</p>
 <pre class=" language-bash"><code class="prism  language-bash">	<span class="token comment"># Browse to project folder on server and pull code </span>
 <span class="token function">cd</span> ~/path/to/project
@@ -35,7 +35,7 @@
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token function">chmod</span> +x launch.sh
 </code></pre>
 <p>push these changes to master</p>
-<h4 id="script-to-run-launch.sh-on-server">Script to run <code>launch.sh</code> on server</h4>
+<h3 id="script-to-run-launch.sh-on-server">Script to run <code>launch.sh</code> on server</h3>
 <p>Create a file <code>.git/push-deploy.sh</code> in your local repository and copy paste the following code in it</p>
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token keyword">echo</span> <span class="token punctuation">..</span>.Pushing to <span class="token function">git</span>
 <span class="token function">git</span> push origin master:master
@@ -46,12 +46,12 @@
 <p>Save the file and grant execute permissions by running</p>
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token function">chmod</span> +x push-deploy.sh
 </code></pre>
-<h4 id="git-alias-to-push-and-deploy-code">Git alias to push and deploy code</h4>
+<h3 id="git-alias-to-push-and-deploy-code">Git alias to push and deploy code</h3>
 <p>Open .git/config file and add the following line of code in [alias] section. If the section does not exist then create it.</p>
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token punctuation">[</span>alias<span class="token punctuation">]</span>
 	deploy <span class="token operator">=</span> <span class="token string">"! /absolute/path/to/project/.git/push-deploy.sh"</span>
 </code></pre>
-<h4 id="test-the-entire-setup">Test the entire setup</h4>
+<h3 id="test-the-entire-setup">Test the entire setup</h3>
 <p>Start by making sure that your <code>launch.sh</code> is able to successfully pull and deploy code on server. For this open your server console, browse to your project folder, pull/clone the latest code and execute <code>./launch.sh</code></p>
 <p>If this test is successful then open your local project folder. Make a test commit and execute <code>git deploy</code></p>
 <p>Once the script run completes. Open your website on browser, and confirm that the changes made in the test commit are present.</p>
