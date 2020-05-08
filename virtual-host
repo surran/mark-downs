@@ -1,14 +1,14 @@
 <div class="stackedit__html"><h1 id="hosting-multiple-websites-on-amazon-lightsail">Hosting Multiple websites on Amazon Lightsail</h1>
-<h3 id="scenario">Scenario</h3>
+<blockquote>
 <p>I recently shifted my websites to AWS Lightsail. I purchased a single server to host three different websites. The immediate problem that came up was that traffic coming from all three domains (website addresses) reach the same server location. I had to figure out a way to further route this traffic (based on the domain name they come from) to their respective document root folders.</p>
-<h3 id="solution">Solution</h3>
+</blockquote>
 <p>The key to solving this is adding these domains as VirtualHost entries to your apache server config. Here are the steps involved:</p>
 <ol>
 <li>Locate Virtual host File</li>
 <li>Add domains</li>
 <li>Restart Apache</li>
 </ol>
-<h4 id="locate-virtual-host-file">Locate Virtual host File</h4>
+<h3 id="locate-virtual-host-file">Locate Virtual host File</h3>
 <p>Load bitnami terminal on your Lightsail instance, and browse to the apache configuration files location.</p>
 <pre><code>bitnami@ip-172-26-5-171:~$cd /opt/bitnami/apache2/conf
 </code></pre>
@@ -16,7 +16,7 @@
 <p>Virtual Host specific settings are handled by  <code>/extra/httpd-vhosts.conf</code> file. Make sure you are loading it by adding (or uncommenting) the following line to your  <code>httpd.conf</code> file.</p>
 <pre class=" language-bash"><code class="prism  language-bash">Include conf/extra/httpd-vhosts.conf
 </code></pre>
-<h4 id="add-domains">Add domains</h4>
+<h3 id="add-domains">Add domains</h3>
 <p>Open <code>/extra/httpd-vhosts.conf</code> file.</p>
 <p>A typical virtual host config for a domain (say <a href="http://www.website1.com">www.website1.com</a>) looks like this:</p>
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token operator">&lt;</span>VirtualHost *:80<span class="token operator">&gt;</span>
@@ -39,7 +39,7 @@
     CustomLog <span class="token string">"logs/website2_access_log"</span> common
 <span class="token operator">&lt;</span>/VirtualHost<span class="token operator">&gt;</span>
 </code></pre>
-<h4 id="restart-apache-server">Restart Apache Server</h4>
+<h3 id="restart-apache-server">Restart Apache Server</h3>
 <p>Once you are done with making changes to  <code>/extra/httpd-vhosts.conf</code>, save the file and restart apache to see the changes taking effect.</p>
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token function">sudo</span> /opt/bitnami/ctlscript.sh restart apache
 </code></pre>
