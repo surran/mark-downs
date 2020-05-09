@@ -1,4 +1,13 @@
 [{
+	"name": "Optimizing your Website for Twitter Share",
+	"desc": "Content rich tweets are a great way to keep your audience engaged.",
+	"handle": "twitter-share",
+	"searchTerms": [],
+	"illustration": {"text": "Twitter Share", "image": ""},
+	"tags": ["growth"],
+	"date": "2020-5-9"
+},
+{
 	"name": "Event Logging for tracking User Behaviour",
 	"desc": "Monitor the way individual users as well as your collective audience is interacting with your website.",
 	"handle": "event-logging",
