@@ -1,7 +1,7 @@
 <div class="stackedit__html"><h1 id="optimizing-your-website-for-twitter-share">Optimizing your website for Twitter Share</h1>
 <blockquote>
-<p>Twitting about latest updates in your website is a great way to keep your audience engaged. If your tweets also have visual and descriptive information about the page, then they are even more effective in drawing visitors.</p>
-<p>Let us discuss some simple tweaks that will automatically add a twitter card (visual and descriptive information about the page) every time a URL from your website in mentioned in a tweet.</p>
+<p>Twitting about latest updates in your website is a great way to keep your audience engaged. This is even more effective if your tweets also have visual and descriptive information about the page.</p>
+<p>Let us discuss some simple tweaks that will automatically add a twitter card every time a URL from your website in mentioned in a tweet.</p>
 </blockquote>
 <p>Key steps to the solution are:</p>
 <ol>
@@ -14,8 +14,7 @@
 <ol>
 <li>A title (max 70 characters).</li>
 <li>A description (max 200 characters).</li>
-<li>An image 	(1200 x 630 px for <em><code>summary_large_image</code></em><br>
-or 120 x 120 px for <em><code>summary</code></em> card types).</li>
+<li>An image 	(1200 x 630 px for <em><code>summary_large_image</code></em> or 120 x 120 px for <em><code>summary</code></em> card types).</li>
 <li>A twitter handle.</li>
 </ol>
 <h3 id="add-meta-tags-to-html">Add meta tags to HTML</h3>
