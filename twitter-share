@@ -1,7 +1,7 @@
 <div class="stackedit__html"><h1 id="optimizing-your-website-for-twitter-share">Optimizing your website for Twitter Share</h1>
 <blockquote>
 <p>Twitting about latest updates in your website is a great way to keep your audience engaged. This is even more effective if your tweets also have visual and descriptive information about the page.</p>
-<p>Let us discuss some simple tweaks that will automatically add a twitter card every time a URL from your website in mentioned in a tweet.</p>
+<p>Let us discuss some simple tweaks that will automatically add a <em>twitter card</em> every time a URL from your website in mentioned in a tweet.</p>
 </blockquote>
 <p>Key steps to the solution are:</p>
 <ol>
@@ -26,7 +26,7 @@
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>twitter:description<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Notes on various aspects of Web development. Scenarios and solutions in infrastructure, backend, frontend and user growth.<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>twitter:image<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://www.terminalnotes.com/growthImages/all.png<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
 </code></pre>
-<p>The contents of site, creator, title, description and image tags tell twitter what to fill in while generating a <em>twitter Card</em>. Copy paste the above code in your HTML and substitute the contents with your own data. Choose between <em><code>summary_large_image</code></em> and  <em><code>summary</code></em> based on your image resolution.</p>
+<p>The contents of site, creator, title, description and image tags tell twitter what to fill in while generating a <em>twitter card</em>. Copy paste the above code in your HTML and substitute the contents with your own data. Choose between <em><code>summary_large_image</code></em> and  <em><code>summary</code></em> based on your image resolution.</p>
 <p>Note that to be truly effective each page of your website should have its own unique meta data. This is especially true if you are a blogging or a content based website.</p>
 <h3 id="test-on-debugger-and-tweet">Test on debugger and tweet</h3>
 <p>Before tweeting, you can check how the card would finally look like on: <a href="https://cards-dev.twitter.com/validator">https://cards-dev.twitter.com/validator</a></p>
