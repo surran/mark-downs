@@ -1,0 +1,36 @@
+<div class="stackedit__html"><h1 id="optimizing-your-website-for-twitter-share">Optimizing your website for Twitter Share</h1>
+<blockquote>
+<p>Twitting about latest updates in your website is a great way to keep your audience engaged. If your tweets also have visual and descriptive information about the page, then they are even more effective in drawing visitors.</p>
+<p>Let us discuss some simple tweaks that will automatically add a twitter card (visual and descriptive information about the page) every time a URL from your website in mentioned in a tweet.</p>
+</blockquote>
+<p>Key steps to the solution are:</p>
+<ol>
+<li>Get the necessary ingredients</li>
+<li>Add meta tags to html</li>
+<li>Test on debugger and tweet</li>
+</ol>
+<h3 id="get-the-necessary-ingredients">Get the necessary ingredients</h3>
+<p>For each website URL you will need:</p>
+<ol>
+<li>A title (max 70 characters).</li>
+<li>A description (max 200 characters).</li>
+<li>An image 	(1200 x 630 px for <em><code>summary_large_image</code></em><br>
+or 120 x 120 px for <em><code>summary</code></em> card types).</li>
+<li>A twitter handle.</li>
+</ol>
+<h3 id="add-meta-tags-to-html">Add meta tags to HTML</h3>
+<p>There are twitter specific meta tags which can be used to broadcast page data. Here is a an example:</p>
+<pre class=" language-html"><code class="prism  language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>twitter:card<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>summary_large_image<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>  
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>twitter:site<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@surranshan<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>  
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>twitter:creator<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@surranshan<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>twitter:title<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Terminal Notes - Web Development Solutions<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>twitter:description<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Notes on various aspects of Web development. Scenarios and solutions in infrastructure, backend, frontend and user growth.<span class="token punctuation">"</span></span> <span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>twitter:image<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://www.terminalnotes.com/growthImages/all.png<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+</code></pre>
+<p>The contents of site, creator, title, description and image tags tell twitter what to fill in while generating a <em>twitter Card</em>. Copy paste the above code in your HTML and substitute the contents with your own data. Choose between <em><code>summary_large_image</code></em> and  <em><code>summary</code></em> based on your image resolution.</p>
+<p>Note that to be truly effective each page of your website should have its own unique meta data. This is especially true if you are a blogging or a content based website.</p>
+<h3 id="test-on-debugger-and-tweet">Test on debugger and tweet</h3>
+<p>Before tweeting, you can check how the card would finally look like on: <a href="https://cards-dev.twitter.com/validator">https://cards-dev.twitter.com/validator</a></p>
+<p>If the result is satisfactory, go ahead and tweet.</p>
+</div>
+
