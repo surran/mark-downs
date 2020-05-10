@@ -55,8 +55,12 @@ node example.js
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'The image was created successfully!'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <p>Here we are specifying a html containing a custom image and a text written on it. Notice that the html is defined as a template literal with placeholders for both the text and image.</p>
+<p>On successfully running the above file you should see the following image file getting generated.</p>
+<p><img src="https://surran.github.io/mark-downs/assets/image-template.png" alt="Share a file"><br>
+Replace the image and text as per your requirement<br>
+.</p>
 <h3 id="generate-images-in-a-batch">Generate images in a batch</h3>
 <p>The above code can be converted into a function and then called in a loop with different values of text, image and output file locations.</p>
-<p>This way a single process run can create hundreds of fully customized image files as per your requirement.</p>
+<p>This way a single process run can create hundreds of fully customized image files.</p>
 </div>
 
