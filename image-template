@@ -14,8 +14,8 @@
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token function">git</span> clone https://github.com/frinyvonnick/node-html-to-image
 </code></pre>
 <p>Install and run the application</p>
-<pre><code>cd node=html-to-image
-sudo npm install
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">cd</span> node-html-to-image
+<span class="token function">sudo</span> <span class="token function">npm</span> <span class="token function">install</span>
 node example.js
 </code></pre>
 <p>‘–no-sandbox’<br>
