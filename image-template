@@ -18,13 +18,13 @@
 <span class="token function">sudo</span> <span class="token function">npm</span> <span class="token function">install</span>
 node example.js
 </code></pre>
-<p>‘–no-sandbox’<br>
-You should see <code>The image was created successfully</code> getting printed on the console. The application just generated <code>image.png</code>  file in its folder from the HTML template provided in <code>example.js</code> file.</p>
+<p>You should see <code>The image was created successfully</code> getting printed on the console. In case you face errors you can refer to the below troubleshooting guide.</p>
 <h4 id="troubleshooting">Troubleshooting</h4>
 <ol>
 <li><em>Error:</em> <code>Running as root without --no-sandbox is not supported.</code><br>
 <em>Solution:</em> open <code>src/example.js</code> file and add <code>puppeteerArgs: {args: ['--no-sandbox']}</code> key value pair to the object supplied to <code>nodeHtmlToImage</code> function</li>
 </ol>
+<p>The application generates <code>image.png</code>  file in its folder from the HTML template provided in <code>example.js</code> file.</p>
 <h3 id="design-your-html-template">Design your HTML template</h3>
 <p>Next step is to replace the default HTML template with your own template.</p>
 <p>Open <code>src/example.js</code> file and replace its contents with</p>
