@@ -1,0 +1,62 @@
+<div class="stackedit__html"><h1 id="generate-image-from-html">Generate Image from HTML</h1>
+<blockquote>
+<p>Wherever you need a series of images, all different in content but same in format, style and resolution,  you are looking batch image processing solutions.</p>
+<p>Typically these kind of requirements would come up when you need thumbnails for your blog, or image banners for social media, or product images for your catalog etc.</p>
+</blockquote>
+<p>Generating images form HTML is fully customizable solution that scales well to this requirement. Key steps to the setup are:</p>
+<ol>
+<li>install HTML to image plugin</li>
+<li>Design your HTML template</li>
+<li>Generate image(s)</li>
+</ol>
+<h3 id="install-html-to-image-plugin">Install HTML to image plugin</h3>
+<p>Create a dev folder and git clone the following repository (install git if you don’t have it already).</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">git</span> clone https://github.com/frinyvonnick/node-html-to-image
+</code></pre>
+<p>Install and run the application</p>
+<pre><code>cd node=html-to-image
+sudo npm install
+node example.js
+</code></pre>
+<p>‘–no-sandbox’<br>
+You should see <code>The image was created successfully</code> getting printed on the console. The application just generated <code>image.png</code>  file in its folder from the HTML template provided in <code>example.js</code> file.</p>
+<h4 id="troubleshooting">Troubleshooting</h4>
+<ol>
+<li><em>Error:</em> <code>Running as root without --no-sandbox is not supported.</code><br>
+<em>Solution:</em> open <code>src/example.js</code> file and add <code>puppeteerArgs: {args: ['--no-sandbox']}</code> key value pair to the object supplied to <code>nodeHtmlToImage</code> function</li>
+</ol>
+<h3 id="design-your-html-template">Design your HTML template</h3>
+<p>Next step is to replace the default HTML template with your own template.</p>
+<p>Open <code>src/example.js</code> file and replace its contents with</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> nodeHtmlToImage <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./src/index.js'</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> text <span class="token operator">=</span> <span class="token string">"That's an Interesting Painting"</span>
+<span class="token keyword">const</span> imageUrl <span class="token operator">=</span> <span class="token string">"https://www.suryaranjanshandil.com/img/utsav/casual_brush.jpg"</span>
+
+<span class="token function">nodeHtmlToImage</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  output<span class="token punctuation">:</span> <span class="token string">'./image.png'</span><span class="token punctuation">,</span>
+  puppeteerArgs<span class="token punctuation">:</span> <span class="token punctuation">{</span>args<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'--no-sandbox'</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">,</span>
+  html<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`&lt;html&gt;
+          &lt;style&gt;
+            @import url('https://fonts.googleapis.com/css?family=Permanent+Marker&amp;display=swap');
+          &lt;/style&gt;
+          &lt;body style="width: 1200px;"&gt;
+            &lt;img src="</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>imageUrl<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">"
+                 style="width:100%" &gt;
+            &lt;div style="font-family: 'Permanent Marker',
+                        cursive; position:absolute;
+                        top: 30px; 
+                        left: 350px; 
+                        font-size: 50px"&gt;
+              </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>text<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">
+            &lt;/div&gt;
+          &lt;/body&gt;
+        &lt;/html&gt;`</span></span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'The image was created successfully!'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Here we are specifying a html containing a custom image and a text written on it. Notice that the html is defined as a template literal with placeholders for both the text and image.</p>
+<h3 id="generate-images-in-a-batch">Generate images in a batch</h3>
+<p>The above code can be converted into a function and then called in a loop with different values of text, image and output file locations.</p>
+<p>This way a single process run can create hundreds of fully customized image files as per your requirement.</p>
+</div>
+
