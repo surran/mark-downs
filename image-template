@@ -1,9 +1,9 @@
 <div class="stackedit__html"><h1 id="generate-image-from-html">Generate Image from HTML</h1>
 <blockquote>
-<p>Wherever you need a series of images, all different in content but same in format, style and resolution,  you are looking batch image processing solutions.</p>
+<p>Wherever you need a series of images, all different in content but same in format, style and resolution,  you are looking for batch image processing solutions.</p>
 <p>Typically these kind of requirements would come up when you need thumbnails for your blog, or image banners for social media, or product images for your catalog etc.</p>
 </blockquote>
-<p>A solution that is fully customizable, and also scales well to this requirement is generating images form HTML. Key steps are:</p>
+<p>A solution that is fully customizable, and also scales well to this requirement is ‘generating images from HTML’. Key steps are:</p>
 <ol>
 <li>Install HTML to image plugin.</li>
 <li>Design your HTML template.</li>
