@@ -24,7 +24,7 @@ node example.js
 <li><em>Error:</em> <code>Running as root without --no-sandbox is not supported.</code><br>
 <em>Solution:</em> open <code>src/example.js</code> file and add <code>puppeteerArgs: {args: ['--no-sandbox']}</code> key value pair to the object supplied to <code>nodeHtmlToImage</code> function</li>
 </ol>
-<p>The application generates <code>image.png</code>  file in its folder from the HTML template provided in <code>example.js</code> file.</p>
+<p>On successful completion, the application generates <code>image.png</code>  file in its folder from the HTML template provided in <code>example.js</code> file.</p>
 <h3 id="design-your-html-template">Design your HTML template</h3>
 <p>Next step is to replace the default HTML template with your own template.</p>
 <p>Open <code>src/example.js</code> file and replace its contents with</p>
