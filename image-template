@@ -5,9 +5,9 @@
 </blockquote>
 <p>Generating images form HTML is fully customizable solution that scales well to this requirement. Key steps to the setup are:</p>
 <ol>
-<li>install HTML to image plugin</li>
-<li>Design your HTML template</li>
-<li>Generate image(s)</li>
+<li>install HTML to image plugin.</li>
+<li>Design your HTML template.</li>
+<li>Generate images in a batch.</li>
 </ol>
 <h3 id="install-html-to-image-plugin">Install HTML to image plugin</h3>
 <p>Create a dev folder and git clone the following repository (install git if you don’t have it already).</p>
