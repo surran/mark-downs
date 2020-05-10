@@ -1,4 +1,13 @@
 [{
+	"name": "Generate Image from HTML",
+	"desc": "Easy and fully customizable solution for batch processing of images.",
+	"handle": "image-template",
+	"searchTerms": [],
+	"illustration": {"text": "Image Template", "image": ""},
+	"tags": ["infrastructure"],
+	"date": "2020-5-11"
+},
+{
 	"name": "Optimizing your Website for Twitter Share",
 	"desc": "Content rich tweets are a great way to keep your audience engaged.",
 	"handle": "twitter-share",
