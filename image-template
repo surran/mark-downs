@@ -24,10 +24,10 @@ node example.js
 <li><em>Error:</em> <code>Running as root without --no-sandbox is not supported.</code><br>
 <em>Solution:</em> open <code>src/example.js</code> file and add <code>puppeteerArgs: {args: ['--no-sandbox']}</code> key value pair to the object supplied to <code>nodeHtmlToImage</code> function</li>
 </ol>
-<p>On successful completion, the application generates <code>image.png</code>  file in its folder from the HTML template provided in <code>example.js</code> file.</p>
+<p>On successful completion, the application generates <code>image.png</code>  file in its folder from the HTML string provided in <code>example.js</code> file.</p>
 <h3 id="design-your-html-template">Design your HTML template</h3>
-<p>Next step is to replace the default HTML template with your own template.</p>
-<p>Open <code>src/example.js</code> file and replace its contents with</p>
+<p>Next step is to replace the default HTML string with your own template.</p>
+<p>Open <code>example.js</code> file and replace its contents with</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> nodeHtmlToImage <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'./src/index.js'</span><span class="token punctuation">)</span>
 
 <span class="token keyword">const</span> text <span class="token operator">=</span> <span class="token string">"That's an Interesting Painting"</span>
@@ -63,6 +63,6 @@ node example.js
 <p>Replace the image and text as per your requirement.</p>
 <h3 id="generate-images-in-a-batch">Generate images in a batch</h3>
 <p>The above code can be converted into a function and then called in a loop with different values of text, image and output file locations.</p>
-<p>This way a single process run can create hundreds of fully customized image files.</p>
+<p>This way a single process run can create hundreds of images.</p>
 </div>
 
