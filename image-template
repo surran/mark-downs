@@ -3,9 +3,9 @@
 <p>Wherever you need a series of images, all different in content but same in format, style and resolution,  you are looking batch image processing solutions.</p>
 <p>Typically these kind of requirements would come up when you need thumbnails for your blog, or image banners for social media, or product images for your catalog etc.</p>
 </blockquote>
-<p>Generating images form HTML is fully customizable solution that scales well to this requirement. Key steps to the setup are:</p>
+<p>A solution that is fully customizable, and also scales well to this requirement is generating images form HTML. Key steps are:</p>
 <ol>
-<li>install HTML to image plugin.</li>
+<li>Install HTML to image plugin.</li>
 <li>Design your HTML template.</li>
 <li>Generate images in a batch.</li>
 </ol>
