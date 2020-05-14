@@ -35,8 +35,8 @@ https://www.example.com/login
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>urlset</span><span class="token punctuation">&gt;</span></span>
 </code></pre>
 <p>Here <code>&lt;changefreq&gt;</code> tag should have one of the following values: <em>always, hourly    daily, weekly, monthly, yearly, never</em>.</p>
-<p><code>&lt;priority&gt;</code> tag should have a number between 0 and 1 as it value. This tag is primary used to convey the relative importance of pages in a website.<br>
-XML sitemap can also be similarly submitted at Google Search Console -&gt; Sitemaps -&gt; Add a new sitemap.</p>
+<p><code>&lt;priority&gt;</code> tag should have a number between 0 and 1 as it value. This tag conveys the relative importance of pages in a website.</p>
+<p>Put the file on server and submit its location on Google Search Console -&gt; Sitemaps -&gt; Add a new sitemap</p>
 <p>Comparing the two, <code>sitemap.xml</code> is more elaborate compared to <code>sitemap.txt</code>.</p>
 <h3 id="optimize-sitemap-usage">Optimize sitemap usage</h3>
 <p>For large websites, the sitemap is likely to contain thousands of URLs. Here it becomes important to switch from a manually written (hard-coded) sitemap to a script or api generated one.</p>
