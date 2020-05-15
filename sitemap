@@ -48,7 +48,6 @@ https://www.example.com/login
 <p>As the url count of your website grows, it becomes rather tedious to keep the sitemap file up to date. As a permanant solution to this you can explore the option of api generated (dynamic) sitemaps.</p>
 <p>In <strong>dynamic sitemaps</strong>, instead of serving a static file, the server fetches latest url data from source/database and sends back a processed url list as response.</p>
 <p>You can compartmentalize urls by <strong>sitemap splitting</strong>. Here slow growing catagory of urls are seperated out from fast growing ones and put in different buckets.</p>
-<p>For example <code>sitemap/core</code> could contain <em>/example.com,<br>
-/example.com/about, /example.com/cart</em> etc, while <code>sitemap/products</code> could contain <em>/example.com/product/pillow1, /example.com/product/table2</em> etc.</p>
+<p>For example <code>sitemap/core</code> could contain <em>/example.com,  /example.com/about, /example.com/cart</em> etc, while <code>sitemap/products</code> could contain <em>/example.com/product/pillow1, /example.com/product/table2</em> etc.</p>
 </div>
 
