@@ -1,4 +1,13 @@
 [{
+	"name": "Submitting a sitemap on Google",
+	"desc": "A sitemap helps Google understand your site better for search indexing.",
+	"handle": "sitemap",
+	"searchTerms": [],
+	"illustration": {"text": "Sitemap", "image": ""},
+	"tags": ["growth"],
+	"date": "2020-5-15"
+},
+{
 	"name": "Generate Image from HTML",
 	"desc": "Easy and fully customizable solution for batch processing of images.",
 	"handle": "image-template",
