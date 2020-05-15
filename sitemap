@@ -1,8 +1,8 @@
 <div class="stackedit__html"><h1 id="sitemap-for-seo">Sitemap for SEO</h1>
 <blockquote>
-<p>A sitemap of your website is a list of valid urls, which you think are worthy of showing up in search engine results.</p>
+<p>A sitemap of your website is a list of valid urls that you submit to Google (search engine), indicating that all of them are worthy of showing up in search engine results.</p>
 </blockquote>
-<p>Some important questions about sitemaps worth discussing are:</p>
+<p>Some important questions here worth discussing are:</p>
 <ol>
 <li>What urls to include/not include in a sitemap?</li>
 <li>How to publish a sitemap?</li>
@@ -45,7 +45,7 @@ https://www.example.com/login
 <p>Comparing the two, <code>sitemap.xml</code> is more elaborate compared to <code>sitemap.txt</code>.</p>
 <h3 id="optimize-sitemap-usage">Optimize sitemap usage</h3>
 <p>As the url count of your website grows, it becomes rather tedious to keep the sitemap file up to date. As a permanant solution to this you can explore the option of api generated (dynamic) sitemaps.</p>
-<p>In <strong>dynamic sitemaps</strong>, the server fetches latest url data from source/database and sends back the processed url list as response.</p>
+<p>In <strong>dynamic sitemaps</strong>, instead of serving a static file, the server fetches latest url data from source/database and sends back the processed url list as response.</p>
 <p><strong>Sitemap splitting</strong> is another strategy of putting slow growing and fast growing list of urls in two or more different buckets.</p>
 <p>For example core pages of a website like<br>
 <em>/example.com,<br>
