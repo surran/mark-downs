@@ -12,8 +12,7 @@
 <p>Typically sitemap should contain pages that are designed to be search landing pages. These could be content pages, content listings, login/signup , products, about, contact pages etc.</p>
 <p>A sitemap should not contain pages that are not directly related to the content of the website. These could be privacy policy, terms of use, change password, purchase successful pages etc.</p>
 <h3 id="how-to-publish-a-sitemap">How to publish a sitemap?</h3>
-<p>Google has more than 90% market share among search engines. This means, for small websites, just publishing a sitemap on it is practically sufficient for SEO.</p>
-<p>Google supports sitemaps in .txt and .xml formats</p>
+<p>For small websites, just publishing a sitemap on Google is practically sufficient for SEO. Google supports sitemaps in .txt and .xml formats</p>
 <h4 id="sitemap-in-.txt-format">Sitemap in .txt format</h4>
 <p>Create a <code>sitemap.txt</code> file and paste all search worthy urls in it. Make sure there is only one URL in each line and the file is written in UTF-8 encoding format. Here is an example:</p>
 <pre><code>https://www.example.com
@@ -47,7 +46,7 @@ https://www.example.com/login
 <h3 id="optimize-sitemap-usage">Optimize sitemap usage</h3>
 <p>As the url count of your website grows, it becomes rather tedious to keep the sitemap file up to date. As a permanant solution to this you can explore the option of api generated (dynamic) sitemaps.</p>
 <p>In <strong>dynamic sitemaps</strong>, instead of serving a static file, the server fetches latest url data from source/database and sends back a processed url list as response.</p>
-<p>You can compartmentalize urls by <strong>sitemap splitting</strong>. Here slow growing catagory of urls are seperated out from fast growing ones and put in different buckets.</p>
+<p>You can also compartmentalize urls by <strong>sitemap splitting</strong>. Here slow growing catagory of urls are seperated out from fast growing ones and put in different buckets.</p>
 <p>For example <code>sitemap/core</code> could contain <em>/example.com,  /example.com/about, /example.com/cart</em> etc, while <code>sitemap/products</code> could contain <em>/example.com/product/pillow1, /example.com/product/table2</em> etc.</p>
 </div>
 
