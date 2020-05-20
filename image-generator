@@ -1,0 +1,36 @@
+<div class="stackedit__html"><h1 id="image-generator-for-social-media-posts">Image Generator for Social Media Posts</h1>
+<blockquote>
+<p>This article is an overview of the <strong>image-generator</strong> project. Why was it needed, what are its essential components and how it was built.</p>
+<p><strong>Image-generator</strong> is available for general use on <a href="https://www.terminalnotes.com/products/image-generator">https://www.terminalnotes.com/products/image-generator</a></p>
+</blockquote>
+<h3 id="why-is-this-needed">Why is this needed?</h3>
+<p>Images attract human attention.</p>
+<p>A social media post that has a image gets clicked lot more that a post with plain text and description. That is why you want to make sure that whenever your website gets mentioned in a tweet/facebook post, an associated image pops up.</p>
+<p>If you are a single page/purpose website, specifying a generic image or logo as representative for all pages is an okay thing to do.</p>
+<p>But if your website has multiple pages then you would do good be having a seperate representative image for each content page.</p>
+<p>That is where need for a image-generator arises.</p>
+<h3 id="essentail-requirements">Essentail requirements?</h3>
+<p>An social media card look like this:</p>
+<p><img src="https://surran.github.io/mark-downs/assets/image-generator1.png" alt="" title="Wikipedia map"></p>
+<p>The image has a text, a background image and website’s name. Let us reverse engineer these into requirements.</p>
+<h4 id="resolution-1200-x-630px">Resolution (1200 x 630px)</h4>
+<ol>
+<li>Both facebook share and twitter card images have 1.91:1 aspect ratio. This means that any image that has a different aspect ratio shall be cropped from either the top or sides.</li>
+<li>Both facebook and twitter recommend images with or above 1200px width for optimum viewing experience on desktop and mobile. Very lage images are of course not recommended due to higher loading times.</li>
+</ol>
+<p>Turns out, the best fit output resolution for social media is 1200 x 630px.</p>
+<h4 id="background-imagecolorpattern">Background image/color/pattern</h4>
+<p>One might want an output image which is a plain photograph, or a photograph with an overlaying text, or text with solid color background.</p>
+<p>Keeping these in mind we add the following requirements:</p>
+<ol>
+<li>Should be able to set any image as background by specifying its url</li>
+<li>Should be able to specify any color for solid color background</li>
+</ol>
+<h4 id="text">Text</h4>
+<p>The text on the image needs to be concise and catchy. Long sentences are a strict no-no here. One can go with phrases with upto 5-6 words.</p>
+<p>We choose to support upto 3 words only.</p>
+<h4 id="websites-name">Website’s name</h4>
+<p>To provide more brand visibility, we additionally include the requirement of also printing the website’s name in the output image.</p>
+<h3 id="how-is-it-built">How is it built?</h3>
+</div>
+
