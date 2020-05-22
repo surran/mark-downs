@@ -1,6 +1,6 @@
 [{
 	"name": "Image Generator for Social Media Posts",
-	"desc": "Story of writing an application that help you quiclky generate custom images for sharing on social media.",
+	"desc": "Story of writing an application that helps you quiclky generate custom images for sharing on social media.",
 	"handle": "image-generator",
 	"searchTerms": [],
 	"illustration": {"text": "Image Generator", "image": ""},
