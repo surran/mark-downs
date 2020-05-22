@@ -38,6 +38,6 @@
 <h3 id="how-is-it-built">How is it built?</h3>
 <p>The application uses HTML templates for layout. The actual image rendering is carried out by a NodeJS library called puppeteer that runs on headless chromium . The implementation is discussed in-depth in: <a href="https://terminalnotes.com/infrastructure/image-template">https://terminalnotes.com/infrastructure/image-template</a></p>
 <p>The above backend mechanism is put on server and made available on an api endpoint. This api endpoint is plugged with a  HTML + Javascript front end which supplies the necessary user inputs like main text, background image, background color, logo text etc.</p>
-<p>The application is designed to generate the image and open it in a new browser tab. If it looks fine, the user can simply right click and save/download the image.</p>
+<p>The application is designed to generate the image and open it in a new browser tab. If the image looks fine, the user can simply right click and save/download it.</p>
 </div>
 
