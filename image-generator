@@ -10,14 +10,14 @@
 <h3 id="product-requirements">Product Requirements?</h3>
 <p>A social media card looks like the picture below. The image has a text, background and shows the website’s name. Let us reverse engineer these into requirements.</p>
 <p><img src="https://surran.github.io/mark-downs/assets/image-generator1.png" alt="" title="Wikipedia map"></p>
-<h4 id="image-resolution-considerations">Image Resolution Considerations</h4>
+<h4 id="image-resolution-considerations">Image Resolution considerations</h4>
 <ol>
 <li>Both facebook share and twitter card images have 1.91:1 aspect ratio. This means that any image that has a different aspect ratio shall be cropped from either the top or sides.</li>
 <li>Both facebook and twitter recommend images with or above 1200px width for optimum viewing experience on desktop and mobile.</li>
 <li>All social media websites scale down high resolution images to optimum viewing resolution for speed and space.</li>
 </ol>
 <p>Considering these, an output resolution of 1200 x 630px works fine for us.</p>
-<h4 id="background-imagecolorpattern-consiterations">Background image/color/pattern Consiterations</h4>
+<h4 id="background-imagecolorpattern-consiterations">Background image/color/pattern consiterations</h4>
 <ol>
 <li>
 <p>The image background could be a photograph. A user should be able to set any photograph as background by specifying its url</p>
@@ -26,7 +26,7 @@
 <p>For plain backgrounds, a user should also be able to  choose and specify a solid color as background.</p>
 </li>
 </ol>
-<h4 id="forground-textconsiderations">Forground TextConsiderations</h4>
+<h4 id="forground-text-considerations">Forground Text considerations</h4>
 <ol>
 <li>
 <p>For main text, user should be able specify one, two or three word phrases with a total of upto 20 letters.</p>
