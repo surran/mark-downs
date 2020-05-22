@@ -17,16 +17,16 @@
 <li>All social media websites scale down high resolution images to optimum viewing resolution for speed and space.</li>
 </ol>
 <p>Considering these, an output resolution of 1200 x 630px works fine for us.</p>
-<h4 id="background-imagecolorpattern-consiterations">Background image/color/pattern consiterations</h4>
+<h4 id="background-imagecolorpattern-considerations">Background image/color/pattern considerations</h4>
 <ol>
 <li>
-<p>The image background could be a photograph. A user should be able to set any photograph as background by specifying its url</p>
+<p>The image background could be a photograph. A user should be able to set any photograph as background by specifying its URL.</p>
 </li>
 <li>
 <p>For plain backgrounds, a user should also be able to  choose and specify a solid color as background.</p>
 </li>
 </ol>
-<h4 id="forground-text-considerations">Forground Text considerations</h4>
+<h4 id="foreground-text-considerations">Foreground Text considerations</h4>
 <ol>
 <li>
 <p>For main text, user should be able specify one, two or three word phrases with a total of upto 20 letters.</p>
@@ -36,8 +36,8 @@
 </li>
 </ol>
 <h3 id="how-is-it-built">How is it built?</h3>
-<p>The Image-generator uses HTML templates for layout. The actual image rendering is carried out by a NodeJS library called puppeteer that runs on headless chromium . The implementation is discussed in-depth in: <a href="https://terminalnotes.com/infrastructure/image-template">https://terminalnotes.com/infrastructure/image-template</a></p>
+<p>The application uses HTML templates for layout. The actual image rendering is carried out by a NodeJS library called puppeteer that runs on headless chromium . The implementation is discussed in-depth in: <a href="https://terminalnotes.com/infrastructure/image-template">https://terminalnotes.com/infrastructure/image-template</a></p>
 <p>The above backend mechanism is put on server and made available on an api endpoint. This api endpoint is plugged with a  HTML + Javascript front end which supplies the necessary user inputs like main text, background image, background color, logo text etc.</p>
-<p>The applicatioin is designed to generate the image and open it in a new browser tab. If it looks fine, the user can simply right click and save/download the image.</p>
+<p>The application is designed to generate the image and open it in a new browser tab. If it looks fine, the user can simply right click and save/download the image.</p>
 </div>
 
