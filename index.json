@@ -1,4 +1,13 @@
 [{
+	"name": "Image Generator for Social Media Posts",
+	"desc": "Story of writing an application that help you quiclky generate custom images for sharing on social media.",
+	"handle": "image-generator",
+	"searchTerms": [],
+	"illustration": {"text": "Image Generator", "image": ""},
+	"tags": ["projects"],
+	"date": "2020-5-23"
+},
+,{
 	"name": "Submitting a Sitemap on Google",
 	"desc": "A sitemap helps Google understand your site better for search indexing.",
 	"handle": "sitemap",
