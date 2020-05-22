@@ -11,6 +11,7 @@
 <p>A social media card look like the picture below. The image has a text, background and shows the website’s name. Let us reverse engineer these into requirements.</p>
 <p><img src="https://surran.github.io/mark-downs/assets/image-generator1.png" alt="" title="Wikipedia map"></p>
 <h4 id="image-resolution">Image Resolution</h4>
+<p>Considerations are:</p>
 <ol>
 <li>Both facebook share and twitter card images have 1.91:1 aspect ratio. This means that any image that has a different aspect ratio shall be cropped from either the top or sides.</li>
 <li>Both facebook and twitter recommend images with or above 1200px width for optimum viewing experience on desktop and mobile.</li>
@@ -18,18 +19,28 @@
 </ol>
 <p>Considering these, an output resolution of 1200 x 630px works fine for us.</p>
 <h4 id="background-imagecolorpattern">Background image/color/pattern</h4>
-<p>An image could be a plain photograph, a photograph with an overlaying text, or text with solid color background.</p>
-<p>In other words:</p>
+<p>Considerations are:</p>
 <ol>
-<li>A user should be able to set any image as background by specifying its url</li>
-<li>A user should be able to  choose and specify a solid color as background.</li>
+<li>
+<p>The image background could be a photograph. A user should be able to set any photograph as background by specifying its url</p>
+</li>
+<li>
+<p>For plain backgrounds, a user should also be able to  choose and specify a solid color as background.</p>
+</li>
 </ol>
-<h4 id="text">Text</h4>
-<p>The  main text on the image needs to be concise and catchy. One can go with phrases with upto 5-6 words.</p>
-<p>There should be provision to display the website’s name on the image for overall brand visibility.</p>
+<h4 id="forground-text">Forground Text</h4>
+<p>There is scope for displaying limited amount of text in the image. The considerations are:</p>
+<ol>
+<li>
+<p>For main text, user should be able specify one, two or three word phrases with a total of upto 20 letters.</p>
+</li>
+<li>
+<p>For subtext, the user should be able to specify any text upto 20 letters.</p>
+</li>
+</ol>
 <h3 id="how-is-it-built">How is it built?</h3>
-<p>The Image-generator uses HTML templates for layout. The actual image rendering is carried out by a NodeJS library called puppeteer that run on headless chromium . The implementation is discussed in-depth in: <a href="https://terminalnotes.com/infrastructure/image-template">https://terminalnotes.com/infrastructure/image-template</a></p>
-<p>This backend mechanism is put on server and made available on an api endpoint. This api endpoint is plugged with a  front end which supplies the necessary user inputs like main text, background image, background color, logo text etc.</p>
-<p>Once the image gets rendered, the user is redirected to it in a new window. If it looks fine, the user can simply right click and save/download the image.</p>
+<p>The Image-generator uses HTML templates for layout. The actual image rendering is carried out by a NodeJS library called puppeteer that runs on headless chromium . The implementation is discussed in-depth in: <a href="https://terminalnotes.com/infrastructure/image-template">https://terminalnotes.com/infrastructure/image-template</a></p>
+<p>The above backend mechanism is put on server and made available on an api endpoint. This api endpoint is plugged with a  HTML + Javascript front end which supplies the necessary user inputs like main text, background image, background color, logo text etc.</p>
+<p>The applicatioin is designed to generate the image and open it in a new browser tab. If it looks fine, the user can simply right click and save/download the image.</p>
 </div>
 
