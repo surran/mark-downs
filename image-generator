@@ -8,7 +8,7 @@
 <p>A good image adds value to your brand and draws visitors to your website.</p>
 <p>When running a social media campaign,  you would need not one but many such images. Won’t it be great if there is a way to generate a custom image with the right content, aspect ratio and resolution in less than 30 seconds ?</p>
 <h3 id="product-requirements">Product Requirements?</h3>
-<p>A social media card look like the picture below. The image has a text, background and shows the website’s name. Let us reverse engineer these into requirements.</p>
+<p>A social media card looks like the picture below. The image has a text, background and shows the website’s name. Let us reverse engineer these into requirements.</p>
 <p><img src="https://surran.github.io/mark-downs/assets/image-generator1.png" alt="" title="Wikipedia map"></p>
 <h4 id="image-resolution">Image Resolution</h4>
 <p>Considerations are:</p>
