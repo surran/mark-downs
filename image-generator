@@ -1,7 +1,7 @@
 <div class="stackedit__html"><h1 id="image-generator-for-social-media-posts">Image Generator for Social Media Posts</h1>
 <blockquote>
 <p>Image generator helps you create attractive images (like the one below) for social media sharing.</p>
-<p><img src="https://surran.github.io/mark-downs/assets/image-generator2.png" alt="" title="Wikipedia map"></p>
+<p><img src="https://surran.github.io/mark-downs/assets/image-generator3.png" alt="" title="Wikipedia map"></p>
 <p>Try it hands on: <a href="https://www.terminalnotes.com/products/image-generator">https://www.terminalnotes.com/products/image-generator</a></p>
 </blockquote>
 <h3 id="why-is-this-needed">Why is this needed?</h3>
@@ -26,8 +26,7 @@
 <li>A user should be able to  choose and specify a solid color as background.</li>
 </ol>
 <h4 id="text">Text</h4>
-<p>The text on the image needs to be concise and catchy. One can go with phrases with upto 5-6 words.</p>
-<h4 id="websites-name">Website’s name</h4>
+<p>The  main text on the image needs to be concise and catchy. One can go with phrases with upto 5-6 words.</p>
 <p>There should be provision to display the website’s name on the image for overall brand visibility.</p>
 <h3 id="how-is-it-built">How is it built?</h3>
 </div>
