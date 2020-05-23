@@ -1,0 +1,100 @@
+<div class="stackedit__html"><blockquote>
+<p>An admin page lets you have a place to put settings, controls, run scripts and report data. The page should be accessible only the website admin.</p>
+<p>In this article we will discuss how to setup a basic admin page secured by google authentication.</p>
+</blockquote>
+<h3 id="obtain-authentication-api-access-from-google">Obtain Authentication API access from Google</h3>
+<ol>
+<li>Open <a href="https://console.developers.google.com/apis/credentials">Google apis page</a>.</li>
+<li>Click <strong>Create credentials &gt; OAuth client ID</strong>.</li>
+<li>Select <strong>Web application</strong> as the application type.</li>
+</ol>
+<p>Under  <em>Authorised JavaScript origins</em> add your website’s domain name. You can temporarily also add localhost here while you test.</p>
+<p>Under <em>Authorised redirect URIs</em> add your admin page’s address, both with your website’s domain name and localhost.</p>
+<h3 id="project-setup">Project Setup</h3>
+<p>Initialize a npm project and install a few nodeJS modules</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">mkdir</span> dev <span class="token operator">&amp;&amp;</span> <span class="token function">cd</span> dev
+<span class="token function">npm</span> init -y
+<span class="token function">npm</span> <span class="token function">install</span> --save-dev express googleapis cookie-parser
+</code></pre>
+<h3 id="admin-dashboard">Admin Dashboard</h3>
+<p>Create a index.js file and copy paste the following code in it</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> <span class="token punctuation">{</span> google <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'googleapis'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> express <span class="token operator">=</span>  <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> cookieParser <span class="token operator">=</span>  <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'cookie-parser'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> CLIENT_ID <span class="token operator">=</span> <span class="token string">""</span>
+<span class="token keyword">const</span> CLIENT_SECRET <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> REDIRECT_URL <span class="token operator">=</span> <span class="token string">""</span>
+
+<span class="token keyword">const</span> app <span class="token operator">=</span>  <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">index</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">/* oAuth2 client Object */</span>
+    <span class="token keyword">const</span> oAuth2Client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">google<span class="token punctuation">.</span>auth<span class="token punctuation">.</span>OAuth2</span><span class="token punctuation">(</span>CLIENT_ID<span class="token punctuation">,</span> CLIENT_SECRET<span class="token punctuation">,</span> REDIRECT_URL<span class="token punctuation">)</span>
+    
+    <span class="token comment">/* check if access token is passed by the client as a cookie */</span>
+    <span class="token keyword">let</span> tokens <span class="token operator">=</span> req<span class="token punctuation">.</span>cookies <span class="token operator">&amp;&amp;</span> req<span class="token punctuation">.</span>cookies<span class="token punctuation">.</span>tokens
+    <span class="token comment">/* check if google sent a code to generate new tokens */</span>
+    <span class="token keyword">let</span> redirectedFromGoogle <span class="token operator">=</span> req<span class="token punctuation">.</span>query<span class="token punctuation">.</span>code 
+    <span class="token comment">/* ask for google signin in case both the above checks fail */</span>
+    <span class="token keyword">const</span> askToSignin <span class="token operator">=</span> <span class="token operator">!</span>tokens <span class="token operator">&amp;&amp;</span> <span class="token operator">!</span>redirectedFromGoogle 
+    
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>askToSignin<span class="token punctuation">)</span>
+    <span class="token punctuation">{</span>
+        <span class="token comment">/* Generate google signup page url anr redirect to it */</span>
+        <span class="token keyword">const</span> scopes <span class="token operator">=</span> <span class="token punctuation">[</span>
+            <span class="token string">'https://www.googleapis.com/auth/userinfo.email'</span><span class="token punctuation">,</span>
+            <span class="token string">'https://www.googleapis.com/auth/userinfo.profile'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> url <span class="token operator">=</span> oAuth2Client<span class="token punctuation">.</span><span class="token function">generateAuthUrl</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+            access_type<span class="token punctuation">:</span> <span class="token string">'online'</span><span class="token punctuation">,</span>
+            scope<span class="token punctuation">:</span> scopes
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`&lt;script&gt;window.location.href="</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">"&lt;/script&gt;`</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">else</span>
+    <span class="token punctuation">{</span>
+        <span class="token keyword">let</span> coreArea <span class="token operator">=</span> <span class="token template-string"><span class="token string">`You are not Authorized`</span></span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>tokens<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            <span class="token comment">/* Generate new tokens and write them to tokens cookie*/</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token keyword">const</span> tokensObj <span class="token operator">=</span> <span class="token keyword">await</span> oAuth2Client<span class="token punctuation">.</span><span class="token function">getToken</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>query<span class="token punctuation">.</span>code<span class="token punctuation">)</span>
+                tokens <span class="token operator">=</span> tokensObj<span class="token punctuation">.</span>tokens
+                res<span class="token punctuation">.</span><span class="token function">cookie</span><span class="token punctuation">(</span><span class="token string">"tokens"</span><span class="token punctuation">,</span> tokens<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>tokens<span class="token punctuation">)</span>
+        <span class="token punctuation">{</span>
+            oAuth2Client<span class="token punctuation">.</span><span class="token function">setCredentials</span><span class="token punctuation">(</span>tokens<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+            <span class="token keyword">const</span> people <span class="token operator">=</span> google<span class="token punctuation">.</span><span class="token function">people</span><span class="token punctuation">(</span><span class="token punctuation">{</span>version<span class="token punctuation">:</span><span class="token string">'v1'</span><span class="token punctuation">,</span> auth<span class="token punctuation">:</span> oAuth2Client<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> people<span class="token punctuation">.</span>people<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+                resourceName<span class="token punctuation">:</span> <span class="token string">'people/me'</span><span class="token punctuation">,</span>
+                personFields<span class="token punctuation">:</span> <span class="token string">'emailAddresses,names,photos'</span><span class="token punctuation">,</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> authorized <span class="token operator">=</span> response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>resourceName <span class="token operator">==</span> <span class="token string">"people/7439857929390495967898"</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>authorized<span class="token punctuation">)</span>
+                coreArea <span class="token operator">=</span> <span class="token template-string"><span class="token string">`You are Authorized&lt;/hr&gt;			
+                &lt;button&gt;Run Script 1&lt;/buttton&gt;
+                &lt;button&gt;Run Script 1&lt;buttton&gt;`</span></span>
+        <span class="token punctuation">}</span>
+         
+        <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`&lt;html&gt;
+                            &lt;title&gt;Admin Zone&lt;/title&gt;
+                            &lt;body&gt;
+                              &lt;div&gt;${coreArea&lt;/div&gt;        
+                            &lt;/body&gt;
+                            &lt;/script&gt;
+                         &lt;/html&gt;`</span></span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> index<span class="token punctuation">;</span>
+
+</code></pre>
+<p>In the above code fill in values for  CLIENT_ID, CLIENT_SECRET and REDIRECT_URL from among the credentials you obtained from google.</p>
+</div>
+
