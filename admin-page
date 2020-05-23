@@ -1,4 +1,4 @@
-<div class="stackedit__html"><h1 id="admin-page-secured-by-google-authentication">Admin Page secured by Google Authentication</h1>
+<div class="stackedit__html"><h1 id="website-admin-page-secured-by-google-authentication">Website Admin Page secured by Google Authentication</h1>
 <blockquote>
 <p>An admin page lets you have a place to put settings, controls, run scripts and report data. The page should be accessible only the website admin.</p>
 <p>In this article we will discuss how to setup a basic admin page secured by google authentication.</p>
