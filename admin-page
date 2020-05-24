@@ -22,13 +22,14 @@
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> <span class="token punctuation">{</span> google <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'googleapis'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> express <span class="token operator">=</span>  <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> cookieParser <span class="token operator">=</span>  <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'cookie-parser'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
 <span class="token keyword">const</span> CLIENT_ID <span class="token operator">=</span> <span class="token string">""</span>
 <span class="token keyword">const</span> CLIENT_SECRET <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> REDIRECT_URL <span class="token operator">=</span> <span class="token string">""</span>
 
-<span class="token keyword">const</span> app <span class="token operator">=</span>  <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> AUTHORIZED_USERS <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"people/576897999390626404751"</span><span class="token punctuation">,</span> <span class="token string">"people/257032700569021234908"</span><span class="token punctuation">]</span>
 
-<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">index</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">authModule</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token comment">/* oAuth2 client Object */</span>
     <span class="token keyword">const</span> oAuth2Client <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">google<span class="token punctuation">.</span>auth<span class="token punctuation">.</span>OAuth2</span><span class="token punctuation">(</span>CLIENT_ID<span class="token punctuation">,</span> CLIENT_SECRET<span class="token punctuation">,</span> REDIRECT_URL<span class="token punctuation">)</span>
     
@@ -58,6 +59,7 @@
         <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>tokens<span class="token punctuation">)</span>
         <span class="token punctuation">{</span>
             <span class="token comment">/* Generate new tokens and write them to tokens cookie*/</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"no tokens"</span><span class="token punctuation">)</span>
             <span class="token keyword">try</span> <span class="token punctuation">{</span>
                 <span class="token keyword">const</span> tokensObj <span class="token operator">=</span> <span class="token keyword">await</span> oAuth2Client<span class="token punctuation">.</span><span class="token function">getToken</span><span class="token punctuation">(</span>req<span class="token punctuation">.</span>query<span class="token punctuation">.</span>code<span class="token punctuation">)</span>
                 tokens <span class="token operator">=</span> tokensObj<span class="token punctuation">.</span>tokens
@@ -75,10 +77,11 @@
             <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">await</span> people<span class="token punctuation">.</span>people<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
                 resourceName<span class="token punctuation">:</span> <span class="token string">'people/me'</span><span class="token punctuation">,</span>
                 personFields<span class="token punctuation">:</span> <span class="token string">'emailAddresses,names,photos'</span><span class="token punctuation">,</span>
-            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-            <span class="token keyword">const</span> authorized <span class="token operator">=</span> response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>resourceName <span class="token operator">==</span> <span class="token string">"people/7439857929390495967898"</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         
+            <span class="token keyword">const</span> authorized <span class="token operator">=</span> AUTHORIZED_USERS<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span>name <span class="token operator">=&gt;</span> response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>resourceName <span class="token operator">==</span> name<span class="token punctuation">)</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>response<span class="token punctuation">.</span>data<span class="token punctuation">.</span>resourceName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> is </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>authorized <span class="token operator">?</span> <span class="token string">"authorized."</span> <span class="token punctuation">:</span> <span class="token string">"not authorized."</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span>
             <span class="token keyword">if</span> <span class="token punctuation">(</span>authorized<span class="token punctuation">)</span>
-                coreArea <span class="token operator">=</span> <span class="token template-string"><span class="token string">`You are Authorized&lt;/hr&gt;			
+                coreArea <span class="token operator">=</span> <span class="token template-string"><span class="token string">`You are Authorized&lt;/hr&gt;         
                 &lt;button&gt;Run Script 1&lt;/buttton&gt;
                 &lt;button&gt;Run Script 1&lt;buttton&gt;`</span></span>
         <span class="token punctuation">}</span>
@@ -86,16 +89,30 @@
         <span class="token keyword">return</span> res<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`&lt;html&gt;
                             &lt;title&gt;Admin Zone&lt;/title&gt;
                             &lt;body&gt;
-                              &lt;div&gt;${coreArea&lt;/div&gt;        
+                              &lt;div&gt;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>coreArea<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&lt;/div&gt;        
                             &lt;/body&gt;
-                            &lt;/script&gt;
                          &lt;/html&gt;`</span></span><span class="token punctuation">)</span>
     <span class="token punctuation">}</span> 
 <span class="token punctuation">}</span>
 
-module<span class="token punctuation">.</span>exports <span class="token operator">=</span> index<span class="token punctuation">;</span>
+<span class="token keyword">function</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> app <span class="token operator">=</span>  <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token function">cookieParser</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`*`</span></span><span class="token punctuation">,</span>  authModule<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> Port <span class="token operator">=</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span>Port <span class="token operator">||</span> <span class="token number">8080</span><span class="token punctuation">;</span>
+    app<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span>Port<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Server started in Port </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>Port<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 </code></pre>
 <p>In the above code fill in values for  CLIENT_ID, CLIENT_SECRET and REDIRECT_URL from among the credentials you obtained from google.</p>
+<p>Run the code using node. (For advanced usage you can also install and use <a href="https://www.npmjs.com/package/nodemon">nodemon</a> here to automatically restart node server on file changes)</p>
+<pre class=" language-bash"><code class="prism  language-bash">node index.js
+</code></pre>
+<p>Open <a href="http://localhost:8080">http://localhost:8080</a> on browser. The system should redirect you to a google login page. Once you successfully login google will redirect you back to your website, more precisely to the REDIRECT_URL you entered on google and in your code (these exactly should match).</p>
+<p>You should see ‘You are not Authorized’ printed. This is because still you havn’t fed your google user details in the code. For doing this go to the terminal. You should see something like <code>people/123456789012345678901 is not authorized</code> printed (Note the number would be different for your case). Copy people/123456789012345678901 and add it to the list of AUTHORIZED_USERS in index.js file (you can delete the placeholder ids that are initially there).</p>
+<p>Restart node server and refresh page on browser. You should see ‘You are Authorized’ getting printed now.</p>
 </div>
 
