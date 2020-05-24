@@ -1,5 +1,5 @@
 [{
-	"name": "Admin page secured by Google Auth",
+	"name": "Google Authenticated Admin Page",
 	"desc": "An admin page lets you have your website's settings, controls and data, all at one secure url.",
 	"handle": "admin-page",
 	"searchTerms": [],
