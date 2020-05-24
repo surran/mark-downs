@@ -1,11 +1,19 @@
 [{
+	"name": "Admin page secured by Google Auth",
+	"desc": "An admin page lets you have your website's settings, controls and data, all at one secure url.",
+	"handle": "admin-page",
+	"searchTerms": [],
+	"illustration": {"text": "Admin Page", "image": ""},
+	"tags": ["infrastructure"],
+	"date": "2020-5-24"
+},{
 	"name": "Image Generator for Social Media Posts",
 	"desc": "Story of writing an application that helps you quiclky generate custom images for sharing on social media.",
 	"handle": "image-generator",
 	"searchTerms": [],
 	"illustration": {"text": "Image Generator", "image": ""},
 	"tags": ["projects"],
-	"date": "2020-5-23"
+	"date": "2020-5-21"
 },
 {
 	"name": "Submitting a Sitemap on Google",
