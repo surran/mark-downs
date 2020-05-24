@@ -1,8 +1,14 @@
-<div class="stackedit__html"><h1 id="website-admin-page-secured-by-google-authentication">Website Admin Page secured by Google Authentication</h1>
+<div class="stackedit__html"><h1 id="admin-page-secured-by-google-authentication">Admin Page secured by Google Authentication</h1>
 <blockquote>
-<p>An admin page lets you have a place to put settings, controls, run scripts and report data. The page should be accessible only the website admin.</p>
+<p>An admin page lets you have a place to put settings, controls, run scripts and report data. The page should be accessible only to the website admin.</p>
 <p>In this article we will discuss how to setup a basic admin page secured by google authentication.</p>
 </blockquote>
+<p>The key steps are:</p>
+<ol>
+<li>Obtain Authentication API access from Google</li>
+<li>Setup a project</li>
+<li>Write and run Admin Page code</li>
+</ol>
 <h3 id="obtain-authentication-api-access-from-google">Obtain Authentication API access from Google</h3>
 <ol>
 <li>Open <a href="https://console.developers.google.com/apis/credentials">Google apis page</a>.</li>
@@ -17,7 +23,7 @@
 <span class="token function">npm</span> init -y
 <span class="token function">npm</span> <span class="token function">install</span> --save-dev express googleapis cookie-parser
 </code></pre>
-<h3 id="admin-dashboard">Admin Dashboard</h3>
+<h3 id="admin-page-code">Admin Page Code</h3>
 <p>Create a index.js file and copy paste the following code in it</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> <span class="token punctuation">{</span> google <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'googleapis'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> express <span class="token operator">=</span>  <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'express'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
