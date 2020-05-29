@@ -1,0 +1,24 @@
+<div class="stackedit__html"><h1 id="setting-dns-configuration-for-a-domain">Setting DNS configuration for a domain</h1>
+<blockquote>
+<p>DNS (Domain Name System) is a mapping between domain names and IP adresses.</p>
+<p>Domain names (like <a href="http://terminalnotes.com">terminalnotes.com</a>) are what humans remember and type on their browser address bar. The internet network, on the other hand only understands IP addresses (like 66.249.82.197). DNS service is the bridge between the two. It takes a domain name as an input and returns the IP address that is associated with it as output.</p>
+</blockquote>
+<h3 id="dns-resolver">DNS Resolver</h3>
+<p>The first step to DNS resolution is your browser contacting a DNS resolver.</p>
+<p>A DNS resolver is a server specified by your internet service provider whose job is to return IP addresses for  domain names.<br>
+It does so by contacting a  number of client services (called name servers) which help step-by-step locate the final IP address.</p>
+<h3 id="a-record">A Record</h3>
+<p>A record tells your DNS Provider the IP address it must finally resolve to. This would be the public IP of your hosting server or the service provider.</p>
+<h3 id="ns-record">NS Record</h3>
+<p>NS (Name Server) record tells your Domain Registrar the IP addressed of servers (name server) that would be able to tell what IP address must the domain name finally resolve to</p>
+<h3 id="dns-caching-and-ttl">DNS Caching and TTL</h3>
+<p>Getting IP for domain name is a complicated serial process. For this reason mutiple layers of caching are introduced to make it efficient.</p>
+<h4 id="caching-at-browser-and-os-level">Caching at browser and OS level</h4>
+<p>Modern browsers cache DNS mapping right at the browser level. Apart form that, the Operating system is also capable of caching this data at the local machine level</p>
+<h4 id="caching-at-dns-resolvers-and-nameservers">Caching at DNS resolvers and Nameservers</h4>
+<p>Beyond this Domain resolver cache name server addresses and name servers cache final IP values.</p>
+<p>All this caching introduces a parameter called TTL (Time To Live), which means the maximum amount of time it will take for the DNS configuration changes made by the website owner to reach the users.</p>
+<p>NS Records typically have a TTL of 2 days. This means that it might take upto two days before DNS Resolvers start pointing to the new set nameservers.</p>
+<p>A Records on the other hand typically have a short TTL of 5 minutes. This mains name servers can switch from pointing to one final IP address to other in a matter of 5 minutes.</p>
+</div>
+
