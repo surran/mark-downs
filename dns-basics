@@ -15,8 +15,8 @@ Name servers IPs are typically provided (auto-generated) by the registrar, but a
 <p><em>What does a name server return?</em><br>
 A name server either returns the final IP address (IP address of your website) or the IP address of another name server. In other words, name servers call each other serally (in a chain) until the final IP address is returned.</p>
 <p><em>How does a domain owner specify the final IP address</em>?<br>
-The final IP address is specified by creating a ‘Hosted Zone’ either at the Hosting provider or the Domain Registrar.<br>
-Name servers get their information they need from hosted zones.</p>
+The final IP address gets specified when the domain owner creates a ‘Hosted Zone’ either at the Hosting provider or the Domain Registrar.<br>
+Name servers get the information they need from hosted zones.</p>
 <h3 id="hosted-zone">Hosted Zone</h3>
 <p>A hosted zone lets the domain owner record information about how the domain name connects to its designated IP address. This specification is done throught data attributes called ‘Records’.</p>
 <p>There are different type of records meant to server different purposes. We will discuss the bare minimum required to host a website.</p>
