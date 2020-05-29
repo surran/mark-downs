@@ -1,4 +1,4 @@
-<div class="stackedit__html"><h1 id="setting-dns-configuration-for-a-domain">Setting DNS configuration for a domain</h1>
+<div class="stackedit__html"><h1 id="setting-dns-configuration-for-a-domain">Setting DNS configuration for a Domain</h1>
 <blockquote>
 <p>DNS (Domain Name System) is a mapping between domain names and IP adresses.</p>
 <p>Domain names (like <a href="http://terminalnotes.com">terminalnotes.com</a>) are what humans remember and type on their browser address bar. The internet network, on the other hand only understands IP addresses (like 66.249.82.197). DNS service is the bridge between the two. It takes a domain name as an input and returns the IP address that is associated with it as output.</p>
@@ -6,8 +6,7 @@
 <p>Let us discuss what happens when you type <a href="http://terminalnotes.com">terminalnotes.com</a> in the browser address bar and pressed enter.</p>
 <p>The first thing that happens is your browser contacts a DNS resolver.</p>
 <h3 id="dns-resolver">DNS Resolver</h3>
-<p>A DNS resolver is a server specified by your internet service provider whose job is to return IP addresses for  domain names.<br>
-It does so by contacting a  number of client services (called name servers) which help step-by-step locate the final IP address.</p>
+<p>A DNS resolver is a server specified by your internet service provider whose job is to return IP addresses for  domain names. It does so by contacting a  number of client services (called name servers) which help step-by-step locate the final IP address.</p>
 <hr>
 <p><em>How does a DNS Resolver know which name servers to contact for which domain?</em><br>
 The answer to this is that domain owners specify their respective name servers at the time of domain registration (they can also modify or reset them at any time).</p>
