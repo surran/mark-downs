@@ -3,14 +3,29 @@
 <p>DNS (Domain Name System) is a mapping between domain names and IP adresses.</p>
 <p>Domain names (like <a href="http://terminalnotes.com">terminalnotes.com</a>) are what humans remember and type on their browser address bar. The internet network, on the other hand only understands IP addresses (like 66.249.82.197). DNS service is the bridge between the two. It takes a domain name as an input and returns the IP address that is associated with it as output.</p>
 </blockquote>
+<p>Let us discuss what happens when you type <a href="http://terminalnotes.com">terminalnotes.com</a> in the browser address bar and pressed enter.</p>
+<p>The first thing that happens is your browser contacts a DNS resolver.</p>
 <h3 id="dns-resolver">DNS Resolver</h3>
-<p>The first step to DNS resolution is your browser contacting a DNS resolver.</p>
 <p>A DNS resolver is a server specified by your internet service provider whose job is to return IP addresses for  domain names.<br>
 It does so by contacting a  number of client services (called name servers) which help step-by-step locate the final IP address.</p>
-<h3 id="a-record">A Record</h3>
-<p>A record tells your DNS Provider the IP address it must finally resolve to. This would be the public IP of your hosting server or the service provider.</p>
+<hr>
+<p><em>How does a DNS Resolver know which name servers to contact for which domain?</em><br>
+The answer to this is that domain owners specify their respective name servers at the time of domain registration (they can also modify or reset them at any time).</p>
+<p><em>How does a domain owner specify a name server</em>?<br>
+Name servers IPs are typically provided (auto-generated) by the registrar, but as a domain owner you can also choose to not use them and point it some other set of Name servers.</p>
+<p><em>What does a name server return?</em><br>
+A name server either returns the final IP address (IP address of your website) or the IP address of another name server. The name servers all each other serally (in a chain) until the final IP address is returned.</p>
+<p><em>How does a domain owner specify the final IP address</em>?<br>
+The final IP address is specified by creating a ‘Hosted Zone’ either at the Hosting provider or the Domain Registrar.<br>
+Name servers get their information they need from hosted zones.</p>
+<h3 id="hosted-zone">Hosted Zone</h3>
+<p>A hosted zone lets the domain owner record information about how the domain name connects to its designated IP address. This specification is done throught data attributes called ‘Records’.</p>
+<p>There are different type of records meant to server different purposes. We will discuss the bare minimum required to host a website.</p>
 <h3 id="ns-record">NS Record</h3>
 <p>NS (Name Server) record tells your Domain Registrar the IP addressed of servers (name server) that would be able to tell what IP address must the domain name finally resolve to</p>
+<h3 id="a-record">A Record</h3>
+<p>A record tells your DNS Provider the IP address it must finally resolve to. This would be the public IP of your hosting server or the service provider.</p>
+<hr>
 <h3 id="dns-caching-and-ttl">DNS Caching and TTL</h3>
 <p>Getting IP for domain name is a complicated serial process. For this reason mutiple layers of caching are introduced to make it efficient.</p>
 <h4 id="caching-at-browser-and-os-level">Caching at browser and OS level</h4>
