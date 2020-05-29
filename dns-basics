@@ -17,21 +17,23 @@ A name server either returns the final IP address (IP address of your website) o
 <p><em>How does a domain owner specify the final IP address</em>?<br>
 The final IP address gets specified when the domain owner creates a ‘Hosted Zone’ either at the Hosting provider or the Domain Registrar. Name servers get the information they need from hosted zones.</p>
 <h3 id="hosted-zone">Hosted Zone</h3>
-<p>A hosted zone lets the domain owner record information about how the domain name connects to its designated IP address. This specification is done throught data attributes called ‘Records’.</p>
-<p>There are different type of records meant to server different purposes. We will discuss the bare minimum required to host a website.</p>
+<p>A hosted zone lets the domain owner record information about how the domain name connects to its designated IP address. This specification is done by defining data attributes called <em>records</em>.</p>
+<p>There are different types of records meant to serve different purposes. We will discuss the a few important ones:</p>
 <h3 id="ns-record">NS Record</h3>
-<p>NS (Name Server) record tells your Domain Registrar the IP addressed of servers (name server) that would be able to tell what IP address must the domain name finally resolve to</p>
+<p>NS (Name Server) record specifies the name servers that would use this Hosted Zone as a data source. Having a NS record is compulsory (it cannot be deleted or set to blank).</p>
+<p>In a NS record, the IP values defined must match the name server IP values specified at the the Domain Registrar level.<br>
+(Not doing so leads to a senario called <em>lame deligation</em>)</p>
 <h3 id="a-record">A Record</h3>
-<p>A record tells your DNS Provider the IP address it must finally resolve to. This would be the public IP of your hosting server or the service provider.</p>
+<p>A (Address) specifies the final IP address. This would be the public IP of your hosting server (or the IP provided by your hosting service).</p>
 <hr>
 <h3 id="dns-caching-and-ttl">DNS Caching and TTL</h3>
 <p>Getting IP for domain name is a complicated serial process. For this reason mutiple layers of caching are introduced to make it efficient.</p>
 <h4 id="caching-at-browser-and-os-level">Caching at browser and OS level</h4>
-<p>Modern browsers cache DNS mapping right at the browser level. Apart form that, the Operating system is also capable of caching this data at the local machine level</p>
+<p>Modern browsers cache DNS mappings right at the browser level. Apart form that, the Operating system is also capable of caching this data at the local machine level.</p>
 <h4 id="caching-at-dns-resolvers-and-nameservers">Caching at DNS resolvers and Nameservers</h4>
-<p>Beyond this Domain resolver cache name server addresses and name servers cache final IP values.</p>
+<p>Both Domain resolvers ands name servers cache their output IP values.</p>
 <p>All this caching introduces a parameter called TTL (Time To Live), which means the maximum amount of time it will take for the DNS configuration changes made by the website owner to reach the users.</p>
 <p>NS Records typically have a TTL of 2 days. This means that it might take upto two days before DNS Resolvers start pointing to the new set nameservers.</p>
-<p>A Records on the other hand typically have a short TTL of 5 minutes. This mains name servers can switch from pointing to one final IP address to other in a matter of 5 minutes.</p>
+<p>A Records on the other hand typically have a short TTL of 5 minutes. This means name servers can switch from pointing to one final IP address to other in a matter of 5 minutes.</p>
 </div>
 
