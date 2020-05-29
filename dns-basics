@@ -9,9 +9,9 @@
 <p>A DNS resolver is a server specified by your internet service provider whose job is to return IP addresses for  domain names. It does so by contacting a  number of client services (called name servers) which help step-by-step locate the final IP address.</p>
 <hr>
 <p><em>How does a DNS Resolver know which name servers to contact for which domain?</em><br>
-The answer to this is that domain owners specify their respective name servers at the time of domain registration (they can also modify or reset them at any time).</p>
+The answer to this is that domain owners specify their respective name servers at the time of domain registration.</p>
 <p><em>How does a domain owner specify a name server</em>?<br>
-Name servers IPs are typically provided (auto-generated) by the registrar, but as a domain owner you can also choose to not use them and point it some other set of Name servers.</p>
+Name servers IPs are typically provided (auto-generated) by the registrar, but as a domain owner you can also at any time choose to not use them and point to a different set of name servers.</p>
 <p><em>What does a name server return?</em><br>
 A name server either returns the final IP address (IP address of your website) or the IP address of another name server. The name servers all each other serally (in a chain) until the final IP address is returned.</p>
 <p><em>How does a domain owner specify the final IP address</em>?<br>
