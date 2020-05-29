@@ -13,7 +13,7 @@ The answer to this is that domain owners specify their respective name servers a
 <p><em>How does a domain owner specify a name server</em>?<br>
 Name servers IPs are typically provided (auto-generated) by the registrar, but as a domain owner you can also at any time choose to not use them and point to a different set of name servers.</p>
 <p><em>What does a name server return?</em><br>
-A name server either returns the final IP address (IP address of your website) or the IP address of another name server. The name servers all each other serally (in a chain) until the final IP address is returned.</p>
+A name server either returns the final IP address (IP address of your website) or the IP address of another name server. In other words, name servers call each other serally (in a chain) until the final IP address is returned.</p>
 <p><em>How does a domain owner specify the final IP address</em>?<br>
 The final IP address is specified by creating a ‘Hosted Zone’ either at the Hosting provider or the Domain Registrar.<br>
 Name servers get their information they need from hosted zones.</p>
