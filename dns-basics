@@ -7,7 +7,7 @@
 <p>The first thing that happens is your browser contacts a DNS resolver.</p>
 <h3 id="dns-resolver">DNS Resolver</h3>
 <p>A DNS resolver is a server specified by your internet service provider whose job is to return IP addresses for  domain names. It does so by contacting a  number of client services (called name servers) which help step-by-step locate the final IP address.</p>
-<hr>
+<p><img src="https://surran.github.io/mark-downs/assets/dns-basics1.jpg" alt="DNS basic diagram"></p>
 <p><em>How does a DNS Resolver know which name servers to contact for which domain?</em><br>
 The answer to this is that domain owners specify their respective name servers at the time of domain registration.</p>
 <p><em>How does a domain owner specify a name server</em>?<br>
