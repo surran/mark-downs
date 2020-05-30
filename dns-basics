@@ -25,7 +25,7 @@ The final IP address gets specified when the domain owner creates a ‘Hosted Zo
 <h3 id="a-record">A Record</h3>
 <p>A (Address) record specifies the final IP address. This would be the public IP of your web hosting server (or the IP provided by your hosting service).</p>
 <hr>
-<p>Getting IP for domain name is a complicated serial process. For this reason mutiple layers of caching are introduced to make it efficient.<br>
+<p>Quite evidently, getting IP for domain name is a complicated serial process. For this reason mutiple layers of caching are introduced to make it efficient.<br>
 <img src="https://surran.github.io/mark-downs/assets/dns-basics3.png" alt=""></p>
 <h4 id="caching-at-browser-and-os-level">Caching at browser and OS level</h4>
 <p>Modern browsers cache DNS mappings right at the browser level. Apart form that, the Operating system is also capable of caching this data at the local machine level.</p>
