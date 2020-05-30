@@ -21,11 +21,10 @@ The final IP address gets specified when the domain owner creates a ‘Hosted Zo
 <p>There are different types of records meant to serve different purposes. We will discuss the a few important ones:</p>
 <h3 id="ns-record">NS Record</h3>
 <p>NS (Name Server) record specifies the name servers that would use this Hosted Zone as a data source. Having a NS record is compulsory (it cannot be deleted or set to blank).</p>
-<p>In a NS record, the IP values defined must match the name server IP values specified at the the Domain Registrar level<br>
-(not doing so leads to a senario called <em>lame deligation</em>).</p>
+<p>In a NS record, the IP values defined must match the name server IP values specified at the the Domain Registrar level (not doing so leads to a senario called <em>lame deligation</em>).</p>
 <h3 id="a-record">A Record</h3>
-<p>A (Address) record specifies the final IP address. This would be the public IP of your hosting server (or the IP provided by your hosting service).</p>
-<hr>
+<p>A (Address) record specifies the final IP address. This would be the public IP of your web hosting server (or the IP provided by your hosting service).</p>
+<p><img src="https://surran.github.io/mark-downs/assets/dns-basics2.png" alt="DNS caching chat"></p>
 <h3 id="dns-caching-and-ttl">DNS Caching and TTL</h3>
 <p>Getting IP for domain name is a complicated serial process. For this reason mutiple layers of caching are introduced to make it efficient.</p>
 <h4 id="caching-at-browser-and-os-level">Caching at browser and OS level</h4>
