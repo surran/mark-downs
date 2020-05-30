@@ -1,4 +1,12 @@
 [{
+	"name": "Setting DNS configuration for a Domain",
+	"desc": "DNS is the connection between your Domain registrar and your Web hosting service.",
+	"handle": "admin-page",
+	"searchTerms": [],
+	"illustration": {"text": "DNS", "image": ""},
+	"tags": ["backend"],
+	"date": "2020-5-30"
+},{
 	"name": "Google Authenticated Admin Page",
 	"desc": "An admin page lets you have your website's settings, controls and data, all at one secure url.",
 	"handle": "admin-page",
