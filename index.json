@@ -1,7 +1,7 @@
 [{
 	"name": "Setting DNS configuration for a Domain",
 	"desc": "DNS is the connection between your Domain registrar and your Web hosting service.",
-	"handle": "admin-page",
+	"handle": "dns-basics",
 	"searchTerms": [],
 	"illustration": {"text": "DNS", "image": ""},
 	"tags": ["backend"],
