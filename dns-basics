@@ -32,7 +32,7 @@ The final IP address gets specified when the domain owner creates a ‘Hosted Zo
 <h4 id="caching-at-dns-resolvers-and-nameservers">Caching at DNS resolvers and Nameservers</h4>
 <p>Both Domain resolvers ands name servers cache their output IP values.</p>
 <p>All this caching introduces a parameter called TTL (Time To Live), which means the maximum amount of time it will take for the DNS configuration changes made by the website owner to reach the users.</p>
-<p>NS Records typically have a TTL of 2 days. This means that it might take upto two days before DNS Resolvers start pointing to the new set nameservers.</p>
+<p>NS Records typically have a TTL of 2 days. This means that it might take upto two days before DNS Resolvers start pointing to the new set of nameservers.</p>
 <p>A Records on the other hand typically have a short TTL of 5 minutes. This means name servers can switch from pointing to one final IP address to other in a matter of 5 minutes.</p>
 </div>
 
