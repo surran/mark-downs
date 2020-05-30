@@ -5,7 +5,7 @@
 </blockquote>
 <p>Let us discuss what happens when you type <a href="http://terminalnotes.com">terminalnotes.com</a> in the browser address bar and pressed enter.</p>
 <p>The first thing that happens is your browser contacts a DNS resolver.</p>
-<h3 id="dns-resolver">DNS Resolver</h3>
+<h3 id="what-is-a-dns-resolver">What is a DNS Resolver?</h3>
 <p>A DNS resolver is a server specified by your internet service provider whose job is to return IP addresses for  domain names. It does so by contacting a  number of client services (called name servers) which help step-by-step locate the final IP address.</p>
 <p><img src="https://surran.github.io/mark-downs/assets/dns-basics1.jpg" alt="DNS basic diagram"></p>
 <p><em>How does a DNS Resolver know which name servers to contact for which domain?</em><br>
@@ -16,7 +16,7 @@ Name servers IPs are typically provided (auto-generated) by the registrar, but a
 A name server either returns the final IP address (IP address of your website) or the IP address of another name server. In other words, name servers call each other serally (in a chain) until the final IP address is returned.</p>
 <p><em>How does a domain owner specify the final IP address</em>?<br>
 The final IP address gets specified when the domain owner creates a ‘Hosted Zone’ either at the Hosting provider or the Domain Registrar. Name servers get the information they need from hosted zones.</p>
-<h3 id="hosted-zone">Hosted Zone</h3>
+<h3 id="what-is-a-hosted-zone">What is a Hosted Zone?</h3>
 <p>A hosted zone lets the domain owner record information about how the domain name connects to its designated IP address. This specification is done by defining data attributes called <em>records</em>.</p>
 <p>There are different types of records meant to serve different purposes. We will discuss the a few important ones:</p>
 <h3 id="ns-record">NS Record</h3>
