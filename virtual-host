@@ -1,7 +1,7 @@
 <div class="stackedit__html"><h1 id="hosting-multiple-websites-on-apache-server">Hosting Multiple websites on Apache server</h1>
 <blockquote>
 <p>Apache is an open source cross-platform web server software. It is widely used and as of April 2020 it serves almost 40% of the top 10 million sites.</p>
-<p>Apache is designed to serve multiple website domains, IPs and ports, all on a single physical machine. This capability is immensely useful and can be easily defined/modified by programming the <code>&lt;VirtualHost&gt;</code> directive in its configuration.</p>
+<p>Apache is designed to serve multiple website domains, IPs, ports, all on a single physical machine. This capability in Apache is immensely useful, and can be controlled through the <code>&lt;VirtualHost&gt;</code> directive in its configuration.</p>
 </blockquote>
 <p>Let us understand this configuration with an example where we host multiple domains on a single instance. Steps involved are:</p>
 <ol>
