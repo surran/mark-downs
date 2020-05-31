@@ -1,16 +1,19 @@
-<div class="stackedit__html"><h1 id="hosting-multiple-websites-on-amazon-lightsail">Hosting Multiple websites on Amazon Lightsail</h1>
+<div class="stackedit__html"><h1 id="hosting-multiple-websites-on-apache-server">Hosting Multiple websites on Apache server</h1>
 <blockquote>
-<p>I recently shifted my websites to AWS Lightsail. I purchased a single server to host three different websites. The immediate problem that came up was that traffic coming from all three domains (website addresses) reach the same server location. I had to figure out a way to further route this traffic (based on the domain name they come from) to their respective document root folders.</p>
+<p>Apache is an open source cross-platform web server software. As of April 2020 it serves ~40% of the top 10 million sites.</p>
+<p>Apache is designed to serve multiple website domains names, IPs and ports, all on a single physical machine. This capability is immensely useful and can be easily defined/modified by programming the <code>&lt;VirtualHost&gt;</code> directive in its configuration.</p>
+<p>The <strong>Apache HTTP Server</strong>, colloquially called <strong>Apache</strong> (<a href="https://en.wikipedia.org/wiki/Help:IPA/English" title="Help:IPA/English">/əˈpætʃi/</a> <a href="https://en.wikipedia.org/wiki/Help:Pronunciation_respelling_key" title="Help:Pronunciation respelling key"><em>ə-PATCH-ee</em></a>), is a <a href="https://en.wikipedia.org/wiki/Free_and_open-source" title="Free and open-source">free and open-source</a> <a href="https://en.wikipedia.org/wiki/Cross-platform" title="Cross-platform">cross-platform</a> <a href="https://en.wikipedia.org/wiki/Web_server" title="Web server">web server</a> software<br>
+I recently shifted my websites to AWS Lightsail. I purchased a single server to host three different websites. The immediate problem that came up was that traffic coming from all three domains (website addresses) reach the same server location. I had to figure out a way to further route this traffic (based on the domain name they come from) to their respective document root folders.</p>
 </blockquote>
-<p>The key to solving this is adding these domains as VirtualHost entries to your apache server config. Here are the steps involved:</p>
+<p>Let us understand configuring Apache to host most multiple domains with the help of an example. Steps involved are:</p>
 <ol>
 <li>Locate Virtual host File</li>
 <li>Add domains</li>
 <li>Restart Apache</li>
 </ol>
 <h3 id="locate-virtual-host-file">Locate Virtual host File</h3>
-<p>Load bitnami terminal on your Lightsail instance, and browse to the apache configuration files location.</p>
-<pre><code>bitnami@ip-172-26-5-171:~$cd /opt/bitnami/apache2/conf
+<p>Install/locate apache and browse to the apache configuration files location. In our example we will assume a bitnami stack, your file location could be different.</p>
+<pre><code>cd /opt/bitnami/apache2/conf
 </code></pre>
 <p>The <code>httpd.conf</code> file is the most important file at this location. It handles the general apache server configuration, and in turn loads other files for specific settings.</p>
 <p>Virtual Host specific settings are handled by  <code>/extra/httpd-vhosts.conf</code> file. Make sure you are loading it by adding (or uncommenting) the following line to your  <code>httpd.conf</code> file.</p>
