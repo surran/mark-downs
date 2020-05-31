@@ -1,9 +1,9 @@
 <div class="stackedit__html"><h1 id="setup-mongodb-atlas.-access-it-from-local-terminal">Setup MongoDB Atlas. Access it from local terminal</h1>
 <blockquote>
 <p>MongoDB is a popular NoSQL database that uses JSON like documents with schema. It offers advantages like easy scalability and faster access over traditional RDBMS (Relational Databases)</p>
-<p>The Objective of this note is to setup a simple database in mongoDB Atlas (Free Tier) and write a simple script to populate it.</p>
+<p>Atlas is a cloud based MongoDB service that integrates with your new/already existing account on AWS, Azure or GCP. For starters Atlas offers a ‘free tier’ that constitutes: 512 MB of Storage and no time constraints.</p>
 </blockquote>
-<p>Key steps:</p>
+<p>Let us set up an account on MongoDB Atlas (Free Tier) and write a simple script to populate it. Key steps are:</p>
 <ul>
 <li>Sign up on MongoDB website and create a free Atlas cluster</li>
 <li>Setup Database and Network Access.</li>
