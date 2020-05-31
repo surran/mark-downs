@@ -2,8 +2,6 @@
 <blockquote>
 <p>Apache is an open source cross-platform web server software. As of April 2020 it serves ~40% of the top 10 million sites.</p>
 <p>Apache is designed to serve multiple website domains names, IPs and ports, all on a single physical machine. This capability is immensely useful and can be easily defined/modified by programming the <code>&lt;VirtualHost&gt;</code> directive in its configuration.</p>
-<p>The <strong>Apache HTTP Server</strong>, colloquially called <strong>Apache</strong> (<a href="https://en.wikipedia.org/wiki/Help:IPA/English" title="Help:IPA/English">/əˈpætʃi/</a> <a href="https://en.wikipedia.org/wiki/Help:Pronunciation_respelling_key" title="Help:Pronunciation respelling key"><em>ə-PATCH-ee</em></a>), is a <a href="https://en.wikipedia.org/wiki/Free_and_open-source" title="Free and open-source">free and open-source</a> <a href="https://en.wikipedia.org/wiki/Cross-platform" title="Cross-platform">cross-platform</a> <a href="https://en.wikipedia.org/wiki/Web_server" title="Web server">web server</a> software<br>
-I recently shifted my websites to AWS Lightsail. I purchased a single server to host three different websites. The immediate problem that came up was that traffic coming from all three domains (website addresses) reach the same server location. I had to figure out a way to further route this traffic (based on the domain name they come from) to their respective document root folders.</p>
 </blockquote>
 <p>Let us understand configuring Apache to host most multiple domains with the help of an example. Steps involved are:</p>
 <ol>
