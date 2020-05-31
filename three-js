@@ -1,4 +1,4 @@
-<div class="stackedit__html"><h1 id="display-and-handle-a-3d-object-using-three.js">Display and handle a 3D object using Three.js</h1>
+<div class="stackedit__html"><h1 id="display-and-handle-a-3d-object-on-browser-using-three.js">Display and handle a 3D object on browser using Three.js</h1>
 <blockquote>
 <p>Three.js is a popular JavaScript library for rendering 3d graphics on browser.</p>
 <p>It has built-in APIs for materials, lights, camera, rendering, handlers, orbit controls etc. These are simple to invoke and can  piece together a basic 3d application in a matter to minutes. Internally three.js run on WebGL.</p>
