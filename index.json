@@ -150,7 +150,7 @@
 	"date": "2019-12-11"
 },
 {
-	"name": "Display and handle a 3D object on browser",
+	"name": "Display and handle a 3D object using Three.js",
 	"desc": "Covers setup and step by step build up of a basic 3D project in three.js",
 	"handle": "three-js",
 	"illustration": {"text": "3D", "image": ""},
