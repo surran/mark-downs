@@ -1,6 +1,7 @@
 <div class="stackedit__html"><h1 id="curry-functions-in-javascript">Curry Functions in JavaScript</h1>
 <blockquote>
-<p>Currying is the technique of transforming the evaluation of a function that takes multiple arguments into evaluating a sequence of functions. In other words it transforms a function <code>f(a, b)</code> into a function sequence <code>f(a)(b)</code></p>
+<p>Currying is the technique of transforming the evaluation of a function that takes multiple arguments into evaluating a sequence of functions.</p>
+<p>In other words, currying transforms a function <code>f(a, b)</code> into a function sequence <code>f(a)(b)</code></p>
 </blockquote>
 <p>We will discuss currying a simple function in our first example, and them proceed to currying a recursive function.</p>
 <h3 id="curry-a-simple-function">Curry a simple function</h3>
