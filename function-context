@@ -1,5 +1,9 @@
 <div class="stackedit__html"><h1 id="determiningspecifying-context-of-a-function-call-in-javascript">Determining/Specifying context of a function call in JavaScript</h1>
-<p>Every function call in JavaScript has a execution context (environment of execution). This context gets passed, either implicitly or explicitly to the function. Let us take a closer look at how this happens.</p>
+<blockquote>
+<p>Every function in JavaScript has a context (environment) of execution.</p>
+<p>The context may or may not be apparent in a function call, but is always there. This is because it gets passed, either implicitly or explicitly to the function.</p>
+</blockquote>
+<p>Let us take a closer look at this through examples.</p>
 <h3 id="context-of-a-function">Context of a function</h3>
 <p>Let us define a JavaScript function</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span>name<span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token template-string"><span class="token string">`context: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> value: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span> <span class="token punctuation">}</span>
