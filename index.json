@@ -186,7 +186,7 @@
 	"date": "2019-12-07"
 },
 {
-	"name": "Hosting Multiple websites on Amazon Lightsail",
+	"name": "Hosting Multiple websites on Apache server",
 	"desc": "You own multiple domains and wish to run all of them on the same server. Here is how",
 	"handle": "virtual-host",
 	"illustration": {"text": "Virtual Host", "image": ""},
