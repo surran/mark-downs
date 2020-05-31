@@ -1,7 +1,10 @@
 <div class="stackedit__html"><h1 id="curry-functions-in-javascript">Curry Functions in JavaScript</h1>
-<p>Currying is the technique of translating the evaluation of a function that takes multiple arguments into evaluating a sequence of functions. In other words it translates a function <code>f(a, b)</code> into a function sequence <code>f(a)(b)</code></p>
+<blockquote>
+<p>Currying is the technique of transforming the evaluation of a function that takes multiple arguments into evaluating a sequence of functions. In other words it transforms a function <code>f(a, b)</code> into a function sequence <code>f(a)(b)</code></p>
+</blockquote>
+<p>Let us understand through examples.</p>
 <h3 id="curry-a-simple-function">Curry a simple function</h3>
-<p>Let us take a simple function to add two numbers</p>
+<p>Take a simple function to add two numbers</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> <span class="token function">add</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span> <span class="token operator">=&gt;</span> a <span class="token operator">+</span> b
 </code></pre>
 <p>This can be called as:</p>
