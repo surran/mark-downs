@@ -1,9 +1,9 @@
 <div class="stackedit__html"><h1 id="display-and-handle-a-3d-object-on-browser-using-three.js">Display and handle a 3D object on browser using Three.js</h1>
 <blockquote>
-<p>Three.js is a popular JavaScript library for rendering 3d graphics on browser.</p>
-<p>It has built-in APIs for materials, lights, camera, rendering, handlers, orbit controls etc. These are simple to invoke and can  piece together a basic 3d application in a matter to minutes. Internally three.js run on WebGL.</p>
+<p>Three.js is a popular JavaScript library for rendering 3Dgraphics on browser.</p>
+<p>It has built-in APIs for materials, lights, camera, rendering, handlers, orbit controls etc. These are simple to invoke and can  piece together a basic 3D application in a matter to minutes. Internally three.js runs on WebGL.</p>
 </blockquote>
-<p>The objective of this note is to cover setup and step by step build up of a basic 3d project.</p>
+<p>The objective of this note is to cover setup and step by step build up of a basic 3D project.</p>
 <p>Let us start by creating a development folder and within it create a <code>index.html</code> file. Copy and paste the below code in it</p>
 <pre class=" language-html"><code class="prism  language-html"><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
@@ -121,7 +121,7 @@ renderer<span class="token punctuation">.</span><span class="token function">ren
 <li><code>defineObjectsInScene</code> defines geometry and materials. It returns a list of all objects that are to be rendered,</li>
 <li><code>defineScene</code> defines the background where these objects are to be shown</li>
 <li><code>defineCamera</code> defines the point of view</li>
-<li><code>defineRenderer</code> defines rendering engine for displaying 3d graphics</li>
+<li><code>defineRenderer</code> defines rendering engine for displaying 3D graphics</li>
 <li>And finally <code>renderer.render(scene, camera)</code> integrates all together.</li>
 </ul>
 <h3 id="adding-features">Adding features</h3>
