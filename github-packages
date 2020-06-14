@@ -51,7 +51,7 @@ registry<span class="token operator">=</span>https://npm.pkg.github.com/
 <p>Login above registry server</p>
 <pre><code>npm login https://npm.pkg.github.com/ 
 </code></pre>
-<p>Fill in the above defined OWNER and TOKEN for username and password respectively.</p>
+<p>You will be asked for username and password. Fill in the above defined OWNER and TOKEN for username and password respectively.</p>
 <p>Now you are all set. Publish the package.</p>
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token function">npm</span> publish
 </code></pre>
@@ -64,7 +64,7 @@ registry<span class="token operator">=</span>https://npm.pkg.github.com/
 <pre class=" language-bash"><code class="prism  language-bash"><span class="token function">mkdir</span> parentProject <span class="token operator">&amp;&amp;</span> <span class="token function">cd</span> parentProject<span class="token punctuation">;</span>
 <span class="token function">npm</span> init -y
 </code></pre>
-<p>Create a .npmrc file at the same level as package.json and add the following line of code in it. (Substitute  OWNER with your Github username. In case .npmrc file already exists in your project then simply append this line)</p>
+<p>Create a .npmrc file at the same level as package.json and add the following line of code in it. (Substitute OWNER with your Github username. In case .npmrc file already exists in your project folder then simply append this line to it)</p>
 <pre><code>@OWNER:registry=https://npm.pkg.github.com/
 </code></pre>
 <p>The above line sets registry for all installations under the @OWNER scope to Github</p>
