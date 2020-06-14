@@ -1,4 +1,4 @@
-<div class="stackedit__html"><h1 id="publish-on-github-packages">Publish on Github Packages</h1>
+<div class="stackedit__html"><h1 id="publish-to-github-packages">Publish to Github Packages</h1>
 <blockquote>
 <p>Publishing finished code as a package makes it an installable entity. You or anybody else can simply download (install) and use it like a black-box to do a certain job in an application.</p>
 <p>The job of publishing code is handled by a Package Manager (like npm, yarn etc).  The published code resides on a server you register with the package manager.</p>
