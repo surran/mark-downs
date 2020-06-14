@@ -1,6 +1,7 @@
-<div class="stackedit__html"><h1 id="publish-reusable-components-on-github-packages">Publish reusable components on Github Packages</h1>
+<div class="stackedit__html"><h1 id="publish-on-github-packages">Publish on Github Packages</h1>
 <blockquote>
-<p>Reusable code is best maintained as modules in a package manager (like npm, yarn etc).</p>
+<p>Publishing finished code as a package makes it an installable entity. You or anybody else can simply download (install) this published code and use it like a black-box to do a certain job in an application.</p>
+<p>The job of publishing code is handled by a Package Manager (like npm, yarn etc).  Published code is kept on some server so that it is accessible for download at all times. Typically the server is provided by the package manager itself.</p>
 <p>With  Github Packages you get the ability to store code as well as published packages, all in one Github repository.</p>
 </blockquote>
 <p>Let us explore the procedure. We will:</p>
