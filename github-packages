@@ -6,15 +6,15 @@
 <p>Let us explore the procedure. We will:</p>
 <ol>
 <li>Create a packages repo in Github</li>
-<li>Write a simple component and initialize in npm and git</li>
+<li>Write a simple component and initialize it in npm and git</li>
 <li>Point npm registry to Github Packages and publish</li>
 <li>View the published package on Github.</li>
-<li>Install package.</li>
+<li>Install the package in a parent directory.</li>
 </ol>
 <h3 id="create-packages-repo-in-github">Create packages repo in Github</h3>
 <p>Login to your <a href="https://github.com/">https://github.com/</a> account and create a new repository called ‘packages’. (In case you don’t have a Github account you can create one and gain some initial familiarity before moving to the next step)</p>
 <h3 id="write-a-simple-compoment-and-initialize-it-in-npm-and-git">Write a simple compoment and initialize it in npm and git</h3>
-<p>Create a clone of the empty repository we just defined on your local machine. (Substitute OWNER with your github username)</p>
+<p>Create a clone of the empty repository we just defined on your local machine. (Substitute OWNER with your Github username)</p>
 <pre><code>git clone https://github.com/OWNER/packages.git
 cd packages
 </code></pre>
@@ -43,7 +43,7 @@ cd packages
 <span class="token punctuation">}</span>
 </code></pre>
 <h3 id="point-npm-registry-to-github-packages">Point npm registry to Github Packages</h3>
-<p>Generate a Personal access token on <a href="http://Github.com">Github.com</a>. (go to <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a> and click ‘Generate new token’)</p>
+<p>Generate a Personal access token on <a href="http://Github.com">Github.com</a>. (go to <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a> and click ‘Generate new token’. Make sure to tick repo, package read and write access check-boxes while creating the token)</p>
 <p>Create a new file called <code>.npmrc</code> in footer folder and copy paste the following code in it. (Substitute TOKEN with your Github personal access Token)</p>
 <pre class=" language-bash"><code class="prism  language-bash">//npm.pkg.github.com/:_authToken<span class="token operator">=</span>TOKEN
 registry<span class="token operator">=</span>https://npm.pkg.github.com/
