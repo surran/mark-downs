@@ -1,0 +1,75 @@
+<div class="stackedit__html"><h1 id="publish-reusable-components-to-github-packages">Publish Reusable Components to Github Packages</h1>
+<blockquote>
+<p>Reusable code is best maintained as modules in a package manager.</p>
+<p>With  Github Packages you get the ability to store code as well as published packages, all in one github repository.</p>
+</blockquote>
+<p>Let us explore the procedure. We will:</p>
+<ol>
+<li>Create a packages repo in Github</li>
+<li>Write a simple component and initialize in npm and git</li>
+<li>Point npm registry to Github Packages and publish</li>
+<li>View the published package on Github.</li>
+<li>Install package.</li>
+</ol>
+<h3 id="create-packages-repo-in-github">Create packages repo in github</h3>
+<p>Login to your <a href="https://github.com/">https://github.com/</a> account and create a new repository called ‘packages’. (In case you don’t have a github account you can create one and gain some initial familiarity before moving to the next step)</p>
+<h3 id="write-a-simple-compoment-and-initialize-it-in-npm-and-git">Write a simple compoment and initialize it in npm and git</h3>
+<p>Create a clone of the empty repository we just defined on your local machine. (Substitute OWNER with your github username)</p>
+<pre><code>git clone https://github.com/OWNER/packages.git
+cd packages
+</code></pre>
+<p>Inside packages directory let us create a package called footer</p>
+<pre><code>mkdir footer &amp;&amp; cd footer;
+</code></pre>
+<p>Create a new file called <code>footer.js</code> and copy paste the below react component code in it. (You can use any kind of code here)</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">'react'</span>
+
+<span class="token keyword">function</span> <span class="token function">Footer</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>This is a Footer<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Footer
+</code></pre>
+<p>Create a new file called <code>package.json</code> at the same level and copy paste the following code in it.  (Substitute OWNER with your github username)</p>
+<pre class=" language-json"><code class="prism  language-json"><span class="token punctuation">{</span>
+  <span class="token string">"name"</span><span class="token punctuation">:</span> <span class="token string">"@OWNER/footer"</span><span class="token punctuation">,</span>
+  <span class="token string">"version"</span><span class="token punctuation">:</span> <span class="token string">"0.1.0"</span><span class="token punctuation">,</span>
+  <span class="token string">"main"</span><span class="token punctuation">:</span> <span class="token string">"footer.js"</span><span class="token punctuation">,</span>
+  <span class="token string">"repository"</span> <span class="token punctuation">:</span> <span class="token punctuation">{</span> 
+    <span class="token string">"type"</span> <span class="token punctuation">:</span> <span class="token string">"git"</span><span class="token punctuation">,</span>
+    <span class="token string">"url"</span><span class="token punctuation">:</span> <span class="token string">"ssh://git@github.com/OWNER/packages.git"</span><span class="token punctuation">,</span>
+    <span class="token string">"directory"</span><span class="token punctuation">:</span> <span class="token string">"packages/name"</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="point-npm-registry-to-github-packages">Point npm registry to Github Packages</h3>
+<p>Generate a Personal access token on <a href="http://github.com">github.com</a>. (go to <a href="https://github.com/settings/tokens">https://github.com/settings/tokens</a> and click ‘Generate new token’)</p>
+<p>Create a new file called <code>.npmrc</code> in footer folder and copy paste the following code in it. (Substitute TOKEN with your Github personal access Token and OWNER with your Github username)</p>
+<pre class=" language-bash"><code class="prism  language-bash">//npm.pkg.github.com/:_authToken<span class="token operator">=</span>TOKEN
+registry<span class="token operator">=</span>https://npm.pkg.github.com/OWNER
+</code></pre>
+<p>Login above registry server</p>
+<pre><code>npm login https://npm.pkg.github.com/ 
+</code></pre>
+<p>Fill in the above defined OWNER and TOKEN for username and password respectively.</p>
+<p>Now you are all set. Publish the package.</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">npm</span> publish
+</code></pre>
+<h3 id="view-published-package">View published Package</h3>
+<p>Once published, the package would show up in your Github packages repository.</p>
+<p><img src="https://surran.github.io/mark-downs/assets/github-packages1.png" alt="" title="Wikipedia map"></p>
+<h3 id="install-package">Install package</h3>
+<p>Installing a package is a simple two step procedure.</p>
+<p>Create a parent project folder (where you want to install the package)</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">mkdir</span> parentProject <span class="token operator">&amp;&amp;</span> <span class="token function">cd</span> parentProject<span class="token punctuation">;</span>
+<span class="token function">npm</span> init -y
+</code></pre>
+<p>Create a .npmrc file at the same level as package.json and add the following line of code in it. (Substitute  OWNER with your Github username. In case .npmrc file already exists in your project then simply append this line)</p>
+<pre><code>@OWNER:registry=https://npm.pkg.github.com/OWNER
+</code></pre>
+<p>The above line sets registry for all installations under the @OWNER scope to github</p>
+<p>You are all set. Go ahead and install.</p>
+<pre><code>npm install @OWNER/footer
+</code></pre>
+</div>
+
