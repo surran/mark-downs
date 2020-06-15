@@ -1,4 +1,12 @@
 [{
+	"name": "Publish to Github Packages",
+	"desc": "Github Packages makes it possible to store code and published packages, all in one Github repository.",
+	"handle": "github-packages",
+	"searchTerms": [],
+	"illustration": {"text": "Github Packages", "image": ""},
+	"tags": ["infrastructure"],
+	"date": "2020-6-15"
+},{
 	"name": "Setting DNS configuration for a Domain",
 	"desc": "DNS is the connection between your Domain registrar and your Web hosting service.",
 	"handle": "dns-basics",
