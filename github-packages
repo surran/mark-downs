@@ -1,7 +1,7 @@
 <div class="stackedit__html"><h1 id="publish-to-github-packages">Publish to Github Packages</h1>
 <blockquote>
 <p>Publishing code is a process handled by specialized software called Package Managers (eg. npm, yarn etc).</p>
-<p>In a Package manager you can register any server as your destination for keeping published code. With Github Packages you get the ability to register Github as distination,  which makes it possible to have code as well as published packages, all in one Github repository.</p>
+<p>With Github Packages you get the ability to register Github as the storage destination for packages published by your package manager. This makes it possible to have code as well as published packages, all in one Github repository.</p>
 </blockquote>
 <p>Let us understand publish procedure in detail.</p>
 <h3 id="why-publish-code">Why publish code?</h3>
