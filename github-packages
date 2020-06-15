@@ -4,7 +4,8 @@
 <p>The job of publishing code is handled by a Package Manager (like npm, yarn etc).  The published code resides on a server you register with the package manager.</p>
 <p>With Github Packages you can register Github as the server where you store your published packages. In other words you get the ability to store code as well as published packages, all in one Github repository.</p>
 </blockquote>
-<p>Let us explore the procedure. We will:</p>
+<p><img src="https://surran.github.io/mark-downs/assets/github-packages2.png" alt="" title="Packages"><br>
+Let us explore the procedure. We will:</p>
 <ol>
 <li>Create a packages repo in Github</li>
 <li>Write a simple component and initialize it in npm and git</li>
@@ -12,7 +13,6 @@
 <li>View the published package on Github.</li>
 <li>Install the package in a parent directory.</li>
 </ol>
-<p><img src="https://surran.github.io/mark-downs/assets/github-packages2.png" alt="" title="Packages"></p>
 <h3 id="create-packages-repo-in-github">Create packages repo in Github</h3>
 <p>Login to your <a href="https://github.com/">https://github.com/</a> account and create a new repository called ‘packages’. (In case you don’t have a Github account you can create one and gain some initial familiarity before moving to the next step)</p>
 <h3 id="write-a-simple-compoment-and-initialize-it-in-npm-and-git">Write a simple compoment and initialize it in npm and git</h3>
