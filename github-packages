@@ -1,11 +1,14 @@
 <div class="stackedit__html"><h1 id="publish-to-github-packages">Publish to Github Packages</h1>
 <blockquote>
-<p>Publishing finished code as a package makes it an installable entity. You or anybody else can simply download (install) and use it like a black-box to do a certain job in an application.</p>
 <p>The job of publishing code is handled by a Package Manager (like npm, yarn etc).  The published code resides on a server you register with the package manager.</p>
 <p>With Github Packages you can register Github as the server where you store your published packages. In other words you get the ability to store code as well as published packages, all in one Github repository.</p>
 </blockquote>
-<p><img src="https://surran.github.io/mark-downs/assets/github-packages2.png" alt="" title="Packages"><br>
-Let us explore the procedure. We will:</p>
+<p>Let us understand publish procedure in detail</p>
+<h3 id="why-publish-code">Why publish code?</h3>
+<p>Publishing finished code as a package makes it an installable entity. You or anybody else can simply download (install) and use it like a black-box to do a certain job in an application.</p>
+<p><img src="https://surran.github.io/mark-downs/assets/github-packages2.png" alt="" title="Packages"></p>
+<h3 id="how-to-publish-code">How to publish code?</h3>
+<p>Let us explore the procedure. We will:</p>
 <ol>
 <li>Create a packages repo in Github</li>
 <li>Write a simple component and initialize it in npm and git</li>
