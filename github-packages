@@ -3,12 +3,12 @@
 <p>Publishing code is a process handled by specialized software called Package Managers (eg. npm, yarn etc).</p>
 <p>With Github Packages you get the ability to register Github as the storage destination for packages published by your package manager. This makes it possible to have code as well as published packages, all in one Github repository.</p>
 </blockquote>
-<p>Let us understand publish procedure in detail.</p>
+<p>Let us explore the publish process in detail. But before that we should understand why at-all should one bother to publish code.</p>
 <h3 id="why-publish-code">Why publish code?</h3>
 <p>Publishing finished code as a package makes it an install-able entity. You or anybody else can simply download (install) and use it like a black-box to do a certain job in an application.</p>
 <p><img src="https://surran.github.io/mark-downs/assets/github-packages2.png" alt="" title="Packages"></p>
 <h3 id="how-to-publish-code">How to publish code?</h3>
-<p>Let us explore the procedure. We will:</p>
+<p>We will understand the procedure through an example where we first publish code to Github packages, and then install it in a parent application. We will:</p>
 <ol>
 <li>Create a packages repo in Github</li>
 <li>Write a simple component and initialize it in npm and git</li>
