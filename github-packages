@@ -12,6 +12,7 @@
 <li>View the published package on Github.</li>
 <li>Install the package in a parent directory.</li>
 </ol>
+<p><img src="https://surran.github.io/mark-downs/assets/github-packages2.png" alt="" title="Packages"></p>
 <h3 id="create-packages-repo-in-github">Create packages repo in Github</h3>
 <p>Login to your <a href="https://github.com/">https://github.com/</a> account and create a new repository called ‘packages’. (In case you don’t have a Github account you can create one and gain some initial familiarity before moving to the next step)</p>
 <h3 id="write-a-simple-compoment-and-initialize-it-in-npm-and-git">Write a simple compoment and initialize it in npm and git</h3>
@@ -58,7 +59,7 @@ registry<span class="token operator">=</span>https://npm.pkg.github.com/
 </code></pre>
 <h3 id="view-published-package">View published Package</h3>
 <p>Once published, the package would show up in your Github packages repository.</p>
-<p><img src="https://surran.github.io/mark-downs/assets/github-packages1.png" alt="" title="Wikipedia map"></p>
+<p><img src="https://surran.github.io/mark-downs/assets/github-packages1.png" alt="" title="Packages"></p>
 <h3 id="install-package">Install package</h3>
 <p>Installing a package is a simple two step procedure.</p>
 <p>Create a parent project folder (where you want to install the package)</p>
