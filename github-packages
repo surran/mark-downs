@@ -5,7 +5,7 @@
 </blockquote>
 <p>Let us understand publish procedure in detail.</p>
 <h3 id="why-publish-code">Why publish code?</h3>
-<p>Publishing finished code as a package makes it an installable entity. You or anybody else can simply download (install) and use it like a black-box to do a certain job in an application.</p>
+<p>Publishing finished code as a package makes it an install-able entity. You or anybody else can simply download (install) and use it like a black-box to do a certain job in an application.</p>
 <p><img src="https://surran.github.io/mark-downs/assets/github-packages2.png" alt="" title="Packages"></p>
 <h3 id="how-to-publish-code">How to publish code?</h3>
 <p>Let us explore the procedure. We will:</p>
