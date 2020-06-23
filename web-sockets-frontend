@@ -1,9 +1,9 @@
-<div class="stackedit__html"><h1 id="web-sockets-setup-for-enterprise-level-application">Web Sockets setup for enterprise level Application</h1>
+<div class="stackedit__html"><h1 id="websocket-frontend-setup">WebSocket frontend Setup</h1>
 <blockquote>
-<p>Websockets in a popular framework for setting up a peer-to-peer communication channel between the client and server.</p>
-<p>Web sockets have applications in chat, notification, data sync systems design. All modern browsers have built in support for websockets.</p>
+<p>Websocket in a popular framework for setting up a peer-to-peer communication channel between the client and server.</p>
+<p>WebSocket has applications in chat, notification, data sync systems design. All modern browsers have built in support for it.</p>
 </blockquote>
-<p>Let us discuss few things that come into picture when designing the client side framework for running websockets.</p>
+<p>Let us discuss few things that come into picture when designing the client side framework for running Websocket.</p>
 <h3 id="encapsulation">Encapsulation</h3>
 <p>Create a separate module with exclusive namespace for websocket related data and functions. One way to do so is by defining a class:</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> <span class="token keyword">class</span> <span class="token class-name">MyWebSocket</span> <span class="token punctuation">{</span>
