@@ -1,0 +1,67 @@
+<div class="stackedit__html"><h1 id="web-sockets-setup-for-enterprise-level-application">Web Sockets setup for enterprise level Application</h1>
+<blockquote>
+<p>Websockets in a popular framework for setting up a peer-to-peer communication channel between the client and server.</p>
+<p>Web sockets have applications in chat, notification, data sync systems design. All modern browsers have built in support for websockets.</p>
+</blockquote>
+<p>Let us discuss few things that come into picture when designing the client side framework for running websockets.</p>
+<h3 id="encapsulation">Encapsulation</h3>
+<p>Create a separate module with exclusive namespace for websocket related data and functions. One way to do so is by defining a class:</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> <span class="token keyword">class</span> <span class="token class-name">MyWebSocket</span> <span class="token punctuation">{</span>
+<span class="token comment">/* Create a websocket connection in cosntructor */</span>
+	<span class="token function">constructor</span> <span class="token punctuation">(</span>url<span class="token operator">=</span><span class="token string">"wss://yourDefaultUrl"</span><span class="token punctuation">,</span> protocols<span class="token operator">=</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+			<span class="token keyword">this</span><span class="token punctuation">.</span>socket <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WebSocket</span><span class="token punctuation">(</span>url<span class="token punctuation">,</span> protocols<span class="token punctuation">)</span> 
+		<span class="token punctuation">}</span>
+
+	<span class="token function">sendData</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		data <span class="token operator">=</span> <span class="token keyword">package</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span>		
+		<span class="token keyword">this</span><span class="token punctuation">.</span>socket<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+	<span class="token function">recieveData</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token keyword">this</span><span class="token punctuation">.</span>socket<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>processedMessage<span class="token punctuation">)</span>
+		message <span class="token operator">=</span> <span class="token keyword">package</span><span class="token punctuation">(</span>message<span class="token punctuation">)</span>
+	<span class="token punctuation">}</span>
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>Here we wrapped the standard WebSocket class (inbuilt in all browsers) with a custom MyWebSocket class, so that we can easily add our pre/post processing to function calls.</p>
+<p>This processing consists of simple things that make our framework robust and standardized. Some of them are:</p>
+<h3 id="validation">Validation</h3>
+<p>Before connecting to a websocket endpoint, make sure the url refers to a valid server location that you recognize.</p>
+<pre class=" language-js"><code class="prism  language-js">supportedEndpoints <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'/websocket'</span><span class="token punctuation">]</span>
+supportedServers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"www.example.com"</span><span class="token punctuation">]</span>
+
+<span class="token keyword">function</span> <span class="token function">validateUrl</span><span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>origin <span class="token operator">==</span> supportedServers<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre>
+<h3 id="data-packaging">Data Packaging</h3>
+<p>Decide on a data format (preferably a json) which you will use to communicate with the websocket server.</p>
+<pre><code>const data = {
+	message: 
+	user:
+	metadata: 
+	timestamp:
+} 
+</code></pre>
+<p>Write a <em>package</em> class function to convert various types of raw data into this format. Write a corresponding unpackage function.</p>
+<h3 id="error-handling">Error Handling</h3>
+<p>Place error catchers at all potential locations. You can write your own custom function for graceful error handling, which may additionally include fallbacks, error logging etc.</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">function</span> <span class="token function">handleError</span> <span class="token punctuation">(</span>errorData<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token function">fallbacks</span><span class="token punctuation">(</span>errorData<span class="token punctuation">)</span>
+	<span class="token function">logErrorEvent</span><span class="token punctuation">(</span>errorData<span class="token punctuation">)</span> 
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">fallbacks</span> <span class="token punctuation">(</span>errorData<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">const</span> <span class="token punctuation">{</span> type <span class="token punctuation">}</span> <span class="token operator">=</span> errorData
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">==</span> <span class="token string">"connectionRefused"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">/* try reconnecting with another server */</span>
+	<span class="token punctuation">}</span>
+	<span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">==</span> <span class="token string">"connectionFailed"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+		<span class="token comment">/* Try reconnecting or switch to long polling*/</span>
+	<span class="token punctuation">}</span>
+	<span class="token comment">/* and so on */</span>
+<span class="token punctuation">}</span>
+</code></pre>
+</div>
+
