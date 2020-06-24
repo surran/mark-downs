@@ -1,7 +1,7 @@
 <div class="stackedit__html"><h1 id="writing-a-client-side-module-for-running-websockets">Writing a client-side module for running WebSockets</h1>
 <blockquote>
 <p>WebSocket in a popular ‘push-pull’ framework that allows setting up peer-to-peer communication between client and server.</p>
-<p>WebSocket has applications in chat, notification, data sync systems design. All modern browsers have built in support for it.</p>
+<p>WebSocket has applications in chat, notification and data sync systems design. All modern browsers have built in support for it.</p>
 </blockquote>
 <p>Let us discuss designing a client side framework for running Websocket.</p>
 <h3 id="encapsulation">Encapsulation</h3>
@@ -53,7 +53,7 @@
            SUPPORTED_PROTOCOLS<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span>sProtocol <span class="token operator">=&gt;</span> protocol <span class="token operator">==</span> sProtocol<span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 </code></pre>
-<p>The above code snippet checks for host path and protocol.</p>
+<p>The above code snippet checks for host, path and protocol.</p>
 <h3 id="data-packaging">Data Packaging</h3>
 <p>Decide on a data format (preferably a JSON) which you will use to communicate with the WebSocket server.</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> dataPacket <span class="token operator">=</span> <span class="token punctuation">{</span>
