@@ -57,10 +57,10 @@
 <h3 id="data-packaging">Data Packaging</h3>
 <p>Decide on a data format (preferably a JSON) which you will use to communicate with the WebSocket server.</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> dataPacket <span class="token operator">=</span> <span class="token punctuation">{</span>
-	message<span class="token punctuation">:</span> 
-	user<span class="token punctuation">:</span>
-	metadata<span class="token punctuation">:</span> 
-	timestamp<span class="token punctuation">:</span>
+    message<span class="token punctuation">,</span>
+    use<span class="token punctuation">,</span>
+    metadata<span class="token punctuation">,</span> 
+    timestamp
 <span class="token punctuation">}</span> 
 </code></pre>
 <p>Since <em>WebSocket</em> APIs only allow sending and receiving strings, use <code>JSON.stringify</code> and <code>JSON.parse</code> functions to interconvert between JSON and string data formats.</p>
