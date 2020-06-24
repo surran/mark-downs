@@ -1,9 +1,9 @@
 <div class="stackedit__html"><h1 id="designing-a-frontend-module-for-websocket">Designing a Frontend Module for WebSocket</h1>
 <blockquote>
 <p>WebSocket in a popular ‘push-pull’ framework that allows setting up peer-to-peer communication between client and server.</p>
-<p>WebSocket has applications in chat, notification and data sync systems design. All modern browsers have built in support for it.</p>
+<p>On client, this communication is managed through JavaScript APIs that come bundled with the browser, as part of ‘WebSocket’ library.</p>
 </blockquote>
-<p>Let us discuss ingredients of a robust front end module for running WebSocket.</p>
+<p>Let us design a frontend module based on WebSocket</p>
 <p>Start with defining an exclusive namespace for WebSocket data and functions.</p>
 <h3 id="encapsulation">Encapsulation</h3>
 <p>Wrap the standard WebSocket class (inbuilt in all browsers) with a custom MyWebSocket class.</p>
