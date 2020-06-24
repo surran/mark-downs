@@ -1,6 +1,6 @@
 [{
 	"name": "Designing a Frontend Module for WebSocket",
-	"desc": "Having a dedicated front end module for WebSocket helps you better manage validation, error logging, fallbacks etc.",
+	"desc": "Having a dedicated module helps you better manage validation, error logging, fallbacks etc.",
 	"handle": "web-sockets-frontend",
 	"searchTerms": [],
 	"illustration": {"text": "Websocket", "image": ""},
