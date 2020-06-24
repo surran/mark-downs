@@ -41,7 +41,7 @@
 <p>The wrapper class allows you to add custom code around base class methods. The functions <em>packageData</em> and <em>unpackageData</em> in the above snippet are such examples.</p>
 <p>This way you can also add useful features like validation, error handling etc to your module. Let us discuss some of them in detail:</p>
 <h3 id="validation">Validation</h3>
-<p>Before connecting to a WebSocket endpoint, make sure the url refers to a valid server location that you recognize.</p>
+<p>Before connecting to a WebSocket endpoint, check whether the url refers to a valid server location that you recognize.</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> SUPPORTED_ENDPOINTS<span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">'/websocket'</span><span class="token punctuation">]</span>
 <span class="token keyword">const</span> SUPPORTED_PROTOCOLS <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"wss:"</span><span class="token punctuation">,</span><span class="token string">"ws:"</span><span class="token punctuation">]</span>
 <span class="token keyword">const</span> SUPPORTED_SERVERS <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"www.example.com"</span><span class="token punctuation">,</span><span class="token string">"webscoket.example.com"</span><span class="token punctuation">]</span>
@@ -55,7 +55,7 @@
 </code></pre>
 <p>The above code snippet checks for host path and protocol.</p>
 <h3 id="data-packaging">Data Packaging</h3>
-<p>Decide on a data format (preferably a JSON) which you will use to communicate with the websocket server.</p>
+<p>Decide on a data format (preferably a JSON) which you will use to communicate with the WebSocket server.</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> dataPacket <span class="token operator">=</span> <span class="token punctuation">{</span>
 	message<span class="token punctuation">:</span> 
 	user<span class="token punctuation">:</span>
@@ -63,9 +63,9 @@
 	timestamp<span class="token punctuation">:</span>
 <span class="token punctuation">}</span> 
 </code></pre>
-<p>Since <em>WebSocket.send</em> api allows sending and receiving strings. Use <code>JSON.stringify</code> and <code>JSON.parse</code> functions to interconvert between JSON and string data formats.</p>
+<p>Since <em>WebSocket</em> APIs only allow sending and receiving strings, use <code>JSON.stringify</code> and <code>JSON.parse</code> functions to interconvert between JSON and string data formats.</p>
 <h3 id="error-handling">Error Handling</h3>
-<p>Place error catchers at all potential locations. You can write your own custom function for graceful error handling, which may additionally include fallbacks, error logging etc.</p>
+<p>Place error catchers at all potential points of failure. You can write your own custom function for graceful error handling, which may additionally include fallbacks, error logging etc.</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token comment">/* Error Catchers */</span>
 <span class="token function">addErrorListener</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">this</span><span class="token punctuation">.</span>socket<span class="token punctuation">.</span><span class="token function-variable function">onerror</span>  <span class="token operator">=</span>  <span class="token keyword">function</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
