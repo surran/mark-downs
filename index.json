@@ -1,5 +1,5 @@
 [{
-	"name": "Designing WebSocket Frontend Module",
+	"name": "Designing a Frontend Module for WebSocket",
 	"desc": "Having a dedicated front end module for WebSocket helps you better manage validation, error logging, fallbacks etc.",
 	"handle": "websocket",
 	"searchTerms": [],
