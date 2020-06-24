@@ -1,4 +1,12 @@
 [{
+	"name": "Designing WebSocket Frontend Module",
+	"desc": "Having a dedicated front end module for WebSocket helps you better manage validation, error logging, fallbacks etc.",
+	"handle": "websocket",
+	"searchTerms": [],
+	"illustration": {"text": "Websocket", "image": ""},
+	"tags": ["frontend"],
+	"date": "2020-6-24"
+},{
 	"name": "Publish to Github Packages",
 	"desc": "Github Packages makes it possible to store code and published packages, all in one Github repository.",
 	"handle": "github-packages",
