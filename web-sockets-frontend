@@ -6,7 +6,7 @@
 <p>Let us discuss ingredients of a robust front end module for running WebSocket.</p>
 <p>Start with defining an exclusive namespace for WebSocket data and functions.</p>
 <h3 id="encapsulation">Encapsulation</h3>
-<p>You can do so by wrapping the standard WebSocket class (inbuilt in all browsers) with a custom MyWebSocket class.</p>
+<p>Wrap the standard WebSocket class (inbuilt in all browsers) with a custom MyWebSocket class.</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> <span class="token keyword">class</span> <span class="token class-name">MyWebSocket</span> <span class="token punctuation">{</span>
 <span class="token comment">/* Create a websocket connection in cosntructor */</span>
     <span class="token function">constructor</span> <span class="token punctuation">(</span>url<span class="token operator">=</span><span class="token string">"wss://yourDefaultUrl"</span><span class="token punctuation">,</span>
