@@ -1,9 +1,9 @@
 <div class="stackedit__html"><h1 id="writing-a-client-side-module-for-running-websockets">Writing a client-side module for running WebSockets</h1>
 <blockquote>
-<p>Websocket in a popular ‘push-pull’ framework that allows setting up peer-to-peer communication between client and server.</p>
+<p>WebSocket in a popular ‘push-pull’ framework that allows setting up peer-to-peer communication between client and server.</p>
 <p>WebSocket has applications in chat, notification, data sync systems design. All modern browsers have built in support for it.</p>
 </blockquote>
-<p>Let us discuss few things that come into picture when designing the client side framework for running Websocket.</p>
+<p>Let us discuss designing a client side framework for running Websocket.</p>
 <h3 id="encapsulation">Encapsulation</h3>
 <p>Create a module with exclusive namespace for WebSocket data and functions.</p>
 <p>You can do so by wrapping the standard WebSocket class (inbuilt in all browsers) with a custom MyWebSocket class.</p>
