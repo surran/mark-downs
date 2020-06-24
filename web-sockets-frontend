@@ -1,6 +1,6 @@
-<div class="stackedit__html"><h1 id="websocket-frontend-setup-for-enterpise-level-applications">WebSocket frontend setup for Enterpise level applications</h1>
+<div class="stackedit__html"><h1 id="writing-a-client-side-module-for-running-websockets">Writing a client-side module for running WebSockets</h1>
 <blockquote>
-<p>Websocket in a popular framework for setting up a peer-to-peer communication channel between the client and server.</p>
+<p>Websocket in a popular ‘push-pull’ framework that allows setting up peer-to-peer communication between client and server.</p>
 <p>WebSocket has applications in chat, notification, data sync systems design. All modern browsers have built in support for it.</p>
 </blockquote>
 <p>Let us discuss few things that come into picture when designing the client side framework for running Websocket.</p>
