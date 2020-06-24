@@ -1,11 +1,11 @@
-<div class="stackedit__html"><h1 id="writing-a-client-side-module-for-running-websockets">Writing a client-side module for running WebSockets</h1>
+<div class="stackedit__html"><h1 id="designing-a-client-side-module-for-running-websockets">Designing a client-side module for running WebSockets</h1>
 <blockquote>
 <p>WebSocket in a popular ‘push-pull’ framework that allows setting up peer-to-peer communication between client and server.</p>
 <p>WebSocket has applications in chat, notification and data sync systems design. All modern browsers have built in support for it.</p>
 </blockquote>
-<p>Let us discuss designing a client side framework for running Websocket.</p>
+<p>Let us discuss ingredients of a robust front end module for running WebSocket.</p>
+<p>Start with defining an exclusive namespace for WebSocket data and functions.</p>
 <h3 id="encapsulation">Encapsulation</h3>
-<p>Create a module with exclusive namespace for WebSocket data and functions.</p>
 <p>You can do so by wrapping the standard WebSocket class (inbuilt in all browsers) with a custom MyWebSocket class.</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> <span class="token keyword">class</span> <span class="token class-name">MyWebSocket</span> <span class="token punctuation">{</span>
 <span class="token comment">/* Create a websocket connection in cosntructor */</span>
