@@ -1,4 +1,4 @@
-<div class="stackedit__html"><h1 id="designing-a-client-side-module-for-running-websockets">Designing a client-side module for running WebSockets</h1>
+<div class="stackedit__html"><h1 id="designing-a-frontend-module-for-websocket">Designing a Frontend Module for WebSocket</h1>
 <blockquote>
 <p>WebSocket in a popular ‘push-pull’ framework that allows setting up peer-to-peer communication between client and server.</p>
 <p>WebSocket has applications in chat, notification and data sync systems design. All modern browsers have built in support for it.</p>
