@@ -1,0 +1,68 @@
+<div class="stackedit__html"><h1 id="auto-version-and-auto-publish-using-github-actions">Auto Version and auto Publish using Github Actions</h1>
+<blockquote>
+<p>Publishing a patch to a npm package is a multistep process. First you increment the version in package.json, then login to your npm registry (in case of a private repository) and finally publish your package.</p>
+<p>This becomes much more tedious in case your code changes demand publishing multiple packages.</p>
+<p>The solution lies in automating both versioning and publishing in your Github account itself using Github Actions.</p>
+</blockquote>
+<p>Let us write a solution. The key steps are:</p>
+<ol>
+<li>Initialize a module in local directory and push the code to Github repository</li>
+<li>Add a .yml declaring version &amp; publish actions to be performed on every code push.</li>
+<li>Test the setup</li>
+</ol>
+<h3 id="initialize-a-npm-module">Initialize a npm module</h3>
+<p>Create a dev folder; npm and git initialize it. In the dev folder add a test.js file with some sample code.</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">mkdir</span> dev <span class="token operator">&amp;&amp;</span> <span class="token function">cd</span> dev
+<span class="token function">npm</span> init -y
+<span class="token function">git</span> init
+<span class="token keyword">echo</span> <span class="token string">"/* Sample code */"</span> <span class="token operator">&gt;</span> test.js
+</code></pre>
+<p>Next head to your Github account and create a test repository. Push the above code to this repository.</p>
+<p>Aur test environment is all setup.</p>
+<h3 id="define-publish-action">Define Publish Action</h3>
+<p>Go to your Github account and click on Actions-&gt;New Workflow-&gt;Set up a workflow yourself<br>
+A text editor with some sample code would open. Clear that code and copy paste the below code in it</p>
+<pre class=" language-yml"><code class="prism  language-yml"><span class="token key atrule">on</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>push<span class="token punctuation">]</span>
+
+<span class="token key atrule">jobs</span><span class="token punctuation">:</span>
+  <span class="token key atrule">publish-gpr</span><span class="token punctuation">:</span>
+    <span class="token key atrule">runs-on</span><span class="token punctuation">:</span> ubuntu<span class="token punctuation">-</span>latest
+    <span class="token key atrule">steps</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/checkout@v2
+      <span class="token punctuation">-</span> <span class="token key atrule">uses</span><span class="token punctuation">:</span> actions/setup<span class="token punctuation">-</span>node@v1
+        <span class="token key atrule">with</span><span class="token punctuation">:</span>
+          <span class="token key atrule">node-version</span><span class="token punctuation">:</span> <span class="token number">12</span>
+          <span class="token key atrule">registry-url</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//npm.pkg.github.com/
+          <span class="token key atrule">scope</span><span class="token punctuation">:</span> <span class="token string">'@OWNER'</span>
+          
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Setup GIT
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+          git config --global user.email "OWNER_EMAIL"
+          git config --global user.name "OWNER"</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Bump version
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+          npm version patch
+          git commit -a -m "Update package.json with latest package versions"
+          git push https://${{secrets.GITHUB_TOKEN}}@github.com/OWNER/packages</span>
+          
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Authenticate with GitHub package registry
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+          echo "//npm.pkg.github.com:_authToken=${{ secrets.GPR_TOKEN }}" &gt; ~/.npmrc</span>
+<span class="token comment"># Mock generation of production build then publish package</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Build &amp; Publish package
+        <span class="token key atrule">run</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+          npm publish</span>
+        <span class="token key atrule">env</span><span class="token punctuation">:</span>
+          <span class="token key atrule">NODE_AUTH_TOKEN</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span>secrets.GPR_TOKEN<span class="token punctuation">}</span><span class="token punctuation">}</span>
+</code></pre>
+<p>In the above code replace OWNER with your github username and OWNER_EMAIL with your email address.</p>
+<p>This is a .yml file that will run on every subsequent code push. It will increment the package version number by one and commit this change to the repository. Further it will publish the new version and store it in the same repository. (For more info on storing published packages on Github you can also read <a href="https://terminalnotes.com/infrastructure/github-packages">https://terminalnotes.com/infrastructure/github-packages</a>)</p>
+<p>You can also modify the above code to publish patches to  multiple modules by adding one or more <code>cd /path/to/module &amp;&amp; npm version patch</code> and <code>cd /path/to/module &amp;&amp; npm version patch</code> commands.</p>
+<h3 id="test-the-setup">Test the Setup</h3>
+<p>On the right hand side of the page, click on Start commit-&gt;Commit changes.</p>
+<p>This will push the above .yml file into your test repository. Since this is a code push it will also trigger an execution of the .yml.</p>
+<p>Click on Actions. This would open up the list of workflows(Actions) you have run so far.  Click on the topmost workflow.</p>
+<p>On the left-hand side of the page click on publish-gpr. The following screen of a successful workflow run should show up. You can also use this screen for debugging in case there are errors.</p>
+<p>If you see all green ticks then a version increment &amp; publish was successful.</p>
+</div>
+
