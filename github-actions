@@ -5,7 +5,7 @@
 The process if done manually becomes pretty tedious, and especially so if you are publishing multiple packages in one go.</p>
 <p>Github Actions offer a way out of this by attaching auto-version and auto-publish workflows with every code commit.</p>
 </blockquote>
-<p>Let us see how we can implement this. The key steps are:</p>
+<p>Let us see how we can implement this. We shall:</p>
 <ol>
 <li>Initialize a module in local directory and push the code to Github repository</li>
 <li>Add a .yml declaring version &amp; publish actions to be performed on every code push.</li>
