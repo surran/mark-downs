@@ -18,11 +18,10 @@ The process if done manually becomes pretty tedious, and especially so if you ar
 <span class="token function">git</span> init
 <span class="token keyword">echo</span> <span class="token string">"/* Sample code */"</span> <span class="token operator">&gt;</span> test.js
 </code></pre>
-<p>Next head to your Github account and create a test repository. Push the above code to this repository.</p>
-<p>Aur test environment is all setup.</p>
+<p>Next head to your Github account and create a test repository. Push the above code to this repository. With this our test setup is complete.</p>
 <h3 id="define-publish-action">Define Publish Action</h3>
-<p>Go to your Github account and click on Actions-&gt;New Workflow-&gt;Set up a workflow yourself<br>
-A text editor with some sample code would open. Clear that code and copy paste the below code in it</p>
+<p>Now go to your Github account and click on Actions-&gt;New Workflow-&gt;Set up a workflow yourself<br>
+A text editor with some sample code would open. Clear that code and copy paste the below code in it.</p>
 <pre class=" language-yml"><code class="prism  language-yml"><span class="token key atrule">on</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>push<span class="token punctuation">]</span>
 
 <span class="token key atrule">jobs</span><span class="token punctuation">:</span>
@@ -57,8 +56,8 @@ A text editor with some sample code would open. Clear that code and copy paste t
           <span class="token key atrule">NODE_AUTH_TOKEN</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span>secrets.GPR_TOKEN<span class="token punctuation">}</span><span class="token punctuation">}</span>
 </code></pre>
 <p>In the above code replace OWNER with your github username and OWNER_EMAIL with your email address.</p>
-<p>This is a .yml file that will run on every subsequent code push. It will increment the package version number by one and commit this change to the repository. Further it will publish the new version and store it in the same repository. (For more info on storing published packages on Github you can also read <a href="https://terminalnotes.com/infrastructure/github-packages">https://terminalnotes.com/infrastructure/github-packages</a>)</p>
-<p>You can also modify the above code to publish patches to  multiple modules by adding one or more <code>cd /path/to/module &amp;&amp; npm version patch</code> and <code>cd /path/to/module &amp;&amp; npm version patch</code> commands.</p>
+<p>What we just wrote is a .yml file that will run on every subsequent code push. It will automatically increment package version and commit to the repository. Further it will publish the new version and store it in the same repository. (For more info on storing published packages on Github you can also read <a href="https://terminalnotes.com/infrastructure/github-packages">https://terminalnotes.com/infrastructure/github-packages</a>).</p>
+<p>For patching several modules at once you can add one or more <code>cd /path/to/module &amp;&amp; npm version patch</code> and <code>cd /path/to/module &amp;&amp; npm version patch</code> commands.</p>
 <h3 id="test-the-setup">Test the Setup</h3>
 <p>On the right hand side of the page, click on Start commit-&gt;Commit changes.</p>
 <p>This will push the above .yml file into your test repository. Since this is a code push it will also trigger an execution of the .yml.</p>
