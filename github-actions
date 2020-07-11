@@ -56,7 +56,7 @@ A text editor with some sample code would open. Clear that code and copy paste t
           <span class="token key atrule">NODE_AUTH_TOKEN</span><span class="token punctuation">:</span> $<span class="token punctuation">{</span><span class="token punctuation">{</span>secrets.GPR_TOKEN<span class="token punctuation">}</span><span class="token punctuation">}</span>
 </code></pre>
 <p>In the above code replace OWNER with your github username and OWNER_EMAIL with your email address.</p>
-<p>What we just wrote is a .yml file that will run on every subsequent code push. It will automatically increment package version and commit to the repository. Further it will publish the new version and store it in the same repository. (For more info on storing published packages on Github you can also read <a href="https://terminalnotes.com/infrastructure/github-packages">https://terminalnotes.com/infrastructure/github-packages</a>).</p>
+<p>What we just wrote is a .yml file that will run on every subsequent code push. It will automatically increment to a new package version and commit to the repository. Further it will publish the new version and store it in the same repository. (For more info on storing published packages on Github you can also read <a href="https://terminalnotes.com/infrastructure/github-packages">https://terminalnotes.com/infrastructure/github-packages</a>).</p>
 <p>For patching several modules at once you can add one or more <code>cd /path/to/module &amp;&amp; npm version patch</code> and <code>cd /path/to/module &amp;&amp; npm version patch</code> commands.</p>
 <h3 id="test-the-setup">Test the Setup</h3>
 <p>On the right hand side of the page, click on Start commit-&gt;Commit changes.</p>
