@@ -1,4 +1,12 @@
 [{
+	"name": "Auto Publish using Github Actions",
+	"desc": "Versioning and publishing can easily be automated to happen with every code push.",
+	"handle": "github-actions",
+	"searchTerms": [],
+	"illustration": {"text": "Github Actions", "image": ""},
+	"tags": ["infrastructure"],
+	"date": "2020-7-11"
+},{
 	"name": "Designing a Frontend Module for WebSocket",
 	"desc": "Having a dedicated module helps you better manage validation, error logging, fallbacks etc.",
 	"handle": "web-sockets-frontend",
