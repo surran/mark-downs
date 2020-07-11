@@ -1,6 +1,6 @@
-<div class="stackedit__html"><h1 id="auto-version-and-auto-publish-using-github-actions">Auto Version and auto Publish using Github Actions</h1>
+<div class="stackedit__html"><h1 id="auto-version-and-auto-publish-using-github-actions">Auto Version and Auto Publish using Github Actions</h1>
 <blockquote>
-<p>Publishing a patch to a npm package is a multistep process. First you increment the version in package.json, then login to your npm registry (in case of a private repository) and finally publish your package.</p>
+<p>Publishing a patch to a npm package is a multistep process. First you increment the version in package.json, then login to your npm registry (in case of a private repository) and followed by finally publishing your package.</p>
 <p>This becomes much more tedious in case your code changes demand publishing multiple packages.</p>
 <p>The solution lies in automating both versioning and publishing in your Github account itself using Github Actions.</p>
 </blockquote>
