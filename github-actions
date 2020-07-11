@@ -3,9 +3,9 @@
 <p>Publishing a package version is a multistep process.</p>
 <p><img src="https://surran.github.io/mark-downs/assets/github-actions1.png" alt=""><br>
 The process if done manually becomes pretty tedious, and especially so if you are publishing multiple packages in one go.</p>
-<p>Github Actions offer a way out of this by attaching auto-version and auto-publish workflows with every simple code commit.</p>
+<p>Github Actions offer a way out of this by attaching auto-version and auto-publish workflows with every code commit.</p>
 </blockquote>
-<p>Let us write a solution. The key steps are:</p>
+<p>Let us see how we can implement this. The key steps are:</p>
 <ol>
 <li>Initialize a module in local directory and push the code to Github repository</li>
 <li>Add a .yml declaring version &amp; publish actions to be performed on every code push.</li>
