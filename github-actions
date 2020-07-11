@@ -57,11 +57,11 @@ A text editor with some sample code would open. Clear that code and copy paste t
 </code></pre>
 <p>In the above code replace OWNER with your github username and OWNER_EMAIL with your email address.</p>
 <p>What we just wrote is a .yml file that will run on every subsequent code push. It will automatically increment to a new package version and commit to the repository. Further it will publish the new version and store it in the same repository. (For more info on storing published packages on Github you can also read <a href="https://terminalnotes.com/infrastructure/github-packages">https://terminalnotes.com/infrastructure/github-packages</a>).</p>
-<p>For patching several modules at once you can add one or more <code>cd /path/to/module &amp;&amp; npm version patch</code> and <code>cd /path/to/module &amp;&amp; npm version patch</code> commands.</p>
+<p>Note: For patching several modules at once you can add one or more <code>cd /path/to/module &amp;&amp; npm version patch</code> and <code>cd /path/to/module &amp;&amp; npm version patch</code> commands to the above yml.</p>
 <h3 id="test-the-setup">Test the Setup</h3>
-<p>On the right hand side of the page, click on Start commit-&gt;Commit changes.</p>
-<p>This will push the above .yml file into your test repository. Since this is a code push it will also trigger an execution of the .yml.</p>
-<p>Click on Actions. This would open up the list of workflows(Actions) you have run so far.  Click on the topmost workflow.</p>
+<p>First commit by clicking Start commit-&gt;Commit changes.</p>
+<p>This will push .yml code into your test repository. Since this is a code push it will also trigger an execution of the .yml.</p>
+<p>You can view the execution results by clicking on Actions tab. A list of workflows(Actions) you have executed so far would show up.  Click on the topmost workflow.</p>
 <p>On the left-hand side of the page click on publish-gpr. The following screen of a successful workflow run should show up. You can also use this screen for debugging in case there are errors.</p>
 <p><img src="https://surran.github.io/mark-downs/assets/github-actions2.png" alt=""></p>
 <p>If you see all green ticks then a version increment &amp; publish was successful.</p>
