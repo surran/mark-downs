@@ -2,8 +2,8 @@
 <blockquote>
 <p>Publishing a patch to a npm package is a multistep process</p>
 <p><img src="https://surran.github.io/mark-downs/assets/github-actions1.png" alt=""><br>
-The process becomes pretty tedious if you are publishing multiple packages in one go.</p>
-<p>Github Actions offer a way out of this by attaching auto-version and auto-publish workflows with your usual code commit.</p>
+The process if done manually becomes pretty tedious, and especially so if you are publishing multiple packages in one go.</p>
+<p>Github Actions offer a way out of this by attaching auto-version and auto-publish workflows with every simple code commit.</p>
 </blockquote>
 <p>Let us write a solution. The key steps are:</p>
 <ol>
