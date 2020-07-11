@@ -204,7 +204,7 @@
 	"name": "Working with multiple Github accounts",
 	"desc": "While pushing/pulling code do you often get a permission denied error? Here is a simple way to make it seamless",
 	"handle": "multiple-github",
-	"illustration": {"text": "Github", "image": ""},
+	"illustration": {"text": "Github Accounts", "image": ""},
 	"searchTerms": [],
 	"tags": ["tools", "infrastructure"],
 	"date": "2019-12-07"
