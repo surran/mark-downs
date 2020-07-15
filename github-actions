@@ -57,7 +57,7 @@ The process if done manually becomes pretty tedious, and especially so if you ar
 </code></pre>
 <p>In the above code replace OWNER with your github username and OWNER_EMAIL with your email address.</p>
 <p>What we just wrote is a .yml file that will run on every subsequent code push. It will automatically increment to a new package version and commit to the repository. Further it will publish the new version and store it in the same repository. (For more info on storing published packages on Github you can also read <a href="https://terminalnotes.com/infrastructure/github-packages">https://terminalnotes.com/infrastructure/github-packages</a>).</p>
-<p>Note: For patching several modules at once you can add one or more <code>cd /path/to/module &amp;&amp; npm version patch</code> and <code>cd /path/to/module &amp;&amp; npm version patch</code> commands to the above yml.</p>
+<p>Note: For patching several modules at once you can add one or more <code>cd /path/to/module &amp;&amp; npm version patch</code> and <code>cd /path/to/module &amp;&amp; npm publish</code> commands to the above yml.</p>
 <h3 id="test-the-setup">Test the Setup</h3>
 <p>On Github Action editor page click on Start commit-&gt;Commit changes.</p>
 <p>This will push .yml code into your test repository. Since this is a code push it will also trigger an execution of the .yml.</p>
