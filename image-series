@@ -1,0 +1,75 @@
+<div class="stackedit__html"><h1 id="make-scaled-down-copy-of-images-in-a-website">Make Scaled Down copy of images in a website</h1>
+<blockquote>
+<p>You might want to download a few thousand images from a server sometime. Along with download, you might also want to decrease size (resolution) and rename them.</p>
+<p>If you have the list of image urls, you can do this using a simple node script running puppeter.</p>
+</blockquote>
+<p>Here we shall assume you already have the list of image urls you want to download (you don’t have to search them). Steps are:</p>
+<ul>
+<li>Install and test run puppeter plugin</li>
+<li>Write and run a  script for serial download and edit</li>
+</ul>
+<h3 id="install-html-to-image-plugin">Install HTML to image plugin</h3>
+<p>Create a dev folder and git clone the following repository (install git if you don’t have it already).</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">git</span> clone https://github.com/frinyvonnick/node-html-to-image
+
+</code></pre>
+<p>Install and run the application</p>
+<pre class=" language-bash"><code class="prism  language-bash"><span class="token function">cd</span> node-html-to-image
+<span class="token function">sudo</span> <span class="token function">npm</span> <span class="token function">install</span>
+node example.js
+
+</code></pre>
+<p>You should see <code>The image was created successfully</code> getting printed on the console. In case you face errors you can refer to the below troubleshooting guide.</p>
+<h4 id="troubleshooting">Troubleshooting</h4>
+<ol>
+<li><em>Error:</em> <code>Running as root without --no-sandbox is not supported.</code><br>
+<em>Solution:</em> open <code>src/example.js</code> file and add <code>puppeteerArgs: {args: ['--no-sandbox']}</code> key value pair to the object supplied to <code>nodeHtmlToImage</code> function</li>
+</ol>
+<p>On successful completion, the application generates <code>image.png</code> file in its folder from the HTML string provided in <code>example.js</code> file.</p>
+<h3 id="script-for-serial-download-and-edit">Script for serial download and edit</h3>
+<p>Open example.js file and replace its contents with the below code</p>
+<pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> websiteImageFolder <span class="token operator">=</span> <span class="token string">"http://www.example.com/images/"</span>
+<span class="token keyword">const</span> Image <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"IMG1.jpg"</span><span class="token punctuation">,</span> <span class="token string">"IMG2.jpg"</span><span class="token punctuation">,</span> <span class="token string">"IMG3.jpg"</span><span class="token punctuation">,</span> <span class="token string">"IMG4.jpg"</span><span class="token punctuation">,</span> <span class="token string">"IMG5.jpg"</span><span class="token punctuation">]</span>
+<span class="token keyword">const</span> startIndex <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">const</span> endIndex <span class="token operator">=</span> Image<span class="token punctuation">.</span>length
+
+<span class="token keyword">let</span> count <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">processImages</span><span class="token punctuation">(</span>imageName<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> imageUrl <span class="token operator">=</span> websiteImageFolder <span class="token operator">+</span> imageName
+
+    <span class="token keyword">await</span> <span class="token function">nodeHtmlToImage</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        output<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`./output/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>imageName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">`</span></span><span class="token punctuation">,</span>
+        puppeteerArgs<span class="token punctuation">:</span> <span class="token punctuation">{</span> args<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'--no-sandbox'</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        html<span class="token punctuation">:</span> <span class="token template-string"><span class="token string">`&lt;html&gt;
+          &lt;body onload="fit()" style="width: 400px; height:0px"&gt;
+            &lt;img src="</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>imageUrl<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">"
+                 id = "image"
+                 style="width:100%; height: auto" &gt;
+          &lt;/body&gt;
+            &lt;script&gt;
+              function  fit () {
+                const imageHeight = document.getElementById("image").getBoundingClientRect() || 1 
+                document.getElementsByTagName("body")[0].style.height = imageHeight.height + "px"
+              }
+            &lt;/script&gt;
+        &lt;/html&gt;`</span></span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token string">`Image </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>i<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> processed`</span></span><span class="token punctuation">)</span>
+    i <span class="token operator">=</span> i <span class="token operator">+</span> <span class="token number">1</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>i <span class="token operator">&lt;</span> endIndex<span class="token punctuation">)</span>
+        <span class="token function">processImage</span><span class="token punctuation">(</span>Image<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">processImage</span><span class="token punctuation">(</span>Image<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+</code></pre>
+<p>Substitute the variables <code>websiteImageFolder</code> and <code>Image</code> variables with the web address you want to download from and the image names.</p>
+<h4 id="run-the-script">Run the script</h4>
+<p>All set, now simply run the script</p>
+<pre><code>node example.js
+</code></pre>
+<p>Since the script processes the images serially (one after the other) there are no load issues or chocking. You can easily use it to process few thousand images in one run.</p>
+</div>
+
