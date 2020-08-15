@@ -1,7 +1,8 @@
-<div class="stackedit__html"><h1 id="make-scaled-down-copy-of-images-in-a-website">Make Scaled Down copy of images in a website</h1>
+<div class="stackedit__html"><h1 id="serialize-images-in-a-batch">Serialize images in a Batch</h1>
 <blockquote>
 <p>You might want to download a few thousand images from a server sometime. Along with download, you might also want to decrease size (resolution) and rename them.</p>
-<p>If you have the list of image urls, you can do this using a simple node script running puppeter.</p>
+<p><img src="https://surran.github.io/mark-downs/assets/image-series1.jpg" alt=""></p>
+<p>You can do this using a simple node script running puppeter.</p>
 </blockquote>
 <p>Here we shall assume you already have the list of image urls you want to download (you don’t have to search them). Steps are:</p>
 <ul>
@@ -26,7 +27,7 @@ node example.js
 <em>Solution:</em> open <code>src/example.js</code> file and add <code>puppeteerArgs: {args: ['--no-sandbox']}</code> key value pair to the object supplied to <code>nodeHtmlToImage</code> function</li>
 </ol>
 <p>On successful completion, the application generates <code>image.png</code> file in its folder from the HTML string provided in <code>example.js</code> file.</p>
-<h3 id="script-for-serial-download-and-edit">Script for serial download and edit</h3>
+<h3 id="serialization-script">Serialization Script</h3>
 <p>Open example.js file and replace its contents with the below code</p>
 <pre class=" language-js"><code class="prism  language-js"><span class="token keyword">const</span> websiteImageFolder <span class="token operator">=</span> <span class="token string">"http://www.example.com/images/"</span>
 <span class="token keyword">const</span> Image <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"IMG1.jpg"</span><span class="token punctuation">,</span> <span class="token string">"IMG2.jpg"</span><span class="token punctuation">,</span> <span class="token string">"IMG3.jpg"</span><span class="token punctuation">,</span> <span class="token string">"IMG4.jpg"</span><span class="token punctuation">,</span> <span class="token string">"IMG5.jpg"</span><span class="token punctuation">]</span>
@@ -66,6 +67,7 @@ node example.js
 <span class="token function">processImage</span><span class="token punctuation">(</span>Image<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
 </code></pre>
 <p>Substitute the variables <code>websiteImageFolder</code> and <code>Image</code> variables with the web address you want to download from and the image names.</p>
+<p>You can also choose a custom name(series) for the downloaded images by setting <code>imageName</code> variable.</p>
 <h4 id="run-the-script">Run the script</h4>
 <p>All set, now simply run the script</p>
 <pre><code>node example.js
