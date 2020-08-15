@@ -1,4 +1,12 @@
 [{
+	"name": "Serialize images in a Batch",
+	"desc": "Simple script to download->compress->rename a batch of images.",
+	"handle": "image-series",
+	"searchTerms": [],
+	"illustration": {"text": "Image Series", "image": ""},
+	"tags": ["infrastructure"],
+	"date": "2020-8-15"
+},{
 	"name": "Auto Publish using Github Actions",
 	"desc": "Versioning and publishing can easily be automated to happen with every code push.",
 	"handle": "github-actions",
